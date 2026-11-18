@@ -1,0 +1,33 @@
+DoraPDF API worker - setup (one time, about 10 minutes)
+=========================================================
+This powers: URL to PDF, Web to PNG, Breakpoint Preview, Open Graph Checker, Link Shortener.
+
+1) Create the worker
+   Cloudflare dashboard > Workers & Pages > Create > Create Worker
+   Name: dorapdf-api  > Deploy
+   Then "Edit code" > delete everything > paste all of api-worker.js > Deploy
+
+2) Domains
+   Worker dorapdf-api > Settings > Domains & Routes > Add > Custom domain
+   Add:  api.dorapdf.com
+   Add:  go.dorapdf.com      (short links look like go.dorapdf.com/abc123)
+
+3) Link shortener storage (KV)
+   Storage & Databases > KV > Create namespace > name: dorapdf-links
+   Worker dorapdf-api > Settings > Bindings > Add > KV namespace
+   Variable name: LINKS   > namespace: dorapdf-links > Save
+
+4) Screenshots and PDFs (Browser Rendering)
+   a) Account ID: Workers & Pages overview page, right side "Account ID" > copy
+      Worker > Settings > Variables and Secrets > Add > Type: Text
+      Name: CF_ACCOUNT_ID   Value: (paste account id)
+   b) API token: My Profile > API Tokens > Create Token > Custom token
+      Permission: Account > Browser Rendering > Edit  > Continue > Create > copy token
+      Worker > Settings > Variables and Secrets > Add > Type: Secret
+      Name: CF_API_TOKEN   Value: (paste token)
+   Note: Free plan includes a small daily browser-time limit. If screenshots
+   stop working on busy days, the Workers Paid plan ($5/month) raises it.
+
+5) Check
+   Open https://api.dorapdf.com/health
+   You should see: {"ok":true,"browser":true,"links":true}

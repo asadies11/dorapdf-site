@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /dora-admin.html
+Allow: /
+Sitemap: https://dorapdf.com/sitemap.xml

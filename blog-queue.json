@@ -1,0 +1,904 @@
+{
+  "next": 100,
+  "queue": [
+    {
+      "tool": "image-background-remover"
+    },
+    {
+      "tool": "image-to-text"
+    },
+    {
+      "tool": "pdf-ocr"
+    },
+    {
+      "tool": "image-upscaler"
+    },
+    {
+      "tool": "object-remover"
+    },
+    {
+      "tool": "pdf-to-excel"
+    },
+    {
+      "tool": "pdf-to-jpg"
+    },
+    {
+      "group": "heic-webp-avif-converters",
+      "title_hint": "Convert HEIC, WebP and AVIF photos to JPG or PNG",
+      "tools": [
+        "heic-to-png",
+        "webp-to-jpg",
+        "webp-to-png",
+        "avif-to-jpg",
+        "avif-to-png",
+        "webp-to-svg"
+      ]
+    },
+    {
+      "tool": "pdf-splitter"
+    },
+    {
+      "tool": "pdf-editor"
+    },
+    {
+      "group": "picture-to-pdf-iphone",
+      "title_hint": "How to convert a picture to PDF on iPhone (free, no app)",
+      "tools": [
+        "images-to-pdf",
+        "heic-to-pdf"
+      ]
+    },
+    {
+      "group": "word-to-pdf-online-free",
+      "title_hint": "Convert Word to PDF online free (keep fonts and layout)",
+      "tools": [
+        "word-to-pdf"
+      ]
+    },
+    {
+      "group": "pdf-to-word-document",
+      "title_hint": "How to convert a PDF to a Word document you can edit",
+      "tools": [
+        "pdf-to-word",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "group": "merge-pdf-online-free",
+      "title_hint": "Merge PDF online free: combine PDF files in the right order",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "group": "jpg-to-pdf-free",
+      "title_hint": "How to convert JPG to PDF free (multiple images into one PDF)",
+      "tools": [
+        "images-to-pdf"
+      ]
+    },
+    {
+      "group": "compress-jpeg-online",
+      "title_hint": "Compress JPEG online without losing quality",
+      "tools": [
+        "image-compressor"
+      ]
+    },
+    {
+      "tool": "sign-pdf"
+    },
+    {
+      "tool": "word-to-pdf"
+    },
+    {
+      "tool": "images-to-pdf"
+    },
+    {
+      "tool": "pdf-to-powerpoint"
+    },
+    {
+      "tool": "pptx-to-pdf"
+    },
+    {
+      "group": "jpg-png-webp-converters",
+      "title_hint": "JPG to PNG, PNG to JPG and PNG to WebP: when to use each",
+      "tools": [
+        "jpg-to-png",
+        "jpeg-to-png",
+        "png-to-jpg",
+        "png-to-webp",
+        "pdf-to-png",
+        "png-to-pdf",
+        "illustrator-to-png",
+        "odf-to-jpg",
+        "odf-to-png"
+      ]
+    },
+    {
+      "tool": "image-resizer"
+    },
+    {
+      "tool": "image-compressor"
+    },
+    {
+      "tool": "watermark-eraser"
+    },
+    {
+      "tool": "resume-builder"
+    },
+    {
+      "tool": "invoice-generator"
+    },
+    {
+      "tool": "video-compressor"
+    },
+    {
+      "tool": "url-to-pdf"
+    },
+    {
+      "group": "length-converters",
+      "title_hint": "Length converters: cm, m, inches, feet, miles and km",
+      "tools": [
+        "cm-to-m",
+        "feet-to-cm",
+        "feet-to-meter",
+        "feet-to-miles",
+        "foot-to-inch",
+        "inch-to-cm",
+        "inch-to-mm",
+        "inches-to-feet",
+        "meter-to-inch",
+        "meters-to-miles",
+        "miles-to-km",
+        "km-to-miles"
+      ]
+    },
+    {
+      "tool": "web-to-png"
+    },
+    {
+      "tool": "link-shortener"
+    },
+    {
+      "tool": "currency-converter"
+    },
+    {
+      "tool": "unlock-pdf"
+    },
+    {
+      "tool": "rotate-pdf"
+    },
+    {
+      "tool": "delete-pdf-pages"
+    },
+    {
+      "tool": "redact-pdf"
+    },
+    {
+      "group": "weight-volume-temperature-converters",
+      "title_hint": "Weight, volume, temperature and time converters",
+      "tools": [
+        "lbs-to-kg",
+        "ounces-to-grams",
+        "ml-to-oz",
+        "liters-to-gallons",
+        "celsius-to-fahrenheit",
+        "hours-to-minutes"
+      ]
+    },
+    {
+      "tool": "pdf-text-watermark"
+    },
+    {
+      "tool": "pdf-image-extractor"
+    },
+    {
+      "tool": "pdf-to-txt"
+    },
+    {
+      "tool": "pdf-to-markdown"
+    },
+    {
+      "tool": "highlight-pdf"
+    },
+    {
+      "tool": "epub-to-pdf"
+    },
+    {
+      "tool": "email-to-pdf"
+    },
+    {
+      "group": "developer-tools",
+      "title_hint": "Free developer tools: JSON, regex, Base64, URL encoding, JWT, SQL and UUID",
+      "tools": [
+        "json-validator",
+        "regex-tester",
+        "base64",
+        "url-encoder",
+        "csv-to-json",
+        "jwt-decoder",
+        "sql-formatter",
+        "uuid-generator"
+      ]
+    },
+    {
+      "tool": "odf-to-pdf"
+    },
+    {
+      "tool": "markdown-to-pdf"
+    },
+    {
+      "tool": "gif-maker"
+    },
+    {
+      "tool": "compress-gif"
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF in Word umwandeln kostenlos – ohne dass das Layout kaputtgeht",
+      "keyword": "pdf in word umwandeln",
+      "tools": [
+        "pdf-to-word",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF verkleinern für E-Mail und Upload-Portale",
+      "keyword": "pdf verkleinern",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF zusammenfügen: mehrere PDFs zu einer Datei",
+      "keyword": "pdf zusammenfügen",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "JPG in PDF umwandeln am Handy und PC",
+      "keyword": "jpg in pdf umwandeln",
+      "tools": [
+        "images-to-pdf",
+        "heic-to-pdf"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Hintergrund entfernen kostenlos mit KI",
+      "keyword": "hintergrund entfernen",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Text aus Bild extrahieren (OCR) – so geht es",
+      "keyword": "text aus bild extrahieren",
+      "tools": [
+        "image-to-text",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF unterschreiben ohne Drucken",
+      "keyword": "pdf unterschreiben",
+      "tools": [
+        "sign-pdf"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Word in PDF umwandeln für Bewerbungen",
+      "keyword": "word in pdf umwandeln",
+      "tools": [
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "HEIC in JPG umwandeln: iPhone-Fotos am Windows-PC öffnen",
+      "keyword": "heic in jpg umwandeln",
+      "tools": [
+        "heic-to-jpg"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF in Excel umwandeln: Tabellen aus PDF übernehmen",
+      "keyword": "pdf in excel umwandeln",
+      "tools": [
+        "pdf-to-excel"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Bewerbungsunterlagen als eine PDF erstellen",
+      "keyword": "bewerbungsunterlagen pdf erstellen",
+      "tools": [
+        "pdf-merger",
+        "pdf-compressor",
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Rechnung erstellen kostenlos (mit MwSt.)",
+      "keyword": "rechnung erstellen kostenlos",
+      "tools": [
+        "invoice-generator"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "Bild komprimieren ohne Qualitätsverlust",
+      "keyword": "bild komprimieren",
+      "tools": [
+        "image-compressor"
+      ]
+    },
+    {
+      "lang": "de",
+      "title_hint": "PDF Passwort entfernen – eigene PDF entsperren",
+      "keyword": "pdf passwort entfernen",
+      "tools": [
+        "unlock-pdf"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Cómo convertir PDF a Word gratis sin perder el formato",
+      "keyword": "convertir pdf a word",
+      "tools": [
+        "pdf-to-word",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Comprimir PDF para enviarlo por correo o subirlo",
+      "keyword": "comprimir pdf",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Unir PDF: combinar varios archivos en uno",
+      "keyword": "unir pdf",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "JPG a PDF desde el móvil o el ordenador",
+      "keyword": "jpg a pdf",
+      "tools": [
+        "images-to-pdf",
+        "heic-to-pdf"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Quitar fondo de imagen gratis con IA",
+      "keyword": "quitar fondo de imagen",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Extraer texto de una imagen (OCR) paso a paso",
+      "keyword": "extraer texto de imagen",
+      "tools": [
+        "image-to-text",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Firmar un PDF sin imprimirlo",
+      "keyword": "firmar pdf",
+      "tools": [
+        "sign-pdf"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Convertir Word a PDF para trabajos y solicitudes",
+      "keyword": "convertir word a pdf",
+      "tools": [
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "HEIC a JPG: abrir fotos del iPhone en Windows",
+      "keyword": "heic a jpg",
+      "tools": [
+        "heic-to-jpg"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Convertir PDF a Excel y editar las tablas",
+      "keyword": "convertir pdf a excel",
+      "tools": [
+        "pdf-to-excel"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Dividir PDF y extraer solo las páginas que necesitas",
+      "keyword": "dividir pdf",
+      "tools": [
+        "pdf-splitter"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Hacer una factura gratis online",
+      "keyword": "hacer factura gratis",
+      "tools": [
+        "invoice-generator"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Comprimir imagen sin perder calidad",
+      "keyword": "comprimir imagen",
+      "tools": [
+        "image-compressor"
+      ]
+    },
+    {
+      "lang": "es",
+      "title_hint": "Crear un currículum en PDF gratis",
+      "keyword": "crear curriculum pdf gratis",
+      "tools": [
+        "resume-builder",
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Convertir un PDF en Word gratuitement sans perdre la mise en page",
+      "keyword": "convertir pdf en word",
+      "tools": [
+        "pdf-to-word",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Compresser un PDF pour l'envoyer par e-mail",
+      "keyword": "compresser pdf",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "tool": "png-to-svg"
+    },
+    {
+      "tool": "svg-to-png"
+    },
+    {
+      "tool": "gps-photo-stamper"
+    },
+    {
+      "group": "css-design-generators",
+      "title_hint": "CSS gradient, box-shadow, mesh gradient and glassmorphism generators",
+      "tools": [
+        "css-gradient-generator",
+        "box-shadow-generator",
+        "mesh-gradient-generator",
+        "glassmorphism-generator"
+      ]
+    },
+    {
+      "tool": "image-color-picker"
+    },
+    {
+      "tool": "linkedin-photo-frame"
+    },
+    {
+      "tool": "barcode-generator"
+    },
+    {
+      "tool": "receipt-generator"
+    },
+    {
+      "tool": "email-signature"
+    },
+    {
+      "tool": "word-counter"
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Fusionner des PDF en un seul fichier",
+      "keyword": "fusionner pdf",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Convertir JPG en PDF sur téléphone et PC",
+      "keyword": "jpg en pdf",
+      "tools": [
+        "images-to-pdf",
+        "heic-to-pdf"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Supprimer l'arrière-plan d'une image gratuitement",
+      "keyword": "supprimer arrière-plan image",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Extraire le texte d'une image (OCR)",
+      "keyword": "extraire texte image",
+      "tools": [
+        "image-to-text",
+        "pdf-ocr"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Signer un PDF sans l'imprimer",
+      "keyword": "signer pdf",
+      "tools": [
+        "sign-pdf"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Convertir Word en PDF gratuitement",
+      "keyword": "convertir word en pdf",
+      "tools": [
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Convertir HEIC en JPG : photos iPhone sur Windows",
+      "keyword": "heic en jpg",
+      "tools": [
+        "heic-to-jpg"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Convertir un PDF en Excel",
+      "keyword": "convertir pdf en excel",
+      "tools": [
+        "pdf-to-excel"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Créer une facture gratuitement (avec TVA)",
+      "keyword": "créer facture gratuit",
+      "tools": [
+        "invoice-generator"
+      ]
+    },
+    {
+      "lang": "fr",
+      "title_hint": "Réduire la taille d'une image sans perte de qualité",
+      "keyword": "réduire taille image",
+      "tools": [
+        "image-compressor"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Convertire PDF in Word gratis mantenendo il layout",
+      "keyword": "convertire pdf in word",
+      "tools": [
+        "pdf-to-word"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Comprimere un PDF per email e portali",
+      "keyword": "comprimere pdf",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Unire PDF in un unico file",
+      "keyword": "unire pdf",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Da JPG a PDF su telefono e computer",
+      "keyword": "jpg in pdf",
+      "tools": [
+        "images-to-pdf"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Rimuovere lo sfondo da una foto gratis",
+      "keyword": "rimuovere sfondo foto",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Estrarre testo da immagine (OCR)",
+      "keyword": "estrarre testo da immagine",
+      "tools": [
+        "image-to-text"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Firmare un PDF online senza stamparlo",
+      "keyword": "firmare pdf online",
+      "tools": [
+        "sign-pdf"
+      ]
+    },
+    {
+      "lang": "it",
+      "title_hint": "Convertire Word in PDF gratis",
+      "keyword": "convertire word in pdf",
+      "tools": [
+        "word-to-pdf"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Converter PDF em Word grátis sem perder a formatação",
+      "keyword": "converter pdf em word",
+      "tools": [
+        "pdf-to-word"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Comprimir PDF para enviar por e-mail",
+      "keyword": "comprimir pdf",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Juntar PDF: unir vários arquivos em um",
+      "keyword": "juntar pdf",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Converter JPG em PDF no celular",
+      "keyword": "converter jpg em pdf",
+      "tools": [
+        "images-to-pdf"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Remover fundo de imagem grátis com IA",
+      "keyword": "remover fundo de imagem",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "pt",
+      "title_hint": "Extrair texto de imagem (OCR) grátis",
+      "keyword": "extrair texto de imagem",
+      "tools": [
+        "image-to-text"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "PDF naar Word omzetten zonder dat de opmaak verdwijnt",
+      "keyword": "pdf naar word omzetten",
+      "tools": [
+        "pdf-to-word"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "PDF verkleinen voor e-mail en uploads",
+      "keyword": "pdf verkleinen",
+      "tools": [
+        "pdf-compressor"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "PDF samenvoegen tot één bestand",
+      "keyword": "pdf samenvoegen",
+      "tools": [
+        "pdf-merger"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "JPG naar PDF omzetten op telefoon en pc",
+      "keyword": "jpg naar pdf",
+      "tools": [
+        "images-to-pdf"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "Achtergrond verwijderen uit foto gratis",
+      "keyword": "achtergrond verwijderen",
+      "tools": [
+        "image-background-remover"
+      ]
+    },
+    {
+      "lang": "nl",
+      "title_hint": "Tekst uit afbeelding halen (OCR)",
+      "keyword": "tekst uit afbeelding halen",
+      "tools": [
+        "image-to-text"
+      ]
+    },
+    {
+      "tool": "percentage-calculator"
+    },
+    {
+      "group": "fancy-text-generators",
+      "title_hint": "Fancy text generators: glitch, vaporwave, upside-down, emoji and more",
+      "tools": [
+        "glitch-text",
+        "vaporwave-text",
+        "upside-down-text",
+        "unicode-text-generator",
+        "mocking-text",
+        "text-to-emoji",
+        "leetspeak",
+        "wingdings-translator",
+        "invisible-character",
+        "ascii-art",
+        "braille-translator",
+        "binary-to-text"
+      ]
+    },
+    {
+      "tool": "bmi-calculator"
+    },
+    {
+      "tool": "calorie-calculator"
+    },
+    {
+      "tool": "loan-calculator"
+    },
+    {
+      "tool": "mortgage-calculator"
+    },
+    {
+      "tool": "salary-calculator"
+    },
+    {
+      "tool": "paycheck-calculator"
+    },
+    {
+      "tool": "interest-calculator"
+    },
+    {
+      "group": "writing-helpers",
+      "title_hint": "Text formatter, find and replace, lorem ipsum and email subject preview",
+      "tools": [
+        "text-formatter",
+        "text-replace",
+        "lorem-ipsum",
+        "email-subject-preview",
+        "tweet-previewer",
+        "color-code-converter"
+      ]
+    },
+    {
+      "tool": "investment-calculator"
+    },
+    {
+      "tool": "retirement-calculator"
+    },
+    {
+      "tool": "sales-tax-calculator"
+    },
+    {
+      "tool": "discount-calculator"
+    },
+    {
+      "tool": "profit-margin-calculator"
+    },
+    {
+      "tool": "roi-calculator"
+    },
+    {
+      "tool": "tip-calculator"
+    },
+    {
+      "group": "fun-tools",
+      "title_hint": "Fun break tools: 2048, typewriter simulator and hacker typer",
+      "tools": [
+        "2048-game",
+        "typewriter-simulator",
+        "hacker-typer"
+      ]
+    },
+    {
+      "tool": "commission-calculator"
+    },
+    {
+      "tool": "fraction-calculator"
+    },
+    {
+      "tool": "due-date-calculator"
+    },
+    {
+      "tool": "date-to-age"
+    },
+    {
+      "tool": "time-zone-converter"
+    },
+    {
+      "tool": "zip-extractor"
+    },
+    {
+      "tool": "youtube-thumbnail"
+    },
+    {
+      "tool": "open-graph-checker"
+    },
+    {
+      "tool": "url-breakpoint-preview"
+    },
+    {
+      "tool": "password-generator"
+    },
+    {
+      "tool": "pomodoro-timer"
+    },
+    {
+      "tool": "countdown-timer"
+    },
+    {
+      "tool": "tab-audio-recorder"
+    },
+    {
+      "tool": "numbers-to-words"
+    },
+    {
+      "tool": "roman-numerals"
+    },
+    {
+      "tool": "morse-code"
+    },
+    {
+      "tool": "color-palette-generator"
+    },
+    {
+      "tool": "random-number-generator"
+    }
+  ]
+}
