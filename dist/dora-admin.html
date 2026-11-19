@@ -8,7 +8,7 @@
 <div class="card"><h3 style="margin-top:0">Reviews waiting for approval</h3><table><thead><tr><th>Date</th><th>Tool</th><th>Stars</th><th>Name / Review</th><th></th></tr></thead><tbody id="revs"><tr><td colspan="5">Press Refresh.</td></tr></tbody></table></div>
 <div class="card"><h3 style="margin-top:0">Set a plan manually</h3><div class="row"><input id="em" placeholder="user@gmail.com" style="flex:1;min-width:220px"><select id="pl"><option value="pro">Pro</option><option value="max">Max</option><option value="none">Remove plan</option></select><input id="mo" type="number" value="1" min="1" max="24" style="width:80px"> months<button onclick="setPlan()">Save</button><button class="g" onclick="ban(true)">Suspend</button><button class="g" onclick="ban(false)">Unsuspend</button><button class="g" onclick="lookup()">Look up</button></div><pre id="user" style="white-space:pre-wrap;font-size:13px"></pre></div>
 <script>
-const API='https://dorapdf-api.asadch3602.workers.dev';const $=s=>document.querySelector(s);
+const API='https://api.dorapdf.com';const $=s=>document.querySelector(s);
 $('#key').value=sessionStorage.getItem('dak')||'';function saveKey(){sessionStorage.setItem('dak',$('#key').value);loadClaims();loadRevs()}
 async function call(p,o={}){const r=await fetch(API+p,{...o,headers:{'Content-Type':'application/json','X-Admin-Key':$('#key').value}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||r.status);return j}
 const say=t=>{$('#msg').textContent=t};const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
