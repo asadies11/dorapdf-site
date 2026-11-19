@@ -1,6 +1,7 @@
 import json, re, os, shutil, html as H, markdown
 from content_tools import CUSTOM
 from content_blog import POSTS
+from content_extra import EXTRA
 from content_pages import PAGES
 
 SITE = 'https://dorapdf.com'
@@ -84,6 +85,12 @@ open(f'{OUT}/index.html', 'w').write(re.sub(r'(<meta name="description" content=
 
 # ---------- tool content ----------
 def gen_content(t):
+    c = _gen_content(t)
+    x = EXTRA.get(t['id'])
+    if x: c = dict(c, tips=x['tips'], faqs=list(c['faqs']) + x['faqs'])
+    return c
+
+def _gen_content(t):
     c = CUSTOM.get(t['id'])
     if c: return c
     n, d, cat = t['name'], t['desc'].rstrip('.'), t.get('ocat', t['cat'])
@@ -114,7 +121,8 @@ def seo_block(t, c):
     post_html = ''.join(f'<li><a href="/blog/{p["slug"]}/" style="color:var(--pink2)">{esc(p["title"])}</a></li>' for p in posts)
     return (f'<section class="seo"><div><h2>About {esc(t["name"])}</h2><p>{c["intro"]}</p></div>'
             f'<div><h2>How to use {esc(t["name"])}</h2><ol>' + ''.join(f'<li>{s}</li>' for s in c['steps']) + '</ol></div>'
-            '<div><h2>Why use DoraPDF?</h2><ul><li><b>Private:</b> files are processed on your device, never uploaded.</li><li><b>Free:</b> no sign-up, no limits, no watermark.</li><li><b>Fast:</b> no waiting in upload queues.</li><li><b>Works everywhere:</b> phone, tablet or computer.</li></ul></div>'
+            + (f'<div><h2>{c["tips"][0]}</h2><ul>' + ''.join(f'<li>{s}</li>' for s in c['tips'][1]) + '</ul></div>' if c.get('tips') else '')
+            + '<div><h2>Why use DoraPDF?</h2><ul><li><b>Private:</b> files are processed on your device, never uploaded.</li><li><b>Free:</b> no sign-up, no limits, no watermark.</li><li><b>Fast:</b> no waiting in upload queues.</li><li><b>Works everywhere:</b> phone, tablet or computer.</li></ul></div>'
             '<div><h2>Frequently asked questions</h2>' + ''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in c['faqs']) + '</div>'
             + (f'<div><h2>Helpful guides</h2><ul>{post_html}</ul></div>' if post_html else '')
             + f'<div><h2>More {CATN[t["cat"]]}</h2><ul>{rel_html}</ul>'
@@ -123,7 +131,7 @@ def seo_block(t, c):
 def plain(s): return re.sub(r'<[^>]+>', '', s).replace('&amp;', '&')
 
 SEO = {  # from Google Trends keyword research (worldwide)
-    'pdf-to-word': ('Convert PDF to Word Free Online (Keeps Layout) | DoraPDF', 'Convert PDF to Word online for free. Keeps the original layout, tables and fonts. No sign-up, no watermark, files stay in your browser.'),
+    'pdf-to-word': ('Convert PDF to Word Free Online (Editable DOCX) | DoraPDF', 'Convert PDF to Word online free. Turn PDFs into editable DOCX files with text and headings kept. No sign-up, no watermark, private.'),
     'word-to-pdf': ('Word to PDF Converter: Convert Word to PDF Online Free | DoraPDF', 'Convert Word to PDF online free. Turn DOCX files into PDF in seconds, no sign-up, no watermark, private in your browser.'),
     'images-to-pdf': ('JPG to PDF: Convert Image to PDF Free Online | DoraPDF', 'Convert JPG to PDF free. Turn pictures, photos and scans into one PDF online, no sign-up, no watermark, private in your browser.'),
     'pdf-to-jpg': ('PDF to JPG: Convert PDF to Image Free Online | DoraPDF', 'Convert PDF to JPG online free in high quality. Every page becomes an image, no sign-up, no watermark, files stay on your device.'),
@@ -489,3 +497,15 @@ for _f in _g.glob(f'{OUT}/**/*.html', recursive=True):
     if _n != _s:
         open(_f, 'w').write(_n); _fixed += 1
 print('unwrapped broken links in', _fixed, 'files')
+
+# ---------- cache-busting: version JS/CSS so browsers can cache them long ----------
+import hashlib as _hl
+_ver = {}
+for _a in ['app.js', 'tools-pdf.js', 'tools-image.js', 'tools-text.js', 'tools-calc.js', 'tools-pro.js', 'dora.js', 'account.js', 'style.css']:
+    if os.path.isfile(f'{OUT}/{_a}'): _ver[_a] = _hl.md5(open(f'{OUT}/{_a}', 'rb').read()).hexdigest()[:8]
+for _f in _g.glob(f'{OUT}/**/*.html', recursive=True):
+    _s = open(_f).read(); _n = _s
+    for _a, _v in _ver.items():
+        _n = _n.replace(f'src="/{_a}"', f'src="/{_a}?v={_v}"').replace(f'href="/{_a}"', f'href="/{_a}?v={_v}"')
+    if _n != _s: open(_f, 'w').write(_n)
+print('versioned assets', len(_ver))

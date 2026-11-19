@@ -14,7 +14,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 ::selection{background:var(--pink);color:#fff}
 
 /* loader */
-#loader{position:fixed;inset:0;background:var(--bg);z-index:999;display:grid;place-items:center;transition:opacity .7s,visibility .7s}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:999;display:grid;place-items:center;transition:opacity .35s,visibility .35s}
 #loader.done{opacity:0;visibility:hidden}
 #loader .lg{font-family:Unbounded;font-weight:800;font-size:28px;letter-spacing:.3em;background:linear-gradient(90deg,#fff,var(--pink),#fff);background-size:200%;-webkit-background-clip:text;color:transparent;animation:shine 1.2s linear infinite}
 #loader .bar{width:180px;height:2px;background:var(--line);margin:18px auto 0;overflow:hidden;border-radius:2px}

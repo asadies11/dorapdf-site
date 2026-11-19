@@ -6,3 +6,36 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/app.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools-pdf.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools-image.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools-text.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools-calc.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tools-pro.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/dora.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/account.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/style.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon*
+  Cache-Control: public, max-age=604800

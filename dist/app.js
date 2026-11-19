@@ -55,8 +55,7 @@ $('#themeBtn').onclick=()=>{const r=document.documentElement;const t=r.dataset.t
 paintSfx();
 
 /* ---------- motion ---------- */
-window.addEventListener('load',()=>setTimeout(()=>$('#loader').classList.add('done'),700));
-setTimeout(()=>$('#loader').classList.add('done'),3000);
+(()=>{const hide=()=>{const l=$('#loader');if(l)l.classList.add('done')};if(document.readyState!=='loading')setTimeout(hide,120);else document.addEventListener('DOMContentLoaded',()=>setTimeout(hide,120));setTimeout(hide,1200)})();
 const dot=$('#dot'),glow=$('#glow');
 let mx=innerWidth/2,my=innerHeight/2,gx=mx,gy=my;
 addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
