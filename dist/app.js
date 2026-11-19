@@ -15,6 +15,7 @@ function mirrors(src){const out=[src];let m=src.match(/cdnjs\.cloudflare\.com\/a
   return out}
 function loadOne(u){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=u;s.async=true;s.onload=()=>ok(u);s.onerror=()=>{s.remove();no(new Error('net'))};document.head.appendChild(s)})}
 function loadScript(src){return libs[src]||(libs[src]=(async()=>{for(const u of mirrors(src)){for(let t=0;t<2;t++){try{await loadOne(u);libs.__used=libs.__used||{};libs.__used[src]=u;return}catch(e){}}}delete libs[src];throw new Error('DORA_LOAD')})())}
+function tfetch(u,o={},ms=15000){const c=new AbortController();const id=setTimeout(()=>c.abort(),ms);return fetch(u,{...o,signal:c.signal}).catch(e=>{throw new Error('Our server didn’t answer in time. Check your internet and try again.')}).finally(()=>clearTimeout(id))}
 function friendlyErr(e){const m=(e&&e.message)||'';if(m==='DORA_LOAD'||/^load https?:/.test(m)||/Failed to fetch|NetworkError|Load failed/i.test(m))return 'Couldn’t load part of this tool. Check your internet, or pause your ad-blocker for dorapdf.com, then try again.';if(/out of memory|allocation|Array buffer/i.test(m))return 'This file is too big for your device’s memory. Try fewer or smaller files at a time.';if(/password|encrypt/i.test(m))return 'This PDF is password-protected. Unlock it first with Unlock PDF.';if(!m||m.length>140||/https?:\/\/|undefined|null|TypeError|ReferenceError|is not a function|Cannot read/i.test(m))return 'Something went wrong with this file. Try another file, or refresh the page and try again.';return m}
 const CDN={
   jspdf:'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
@@ -272,7 +273,7 @@ function revAsk(){const t=window.CUR_TOOL;if(!t||document.querySelector('.revm')
   box.querySelector('.x').onclick=()=>{save(Date.now());close()};box.querySelector('.later').onclick=()=>{save(Date.now());close()};
   m.onclick=e=>{if(e.target===m){save(Date.now());close()}};document.addEventListener('keydown',esc);
   send.onclick=async()=>{send.disabled=true;send.textContent='Sending…';
-    try{const r=await fetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:''})});const j=await r.json().catch(()=>({}));if(!r.ok&&r.status!==429)throw new Error(j.error||'Could not send');
+    try{const r=await tfetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:''})});const j=await r.json().catch(()=>({}));if(!r.ok&&r.status!==429)throw new Error(j.error||'Could not send');
       save('done');box.replaceChildren(h('div',{style:'font-size:46px;color:#ff2e88'},'✦'),h('h3',{},'Thank you!'),h('p',{},ta.value.trim()?'Your rating is counted. Your review shows after a quick check.':'Your rating is counted.'));setTimeout(close,1800);try{revRender(t)}catch(e){}}
     catch(e){toast('⚠️ '+friendlyErr(e));send.disabled=false;send.textContent='Submit rating'}};
   document.body.append(m);setTimeout(()=>sb.firstChild&&sb.firstChild.focus(),50)}
@@ -292,7 +293,7 @@ async function revRender(t){const box=$('#tpRev');if(!box)return;box.innerHTML='
   const send=h('button',{class:'send',type:'button'},'Submit rating');
   const right=h('div',{},h('div',{class:'lbl'},'Rate this tool'),h('div',{style:'margin-top:12px'},sb),ta,nm,send,h('p',{style:'margin:10px 0 0;color:var(--mute);font-size:12px'},'Only real ratings. Written reviews appear after a quick check.'));
   send.onclick=async()=>{if(!pick){toast('Tap the stars to rate first');return}send.disabled=true;send.textContent='Sending…';
-    try{const r=await fetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:nm.value.trim()})});const j=await r.json().catch(()=>({}));
+    try{const r=await tfetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:nm.value.trim()})});const j=await r.json().catch(()=>({}));
       if(!r.ok)throw new Error(j.error||'Could not send');try{const st=JSON.parse(localStorage.getItem('dora_rev')||'{}');st[t.id]='done';localStorage.setItem('dora_rev',JSON.stringify(st))}catch(e){}right.replaceChildren(h('div',{class:'lbl'},'Thank you'),h('div',{class:'big',style:'font-size:44px'},'✦'),h('p',{style:'color:var(--mute)'},ta.value.trim()?'Your rating is counted. Your review will show after a quick check.':'Your rating is counted.'))}
     catch(e){toast('⚠️ '+friendlyErr(e));send.disabled=false;send.textContent='Submit rating'}};
   box.append(h('section',{class:'rev','aria-label':'Ratings and reviews'},left,right))}
