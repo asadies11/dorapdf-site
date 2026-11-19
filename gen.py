@@ -81,7 +81,15 @@ def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + '</script>'
 
 # ---------- home ----------
-open(f'{OUT}/index.html', 'w').write(re.sub(r'(<meta name="description" content=")([^"]*)', lambda m: m.group(1)+esc(fit_desc(H.unescape(m.group(2)))), base, count=1).replace('<h1 class="tp-h" id="tpTitle"></h1>','<h2 class="tp-h" id="tpTitle"></h2>',1))
+_hl_rows = ''.join(
+    f'<div><h3 style="font-family:Unbounded;font-size:15px;font-weight:600;margin:0 0 8px"><a href="/{HUB[c]}/" style="color:inherit">{esc(CATN[c])}</a></h3><p style="margin:0">'
+    + ' · '.join(f'<a href="/{x["id"]}/" style="color:var(--pink2)">{esc(x["name"])}</a>' for x in sorted([y for y in TOOLS if y['cat'] == c and not y['soon']], key=lambda y: -(y.get('pop') or 0))[:8])
+    + f' · <a href="/{HUB[c]}/" style="color:var(--mute)">all →</a></p></div>'
+    for c in HUB if any(y['cat'] == c and not y['soon'] for y in TOOLS))
+HOME_LINKS = ('<section class="wrap" id="findtool" style="padding:30px 0 60px"><div class="seo" style="max-width:none;margin-top:0">'
+              '<h2>Find a free tool</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">' + _hl_rows + '</div>'
+              '<p><a href="/all-tools/" style="color:var(--pink2)">Browse all tools →</a> · <a href="/blog/" style="color:var(--pink2)">Guides &amp; tips →</a></p></div></section>\n')
+open(f'{OUT}/index.html', 'w').write(re.sub(r'(<meta name="description" content=")([^"]*)', lambda m: m.group(1)+esc(fit_desc(H.unescape(m.group(2)))), base.replace('<footer id="footer">', HOME_LINKS + '<footer id="footer">', 1), count=1).replace('<h1 class="tp-h" id="tpTitle"></h1>','<h2 class="tp-h" id="tpTitle"></h2>',1))
 
 # ---------- tool content ----------
 def gen_content(t):
@@ -354,7 +362,8 @@ for i, p in enumerate(POSTS):
     L = p.get('lang', 'en'); PU = POST_UI.get(L, POST_UI['en'])
     tl = ''.join(tool_link(tid, L) for tid in p['tools'] if tid in BYID and not BYID[tid]['soon'])
     same = [q for q in POSTS if q['slug'] != p['slug'] and q.get('lang', 'en') == L]
-    others = (same[i % 5: i % 5 + 3] or same[:3]) if len(same) >= 3 else ([q for q in POSTS if q['slug'] != p['slug']][i % 5: i % 5 + 3] or POSTS[:3])
+    _shared = sorted([q for q in same if set(q['tools']) & set(p['tools'])], key=lambda q: -len(set(q['tools']) & set(p['tools'])))[:3]
+    others = _shared if len(_shared) == 3 else (_shared + [q for q in (same[i % 5: i % 5 + 6] or same) if q not in _shared])[:3] if len(same) >= 3 else ([q for q in POSTS if q['slug'] != p['slug']][i % 5: i % 5 + 3] or POSTS[:3])
     more = ''.join(f'<a class="pcard" href="/blog/{q["slug"]}/"><span class="tag">Guide</span><h2>{esc(q["title"])}</h2><p>{esc(q["desc"])}</p></a>' for q in others)
     body = (f'<main class="article"><div class="crumb"><a href="/">DoraPDF</a> / <a href="/blog/">Blog</a></div><h1>{esc(p["title"])}</h1>'
             f'<div class="meta">{PU[0]} · {read_min(p["md"])} {PU[1]} · {PU[2]} {p["date"]}</div>'
