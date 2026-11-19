@@ -499,6 +499,14 @@ s.was{opacity:.45;font-size:.6em;margin-right:4px}
 .rev .send{margin-top:12px;height:46px;padding:0 22px;border-radius:99px;border:0;background:linear-gradient(90deg,#ff2e88,#9b3cff);color:#fff;font-weight:600;cursor:pointer}
 .rev .item{margin-top:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);font-size:14px;line-height:1.5}
 .rev .item b{font-weight:600}.rev .item .sm{color:#ff2e88}.rev .item span{color:var(--mute);font-size:12px}
+
+.revm{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(7,6,10,.55);-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);animation:revIn .25s ease both}
+.revm .box{position:relative;width:min(440px,100%);padding:30px 28px 24px;border-radius:28px;background:linear-gradient(160deg,rgba(40,30,52,.92),rgba(18,14,24,.94));border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,46,136,.08),inset 0 1px 0 rgba(255,255,255,.08);text-align:center;animation:revPop .35s cubic-bezier(.2,1.3,.4,1) both}
+.revm h3{margin:6px 0 4px;font:400 34px/1.1 "Instrument Serif",Georgia,serif}.revm p{margin:0;color:var(--mute);font-size:14px}
+.revm .stars{justify-content:center;margin:18px 0 6px}.revm .stars button{font-size:38px}
+.revm .x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:inherit;font-size:18px;cursor:pointer}
+.revm .later{display:block;margin:10px auto 0;background:none;border:0;color:var(--mute);font-size:13px;cursor:pointer}
+@keyframes revIn{from{opacity:0}to{opacity:1}}@keyframes revPop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -805,6 +813,7 @@ if(hasClaude()){claude.use('downloads').then(d=>dlNS=d).catch(()=>{});}
 async function saveFile(name,blob){
   if(dlNS){try{await dlNS.save({filename:name,data:blob});toast('Saved ✓ '+name);return}catch(e){if(e&&e.code==='declined'){toast('Download cancelled');return}}}
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);toast('Downloading '+name);
+  try{setTimeout(revAsk,900)}catch(e){}
 }
 const base=n=>n.replace(/\.[^.]+$/,'');
 const readAB=f=>f.arrayBuffer();
@@ -969,7 +978,7 @@ const TV={list:[],cat:'popular',q:'',
     if(show.length>limit){const m=U.btn(`Show all ${this.list.length} tools ↓`,()=>{this.more=true;this.paint()},'btn btn-g morebtn');g.after(m);this._m=m}else if(this._m){this._m.remove();this._m=null}
     if(this._m&&show.length<=limit){this._m.remove();this._m=null}
     $('#tCount').textContent=this.list.length+' tools'},
-  open(id){const t=this.list.find(x=>x.id===id);if(!t)return this.close();
+  open(id){const t=this.list.find(x=>x.id===id);if(!t)return this.close();window.CUR_TOOL=t;
     const keep=window.TOOL_LANG&&window.TOOL_PAGE===t.id;if(!keep){$('#tCrumb').textContent=CATN[t.cat];$('#tpTitle').textContent=t.name;$('#tpDesc').textContent=t.long||t.desc;}
     if(!keep)document.title=t.name+' — Free Online | DoraPDF';const md=document.querySelector('meta[name=description]');if(md&&!keep)md.content=`Free online ${t.name}. ${t.desc}. No sign-up, works in your browser.`;
     const box=$('#tpBox');box.innerHTML='';$('#tpNote').textContent=t.note||(t.file?'🔒 Your files are processed on your device and never uploaded.':'');
@@ -1026,6 +1035,29 @@ async function makeDocx(bodyXml,images=[],sect,opt={}){
 /* DoraPDF API (Cloudflare worker on api.dorapdf.com) */
 const API='https://dorapdf-api.asadch3602.workers.dev';
 
+
+/* ---------- rate-after-download popup ---------- */
+function revAsk(){const t=window.CUR_TOOL;if(!t||document.querySelector('.revm'))return;
+  let st={};try{st=JSON.parse(localStorage.getItem('dora_rev')||'{}')}catch(e){}
+  if(st[t.id]==='done'||(st[t.id]&&Date.now()-st[t.id]<3*864e5))return;
+  const save=v=>{st[t.id]=v;try{localStorage.setItem('dora_rev',JSON.stringify(st))}catch(e){}};
+  let pick=0;const sb=h('div',{class:'stars',role:'radiogroup','aria-label':'Your rating'});const paint=v=>[...sb.children].forEach((b,i)=>b.classList.toggle('on',i<v));
+  const ta=h('textarea',{maxlength:'400',placeholder:'Tell others how it went (optional)',style:'display:none'});const send=h('button',{class:'send',type:'button',style:'display:none;width:100%'},'Submit rating');
+  for(let i=1;i<=5;i++){const b=h('button',{type:'button',role:'radio','aria-label':i+' star'+(i>1?'s':'')},'★');b.onmouseenter=()=>paint(i);b.onmouseleave=()=>paint(pick);b.onclick=()=>{pick=i;paint(i);ta.style.display='block';send.style.display='block';try{sfx&&sfx('tap')}catch(e){}};sb.append(b)}
+  const close=()=>{m.remove();document.removeEventListener('keydown',esc)};const esc=e=>{if(e.key==='Escape'){save(Date.now());close()}};
+  const box=h('div',{class:'box',role:'dialog','aria-modal':'true','aria-label':'Rate this tool'},
+    h('button',{class:'x',type:'button','aria-label':'Close'},'✕'),
+    h('div',{class:'lbl',style:'font:500 11px/1 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pink2)'},'Your file is downloading'),
+    h('h3',{},'How was '+t.name+'?'),h('p',{},'One tap helps other people find tools that work.'),sb,ta,send,
+    h('button',{class:'later',type:'button'},'Maybe later'));
+  const m=h('div',{class:'revm rev'},box);
+  box.querySelector('.x').onclick=()=>{save(Date.now());close()};box.querySelector('.later').onclick=()=>{save(Date.now());close()};
+  m.onclick=e=>{if(e.target===m){save(Date.now());close()}};document.addEventListener('keydown',esc);
+  send.onclick=async()=>{send.disabled=true;send.textContent='Sending…';
+    try{const r=await fetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:''})});const j=await r.json().catch(()=>({}));if(!r.ok&&r.status!==429)throw new Error(j.error||'Could not send');
+      save('done');box.replaceChildren(h('div',{style:'font-size:46px;color:#ff2e88'},'✦'),h('h3',{},'Thank you!'),h('p',{},ta.value.trim()?'Your rating is counted. Your review shows after a quick check.':'Your rating is counted.'));setTimeout(close,1800);try{revRender(t)}catch(e){}}
+    catch(e){toast('⚠️ '+friendlyErr(e));send.disabled=false;send.textContent='Submit rating'}};
+  document.body.append(m);setTimeout(()=>sb.firstChild&&sb.firstChild.focus(),50)}
 /* ---------- tool reviews (real users only) ---------- */
 async function revRender(t){const box=$('#tpRev');if(!box)return;box.innerHTML='';let data={avg:0,n:0,items:[]};
   try{const r=await fetch(API+'/reviews?tool='+encodeURIComponent(t.id));if(r.ok)data=await r.json()}catch(e){}
@@ -1043,7 +1075,7 @@ async function revRender(t){const box=$('#tpRev');if(!box)return;box.innerHTML='
   const right=h('div',{},h('div',{class:'lbl'},'Rate this tool'),h('div',{style:'margin-top:12px'},sb),ta,nm,send,h('p',{style:'margin:10px 0 0;color:var(--mute);font-size:12px'},'Only real ratings. Written reviews appear after a quick check.'));
   send.onclick=async()=>{if(!pick){toast('Tap the stars to rate first');return}send.disabled=true;send.textContent='Sending…';
     try{const r=await fetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:nm.value.trim()})});const j=await r.json().catch(()=>({}));
-      if(!r.ok)throw new Error(j.error||'Could not send');right.replaceChildren(h('div',{class:'lbl'},'Thank you'),h('div',{class:'big',style:'font-size:44px'},'✦'),h('p',{style:'color:var(--mute)'},ta.value.trim()?'Your rating is counted. Your review will show after a quick check.':'Your rating is counted.'))}
+      if(!r.ok)throw new Error(j.error||'Could not send');try{const st=JSON.parse(localStorage.getItem('dora_rev')||'{}');st[t.id]='done';localStorage.setItem('dora_rev',JSON.stringify(st))}catch(e){}right.replaceChildren(h('div',{class:'lbl'},'Thank you'),h('div',{class:'big',style:'font-size:44px'},'✦'),h('p',{style:'color:var(--mute)'},ta.value.trim()?'Your rating is counted. Your review will show after a quick check.':'Your rating is counted.'))}
     catch(e){toast('⚠️ '+friendlyErr(e));send.disabled=false;send.textContent='Submit rating'}};
   box.append(h('section',{class:'rev','aria-label':'Ratings and reviews'},left,right))}
 async function apiFetch(path,opt={}){let r;try{r=await fetch(API+path,opt)}catch(e){throw new Error('This tool is being connected to our server. Please try again soon.')}
