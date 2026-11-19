@@ -32,7 +32,7 @@ CSS = re.search(r'<style>(.*?)</style>', SRC, re.S).group(1)
 ADS = re.search(r'(<!-- Google AdSense -->.*?</script>)', SRC, re.S).group(1)
 NAV = re.search(r'(<nav>.*?</nav>)', SRC, re.S).group(1)
 FOOTER = re.search(r'(<footer id="footer">.*?</footer>)', SRC, re.S).group(1)
-GTAG = re.search(r'(<!-- Google tag \(GA4\) -->.*?</script>\s*<script>.*?</script>)', SRC, re.S).group(1)
+GTAG = re.search(r'(<!-- Google tag \(GA4\) -->.*?gtm\.js\?id=[^\"]+\"></script>)', SRC, re.S).group(1)
 FAVICON = '<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">'
 SOCIALJS = re.search(r"(const SOCIAL=\{.*?\n.*?\n.*?\n)", SRC, re.S).group(1)
 THEMEHEAD = '<script>try{const t=localStorage.getItem("dp_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>'
@@ -320,7 +320,7 @@ def static_page(path, title, desc, body, extra_ld=None, og_type='website'):
 <meta name="twitter:card" content="summary_large_image">
 {FAVICON}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Space+Grotesk:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 {THEMEHEAD}
 <link rel="stylesheet" href="/style.css">
 <style>{ART_CSS}</style>

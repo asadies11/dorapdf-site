@@ -307,7 +307,7 @@ input[type=color].uin{height:44px;padding:4px}
 
 
 /* ===== LIGHT THEME ===== */
-html[data-theme=light]{--bg:#fbf7fd;--bg2:#f3edf7;--card:rgba(60,20,80,.035);--line:rgba(60,20,80,.11);--txt:#1d1225;--mute:#6f647a;--pink:#ec1c7a;--pink2:#e0207a;color-scheme:light}
+html[data-theme=light]{--bg:#fbf7fd;--bg2:#f3edf7;--card:rgba(60,20,80,.035);--line:rgba(60,20,80,.11);--txt:#1d1225;--mute:#6a5f75;--pink:#d1126c;--pink2:#c4105f;color-scheme:light}
 html[data-theme=light] body{background:var(--bg);color:var(--txt)}
 html[data-theme=light] nav{background:rgba(255,255,255,.7);box-shadow:0 8px 30px rgba(120,40,140,.08)}
 html[data-theme=light] .links a:hover{color:var(--txt)}
