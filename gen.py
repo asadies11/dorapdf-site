@@ -11,6 +11,7 @@ _G = {i: k for k, v in json.load(open('groups.json')).items() for i in v}
 for _t in TOOLS:
     _t['ocat'] = _t['cat']; _t['cat'] = _G.get(_t['id'], _t['cat'])
 BYID = {t['id']: t for t in TOOLS}
+HUB = {'pdf': 'pdf-tools', 'image': 'image-tools', 'ai': 'ai-tools', 'design': 'design-tools', 'dev': 'developer-tools', 'text': 'text-tools', 'business': 'business-tools', 'calc': 'calculators', 'fun': 'fun-tools'}
 CATN = {'pdf': 'PDF & Document Tools', 'image': 'Image & Media Tools', 'ai': 'AI Tools', 'design': 'Designer Tools', 'dev': 'Developer Tools', 'text': 'Text Tools', 'business': 'Business & Office Tools', 'calc': 'Calculators & Unit Converters', 'fun': 'Fun & Games', 'convert': 'Converters', 'pro': 'Professional'}
 OUT = 'dist'
 shutil.rmtree(OUT, ignore_errors=True); os.makedirs(OUT)
@@ -105,16 +106,19 @@ def gen_content(t):
     return dict(intro=intro, steps=steps, faqs=faqs)
 
 def seo_block(t, c):
-    rel = [x for x in TOOLS if x['cat'] == t['cat'] and x['id'] != t['id'] and not x['soon']][:6]
+    _same = [x for x in TOOLS if x['cat'] == t['cat'] and not x['soon']]
+    _i = next((k for k, x in enumerate(_same) if x['id'] == t['id']), 0)
+    rel = [_same[(_i + k) % len(_same)] for k in range(1, min(9, len(_same)))]
     rel_html = ''.join(f'<li><a href="/{x["id"]}/" style="color:var(--pink2)">{esc(x["name"])}</a> — {esc(x["desc"])}</li>' for x in rel)
-    posts = [p for p in POSTS if t['id'] in p['tools']][:3]
+    posts = [p for p in POSTS if t['id'] in p['tools'] and p.get('lang', 'en') == 'en'][:4]
     post_html = ''.join(f'<li><a href="/blog/{p["slug"]}/" style="color:var(--pink2)">{esc(p["title"])}</a></li>' for p in posts)
     return (f'<section class="seo"><div><h2>About {esc(t["name"])}</h2><p>{c["intro"]}</p></div>'
             f'<div><h2>How to use {esc(t["name"])}</h2><ol>' + ''.join(f'<li>{s}</li>' for s in c['steps']) + '</ol></div>'
             '<div><h2>Why use DoraPDF?</h2><ul><li><b>Private:</b> files are processed on your device, never uploaded.</li><li><b>Free:</b> no sign-up, no limits, no watermark.</li><li><b>Fast:</b> no waiting in upload queues.</li><li><b>Works everywhere:</b> phone, tablet or computer.</li></ul></div>'
             '<div><h2>Frequently asked questions</h2>' + ''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in c['faqs']) + '</div>'
             + (f'<div><h2>Helpful guides</h2><ul>{post_html}</ul></div>' if post_html else '')
-            + f'<div><h2>More {CATN[t["cat"]]}</h2><ul>{rel_html}</ul></div></section>')
+            + f'<div><h2>More {CATN[t["cat"]]}</h2><ul>{rel_html}</ul>'
+            + (f'<p><a href="/{HUB[t["cat"]]}/" style="color:var(--pink2)">See all {CATN[t["cat"]]} →</a></p>' if t['cat'] in HUB else '') + '</div></section>')
 
 def plain(s): return re.sub(r'<[^>]+>', '', s).replace('&amp;', '&')
 
@@ -164,13 +168,13 @@ for t in TOOLS:
              'description': t['desc'], 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}, 'publisher': {'@type': 'Organization', 'name': 'DoraPDF', 'url': SITE + '/'}},
             {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': plain(q), 'acceptedAnswer': {'@type': 'Answer', 'text': plain(a)}} for q, a in c['faqs']]},
             {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'DoraPDF', 'item': SITE + '/'},
-                                                             {'@type': 'ListItem', 'position': 2, 'name': t['name'], 'item': SITE + path}]}]}) + '\n</head>', 1)
+                                                             ] + ([{'@type': 'ListItem', 'position': 2, 'name': CATN[t['cat']], 'item': SITE + f"/{HUB[t['cat']]}/"}] if t['cat'] in HUB else []) + [{'@type': 'ListItem', 'position': 3 if t['cat'] in HUB else 2, 'name': t['name'], 'item': SITE + path}]}]}) + '\n</head>', 1)
     # demote hidden hero h1
     p = p.replace('<h1>Feed Dora your file.', '<div>Feed Dora your file.', 1).replace('<em>She</em> handles the rest.</h1>', '<em>She</em> handles the rest.</div>', 1)
     # prerender heading + description + seo
     p = p.replace('<h1 class="tp-h" id="tpTitle"></h1>', f'<h1 class="tp-h" id="tpTitle">{esc(t["name"])}</h1>', 1)
     p = p.replace('<p class="tp-d" id="tpDesc"></p>', f'<p class="tp-d" id="tpDesc">{esc(t["long"] or t["desc"])}</p>', 1)
-    p = p.replace('<div class="tcrumb" id="tCrumb"></div>', f'<div class="tcrumb" id="tCrumb">{CATN[t["cat"]]}</div>', 1)
+    p = p.replace('<div class="tcrumb" id="tCrumb"></div>', (f'<div class="tcrumb" id="tCrumb"><a href="/{HUB[t["cat"]]}/" style="color:inherit">{CATN[t["cat"]]}</a></div>' if t['cat'] in HUB else f'<div class="tcrumb" id="tCrumb">{CATN[t["cat"]]}</div>'), 1)
     p = p.replace('<p class="note" id="tpNote"></p>', '<p class="note" id="tpNote"></p>' + seo_block(t, c), 1)
     os.makedirs(f'{OUT}{path}', exist_ok=True)
     open(f'{OUT}{path}index.html', 'w').write(p)
@@ -360,6 +364,91 @@ cards = ''.join(f'<a class="pcard" href="/blog/{p["slug"]}/"><span class="tag">{
 static_page('/blog/', 'Blog — PDF, Image & Student Guides | DoraPDF', 'Simple, practical guides for working with PDFs, images, documents and student life.',
             f'<main class="article" style="max-width:1100px"><div class="crumb"><a href="/">DoraPDF</a> / Blog</div><h1>Guides &amp; tips</h1><p class="meta">Practical how-tos for PDFs, images, documents and student life.</p><div class="postgrid">{cards}</div></main>')
 
+
+# ---------- category hub pages + all tools ----------
+HUB_INFO = {
+ 'pdf': ('Free Online PDF Tools', 'Free PDF Tools Online: Merge, Compress, Convert | DoraPDF',
+         'Free online PDF tools: merge, split, compress, convert PDF to Word, JPG or Excel, sign and edit PDFs. No sign-up, files stay private.',
+         'Merge, split, compress, convert, sign and edit PDF files right in your browser. Your documents are processed on your own device, so nothing is uploaded, and every tool is free with no watermark.',
+         [('Are these PDF tools really free?', 'Yes. Every PDF tool on DoraPDF is free, with no sign-up, no daily limit and no watermark on your files.'),
+          ('Are my PDF files uploaded?', 'No. The tools run in your browser, so your PDFs are processed on your own phone or computer and never sent to a server.'),
+          ('Which PDF tool should I use to make a file smaller?', 'Use Compress PDF. If the PDF is mostly photos or scans, it can usually shrink a lot while staying readable.')]),
+ 'image': ('Free Online Image Tools', 'Free Image Tools Online: Convert, Compress, Resize | DoraPDF',
+         'Free online image tools: convert HEIC, WebP, PNG and JPG, compress and resize images, remove backgrounds. Private, no sign-up.',
+         'Convert, compress, resize and clean up images without installing anything. Convert iPhone HEIC photos, WebP and AVIF files, shrink pictures for forms and email, or remove a background in one tap.',
+         [('Will converting reduce image quality?', 'Format changes like PNG to JPG use high quality settings by default. You can adjust quality in tools that offer it.'),
+          ('Can I convert many images at once?', 'Yes. Most converters accept several files at a time and give you each result to download.'),
+          ('Are my photos uploaded?', 'No. Images are processed in your browser on your own device.')]),
+ 'ai': ('Free AI Tools', 'Free AI Tools Online: Background Remover, OCR, Upscaler | DoraPDF',
+         'Free AI tools online: remove image backgrounds, extract text from images with OCR, upscale photos and erase objects. Runs in your browser.',
+         'Smart tools powered by AI models that run in your browser: remove backgrounds, pull text out of photos and scans, upscale small images and erase unwanted objects.',
+         [('Do the AI tools need an account?', 'No. These AI tools are free to use without signing up.'),
+          ('Why does the first run take longer?', 'The AI model downloads once to your browser the first time. After that it is much faster.'),
+          ('Are my images sent to a server?', 'No. The models run on your own device, so your images stay private.')]),
+ 'design': ('Free Online Design Tools', 'Free Design Tools: Color Palettes, Gradients, Mockups | DoraPDF',
+         'Free online design tools: color palette and CSS gradient generators, box shadows, glassmorphism, YouTube thumbnails and photo frames.',
+         'Quick design helpers for creators and developers: build color palettes, CSS gradients and shadows, preview social cards and make thumbnails or profile frames in seconds.',
+         [('Can I use the results in commercial work?', 'Yes. Anything you create with these tools is yours to use.'),
+          ('Do I get CSS code?', 'Yes. The CSS generators give you ready-to-copy code.'),
+          ('Do I need design software?', 'No. Everything works in your browser.')]),
+ 'dev': ('Free Online Developer Tools', 'Free Developer Tools: JSON, Regex, Base64, JWT | DoraPDF',
+         'Free online developer tools: JSON validator, regex tester, Base64 and URL encoders, JWT decoder, SQL formatter, UUID and password generators.',
+         'Everyday utilities for developers: validate JSON, test regular expressions, encode and decode Base64 or URLs, decode JWTs, format SQL and generate UUIDs or strong passwords.',
+         [('Is my code or data sent anywhere?', 'No. These tools run entirely in your browser.'),
+          ('Is the password generator safe?', 'Yes. Passwords are generated on your device with the browser\'s secure random generator.'),
+          ('Do these tools work offline?', 'Once the page has loaded, most of them keep working without a connection.')]),
+ 'text': ('Free Online Text Tools', 'Free Text Tools Online: Word Counter, Fancy Text, Morse | DoraPDF',
+         'Free online text tools: word counter, text formatter, find and replace, Morse code, Roman numerals, numbers to words and fancy Unicode text.',
+         'Count, clean, convert and style text in one place: count words and characters, fix formatting, translate to Morse or Braille, and make fancy text for social bios.',
+         [('Is there a word limit?', 'No. You can paste long texts, and results update instantly.'),
+          ('Will fancy text work on Instagram?', 'Yes. The Unicode styles work in most apps, including Instagram, TikTok and WhatsApp.'),
+          ('Is my text saved?', 'No. Nothing you type is stored or sent anywhere.')]),
+ 'business': ('Free Online Business Tools', 'Free Business Tools: Invoice, Receipt, Resume, QR | DoraPDF',
+         'Free online business tools: invoice and receipt generators, resume builder, QR codes, barcodes, email signatures and link previews.',
+         'Practical office tools for freelancers, students and small businesses: make invoices and receipts, build a resume, create QR codes and barcodes, and design an email signature.',
+         [('Can I download invoices as PDF?', 'Yes. The invoice and receipt generators create a PDF you can send or print.'),
+          ('Do QR codes expire?', 'No. QR codes made here are static and never expire.'),
+          ('Is it free for business use?', 'Yes, with no sign-up or watermark.')]),
+ 'calc': ('Free Online Calculators and Unit Converters', 'Free Online Calculators and Unit Converters | DoraPDF',
+         'Free online calculators: loan, mortgage, percentage, GPA, BMI, salary and tip calculators, plus unit converters for length, weight and temperature.',
+         'Fast calculators for money, school, health and everyday maths, plus simple unit converters. Results update as you type, with no sign-up.',
+         [('How accurate are the calculators?', 'They use standard formulas and give reliable estimates. For financial, legal or medical decisions, confirm with a qualified professional.'),
+          ('Do the unit converters work both ways?', 'Yes. Each converter has a matching reverse tool.'),
+          ('Do they work on mobile?', 'Yes, on any phone or computer browser.')]),
+ 'fun': ('Free Online Games and Fun Tools', 'Free Online Games and Fun Text Tools | DoraPDF',
+         'Free online games and fun tools: play 2048, make upside-down and vaporwave text, try the hacker typer and more. No download needed.',
+         'Take a short break: play 2048 in your browser and have fun with playful text effects. Nothing to install.',
+         [('Do I need to download anything?', 'No. Everything plays in your browser.'),
+          ('Is it free?', 'Yes, completely free.'),
+          ('Does it work on phones?', 'Yes.')]),
+}
+hub_urls = []
+def _tcards(lst):
+    return ''.join(f'<a class="pcard" href="/{x["id"]}/"><h2 style="font-size:17px">{esc(x["name"])}</h2><p>{esc(x["desc"])}</p></a>' for x in lst)
+for cat, slug in HUB.items():
+    h1, title, desc, intro, faqs = HUB_INFO[cat]
+    lst = [x for x in TOOLS if x['cat'] == cat and not x['soon']]
+    if not lst: continue
+    path = f'/{slug}/'
+    others = ' · '.join(f'<a href="/{s}/" style="color:var(--pink2)">{esc(CATN[c])}</a>' for c, s in HUB.items() if c != cat)
+    body = (f'<main class="article" style="max-width:1100px"><div class="crumb"><a href="/">DoraPDF</a> / {esc(CATN[cat])}</div>'
+            f'<h1>{esc(h1)}</h1><p class="meta" style="max-width:760px">{esc(intro)}</p>'
+            f'<p class="meta">{len(lst)} free tools · no sign-up · private</p><div class="postgrid">{_tcards(lst)}</div>'
+            '<div class="prose" style="margin-top:40px"><h2>Frequently asked questions</h2>' + ''.join(f'<h3>{esc(q)}</h3><p>{esc(a)}</p>' for q, a in faqs)
+            + f'<h2>More free tools</h2><p>{others} · <a href="/all-tools/" style="color:var(--pink2)">All tools</a></p></div></main>')
+    static_page(path, title, desc, body, {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'CollectionPage', 'name': h1, 'url': SITE + path, 'description': desc,
+         'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(lst), 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + f'/{x["id"]}/', 'name': x['name']} for i, x in enumerate(lst)]}},
+        {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]},
+        {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'DoraPDF', 'item': SITE + '/'}, {'@type': 'ListItem', 'position': 2, 'name': CATN[cat], 'item': SITE + path}]}]})
+    hub_urls.append(path)
+_all = [x for x in TOOLS if not x['soon']]
+_secs = ''.join(f'<h2 style="margin-top:36px"><a href="/{HUB[c]}/" style="color:inherit">{esc(CATN[c])}</a></h2><div class="postgrid">{_tcards([x for x in _all if x["cat"] == c])}</div>' for c in HUB if any(x['cat'] == c for x in _all))
+static_page('/all-tools/', f'All {len(_all)} Free Online Tools | DoraPDF', f'Browse all {len(_all)} free DoraPDF tools: PDF, image, AI, design, developer, text, business tools and calculators. No sign-up, private.',
+            f'<main class="article" style="max-width:1100px"><div class="crumb"><a href="/">DoraPDF</a> / All tools</div><h1>All {len(_all)} free tools</h1><p class="meta">Every tool runs in your browser. Free, private, no sign-up.</p>{_secs}</main>',
+            {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': 'All DoraPDF tools', 'url': SITE + '/all-tools/'})
+hub_urls.append('/all-tools/')
+
 # 404
 static_page('/404-tmp/', 'Page not found | DoraPDF', 'This page does not exist.',
             '<main class="article" style="text-align:center"><h1>Page not found</h1><p class="meta">The page you are looking for has moved or never existed.</p><p><a href="/" class="btn btn-p" style="display:inline-flex">Go to DoraPDF tools ↗</a></p></main>')
@@ -382,7 +471,7 @@ for L in LANGS:
     loc_urls.append(f'/{L}/')
 
 # ---------- sitemap ----------
-urls = [('/', '1.0')] + [(u, '0.9') for u in tool_urls] + [('/blog/', '0.7')] + [(u, '0.7') for u in post_urls] + [(u, '0.3') for u in page_urls] + [(u, '0.8') for u in loc_urls]
+urls = [('/', '1.0')] + [(u, '0.9') for u in tool_urls] + [(u, '0.8') for u in hub_urls] + [('/blog/', '0.7')] + [(u, '0.7') for u in post_urls] + [(u, '0.3') for u in page_urls] + [(u, '0.8') for u in loc_urls]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
     f'  <url><loc>{SITE}{u}</loc><lastmod>2026-11-06</lastmod><priority>{pr}</priority></url>\n' for u, pr in urls) + '</urlset>\n'
 open(f'{OUT}/sitemap.xml', 'w').write(sm)

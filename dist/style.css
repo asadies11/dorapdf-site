@@ -210,6 +210,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:40px}
 .fgrid h5{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;font-weight:500}
 .fgrid a{display:block;font-size:14px;color:#cfc6d6;margin:6px 0;transition:color .2s}
 .fgrid a:hover{color:var(--pink)}
+.fcats{display:flex;flex-wrap:wrap;gap:6px 16px;margin:26px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:13px}.fcats span{color:var(--mute)}.fcats a{color:#cfc6d6}.fcats a:hover{color:var(--pink)}
 .copy{display:flex;justify-content:space-between;color:var(--mute);font-size:12px;margin-top:40px;flex-wrap:wrap;gap:10px}
 @media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
 
