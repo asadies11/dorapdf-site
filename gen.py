@@ -199,6 +199,10 @@ for L in LANGS:
         open(f'{OUT}{path}index.html', 'w').write(p)
         loc_urls.append(path)
 
+import shutil as _sh
+if os.path.isdir('vendor'):
+    _sh.copytree('vendor', f'{OUT}/vendor', dirs_exist_ok=True)
+
 # ---------- static content pages ----------
 ART_CSS = '''
 .article{max-width:780px;margin:0 auto;padding:140px 24px 70px;position:relative;z-index:1}

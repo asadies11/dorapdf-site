@@ -7,7 +7,15 @@ if(!Object.values(SOCIAL).some(Boolean))document.querySelectorAll('.soc').forEac
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const toast=(t)=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2600)};
 const libs={};
-function loadScript(src){return libs[src]||(libs[src]=new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load '+src));document.head.appendChild(s)}))}
+const NPM_MAP={'jspdf':['jspdf','dist/jspdf.umd.min.js'],'pdf-lib':['pdf-lib','dist/pdf-lib.min.js'],'jszip':['jszip','dist/jszip.min.js'],'xlsx':['xlsx','dist/xlsx.full.min.js'],'mammoth':['mammoth','mammoth.browser.min.js'],'marked':['marked','marked.min.js'],'qrcodejs':['qrcodejs','qrcode.min.js'],'jsbarcode':['jsbarcode','dist/JsBarcode.all.min.js'],'html2canvas':['html2canvas','dist/html2canvas.min.js']};
+function mirrors(src){const out=[src];let m=src.match(/cdnjs\.cloudflare\.com\/ajax\/libs\/([^/]+)\/([^/]+)\/(.+)$/);
+  if(m){const [,lib,ver,file]=m;if(lib==='pdf.js'){out.push(`https://cdn.jsdelivr.net/npm/pdfjs-dist@${ver}/build/${file}`,`https://unpkg.com/pdfjs-dist@${ver}/build/${file}`)}else if(NPM_MAP[lib]){const [p,f]=NPM_MAP[lib];out.push(`https://cdn.jsdelivr.net/npm/${p}@${ver}/${f}`,`https://unpkg.com/${p}@${ver}/${f}`)}}
+  else if((m=src.match(/cdn\.jsdelivr\.net\/npm\/(.+)$/))&&!/\+esm/.test(src))out.push('https://unpkg.com/'+m[1]);
+  const SELF={'jspdf':'/vendor/jspdf.umd.min.js'};for(const k in SELF)if(src.includes('/'+k+'/')||src.includes('/'+k+'@'))out.push(SELF[k]);
+  return out}
+function loadOne(u){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=u;s.async=true;s.onload=()=>ok(u);s.onerror=()=>{s.remove();no(new Error('net'))};document.head.appendChild(s)})}
+function loadScript(src){return libs[src]||(libs[src]=(async()=>{for(const u of mirrors(src)){for(let t=0;t<2;t++){try{await loadOne(u);libs.__used=libs.__used||{};libs.__used[src]=u;return}catch(e){}}}delete libs[src];throw new Error('DORA_LOAD')})())}
+function friendlyErr(e){const m=(e&&e.message)||'';if(m==='DORA_LOAD'||/^load https?:/.test(m)||/Failed to fetch|NetworkError|Load failed/i.test(m))return 'Couldn’t load part of this tool. Check your internet, or pause your ad-blocker for dorapdf.com, then try again.';if(/out of memory|allocation|Array buffer/i.test(m))return 'This file is too big for your device’s memory. Try fewer or smaller files at a time.';if(/password|encrypt/i.test(m))return 'This PDF is password-protected. Unlock it first with Unlock PDF.';if(!m||m.length>140||/https?:\/\/|undefined|null|TypeError|ReferenceError|is not a function|Cannot read/i.test(m))return 'Something went wrong with this file. Try another file, or refresh the page and try again.';return m}
 const CDN={
   jspdf:'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
   pdf:'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
@@ -16,7 +24,7 @@ const CDN={
   mammoth:'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js',
   jszip:'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'
 };
-async function loadPdf(){await loadScript(CDN.pdfw);await loadScript(CDN.pdf);pdfjsLib.GlobalWorkerOptions.workerSrc=CDN.pdfw;return pdfjsLib}
+async function loadPdf(){await loadScript(CDN.pdfw);await loadScript(CDN.pdf);pdfjsLib.GlobalWorkerOptions.workerSrc=(libs.__used&&libs.__used[CDN.pdfw])||CDN.pdfw;return pdfjsLib}
 const hasClaude=()=>window.claude&&typeof window.claude.use==='function';
 let dlNS=null, sampleNS=null;
 if(hasClaude()){claude.use('downloads').then(d=>dlNS=d).catch(()=>{});}
@@ -119,7 +127,7 @@ function fileTool(root,{accept='*',multi=false,hint,opts,go,btn='Convert now ✦
   const setP=U.prog(root);const out=U.out(root);const extra=h('div');root.append(extra);
   function paint(){lst.innerHTML='';if(list)files.forEach((f,i)=>lst.append(h('div',{class:'fitem'},h('span',{},'📄 '+f.name),h('small',{style:'color:var(--mute)'},sz(f.size)),multi?h('button',{class:'rm',onclick:()=>{files.splice(i,1);paint()}},'✕'):null)));b.style.display=files.length&&!auto?'flex':'none'}
   async function run(){if(!files.length)return;b.disabled=true;const t=b.textContent;b.textContent='Working…';out.clear();extra.innerHTML='';setP(.05);
-    try{await go(files,{out,prog:setP,extra});setP(1);sDone();toast('Done ✦')}catch(e){console.error(e);toast('⚠️ '+(e.message||'Could not process this file'))}
+    try{await go(files,{out,prog:setP,extra});setP(1);sDone();toast('Done ✦')}catch(e){console.error(e);toast('⚠️ '+friendlyErr(e))}
     b.disabled=false;b.textContent=t}
   return{get files(){return files}}
 }
@@ -192,7 +200,8 @@ const TV={list:[],cat:'popular',q:'',
     if(!keep)document.title=t.name+' — Free Online | DoraPDF';const md=document.querySelector('meta[name=description]');if(md&&!keep)md.content=`Free online ${t.name}. ${t.desc}. No sign-up, works in your browser.`;
     const box=$('#tpBox');box.innerHTML='';$('#tpNote').textContent=t.note||(t.file?'🔒 Your files are processed on your device and never uploaded.':'');
     if(t.soon){box.append(h('div',{class:'soonbox'},h('div',{class:'em'},'🚀'),h('h3',{style:'font-size:20px;margin:10px 0 6px'},t.name+' is coming soon'),h('p',{style:'color:var(--mute)'},t.soonWhy||'This tool goes live when the site launches. Meanwhile, try the related tools below!')))}
-    else{try{t.run(box)}catch(e){console.error(e);box.append(h('p',{},'⚠️ '+e.message))}}
+    else{try{t.run(box)}catch(e){console.error(e);box.append(h('p',{},'⚠️ '+friendlyErr(e)))}}
+    try{revRender(t)}catch(e){}
     const rel=$('#tpRel');rel.innerHTML='';this.list.filter(x=>x.cat===t.cat&&x.id!==t.id&&!x.soon).sort(()=>Math.random()-.5).slice(0,4).forEach(x=>rel.append(this.card(x)));
     $('#tpage').classList.add('on');$('#tpage').scrollTop=0;if(!window.TOOL_PAGE)document.body.style.overflow='hidden'},
   close(){$('#tpage').classList.remove('on');document.body.style.overflow='';document.title='DoraPDF — Free File Tools & Assignment Helper'},
@@ -242,6 +251,27 @@ async function makeDocx(bodyXml,images=[],sect,opt={}){
 
 /* DoraPDF API (Cloudflare worker on api.dorapdf.com) */
 const API='https://dorapdf-api.asadch3602.workers.dev';
+
+/* ---------- tool reviews (real users only) ---------- */
+async function revRender(t){const box=$('#tpRev');if(!box)return;box.innerHTML='';let data={avg:0,n:0,items:[]};
+  try{const r=await fetch(API+'/reviews?tool='+encodeURIComponent(t.id));if(r.ok)data=await r.json()}catch(e){}
+  if($('#tpRev')!==box||(window.TV&&TV.cur&&TV.cur.id&&TV.cur.id!==t.id))return;
+  const starTxt=v=>'★★★★★'.slice(0,Math.round(v))+'☆☆☆☆☆'.slice(0,5-Math.round(v));
+  const left=h('div',{},h('div',{class:'lbl'},'Rated by users'),
+    data.n?h('div',{},h('div',{class:'big'},data.avg.toFixed(1)),h('div',{class:'sm'},starTxt(data.avg)),h('p',{style:'margin:8px 0 0;color:var(--mute);font-size:14px'},`${data.n} rating${data.n>1?'s':''} for ${t.name}`))
+      :h('div',{},h('div',{class:'big'},'—'),h('p',{style:'margin:8px 0 0;color:var(--mute);font-size:14px'},'No ratings yet. Be the first to rate this tool.')),
+    ...(data.items||[]).slice(0,3).map(it=>h('div',{class:'item'},h('div',{},h('b',{},it.name||'DoraPDF user'),' ',h('span',{class:'sm',style:'font-size:12px'},starTxt(it.s))),h('div',{style:'margin-top:4px'},it.t),h('span',{},it.d||''))));
+  let pick=0;const sb=h('div',{class:'stars',role:'radiogroup','aria-label':'Your rating'});
+  const paint=v=>[...sb.children].forEach((b,i)=>b.classList.toggle('on',i<v));
+  for(let i=1;i<=5;i++){const b=h('button',{type:'button',role:'radio','aria-label':i+' star'+(i>1?'s':'')},'★');b.onmouseenter=()=>paint(i);b.onmouseleave=()=>paint(pick);b.onclick=()=>{pick=i;paint(i);try{sfx&&sfx('tap')}catch(e){}};sb.append(b)}
+  const ta=h('textarea',{maxlength:'400',placeholder:'What did you use it for? Did it work well? (optional)'}),nm=h('input',{maxlength:'40',placeholder:'Your name (optional)'});
+  const send=h('button',{class:'send',type:'button'},'Submit rating');
+  const right=h('div',{},h('div',{class:'lbl'},'Rate this tool'),h('div',{style:'margin-top:12px'},sb),ta,nm,send,h('p',{style:'margin:10px 0 0;color:var(--mute);font-size:12px'},'Only real ratings. Written reviews appear after a quick check.'));
+  send.onclick=async()=>{if(!pick){toast('Tap the stars to rate first');return}send.disabled=true;send.textContent='Sending…';
+    try{const r=await fetch(API+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:t.id,stars:pick,text:ta.value.trim(),name:nm.value.trim()})});const j=await r.json().catch(()=>({}));
+      if(!r.ok)throw new Error(j.error||'Could not send');right.replaceChildren(h('div',{class:'lbl'},'Thank you'),h('div',{class:'big',style:'font-size:44px'},'✦'),h('p',{style:'color:var(--mute)'},ta.value.trim()?'Your rating is counted. Your review will show after a quick check.':'Your rating is counted.'))}
+    catch(e){toast('⚠️ '+friendlyErr(e));send.disabled=false;send.textContent='Submit rating'}};
+  box.append(h('section',{class:'rev','aria-label':'Ratings and reviews'},left,right))}
 async function apiFetch(path,opt={}){let r;try{r=await fetch(API+path,opt)}catch(e){throw new Error('This tool is being connected to our server. Please try again soon.')}
   if(!r.ok){let m='Something went wrong ('+r.status+')';try{m=(await r.json()).error||m}catch(e){}throw new Error(m)}return r}
 function urlInput(ph){return h('input',{class:'uin',type:'url',inputmode:'url',placeholder:ph||'https://example.com',style:'width:100%'})}

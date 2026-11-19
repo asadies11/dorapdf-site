@@ -334,6 +334,24 @@ async function aiRoutes(req, env, u) {
 
   if (p.startsWith('/admin/')) {
     if (!env.ADMIN_KEY || req.headers.get('X-Admin-Key') !== env.ADMIN_KEY) return json(req, { error: 'Wrong admin key' }, 403);
+    if (p === '/admin/reviews') {
+      const l = await env.LINKS.list({ prefix: 'rp:' });
+      const items = await Promise.all(l.keys.slice(-100).map(async (k) => JSON.parse(await env.LINKS.get(k.name) || 'null')));
+      return json(req, { reviews: items.filter(Boolean).reverse() });
+    }
+    if (p === '/admin/review' && req.method === 'POST') {
+      const b = await req.json().catch(() => ({}));
+      const raw = await env.LINKS.get(String(b.key || ''));
+      if (!raw) return json(req, { error: 'Not found' }, 404);
+      const it = JSON.parse(raw);
+      if (b.approve) {
+        const r = JSON.parse((await env.LINKS.get('r:' + it.tool)) || '{"sum":0,"n":0,"items":[]}');
+        r.items = [{ s: it.s, t: it.t, name: it.name, d: it.d }, ...(r.items || [])].slice(0, 20);
+        await env.LINKS.put('r:' + it.tool, JSON.stringify(r));
+      }
+      await env.LINKS.delete(it.key);
+      return json(req, { ok: true });
+    }
     if (p === '/admin/claims') {
       const l = await env.LINKS.list({ prefix: 'c:' });
       const items = await Promise.all(l.keys.slice(-100).map(async (k) => JSON.parse(await env.LINKS.get(k.name) || 'null')));
@@ -389,6 +407,36 @@ export default {
     try {
       if (u.pathname === '/health') return json(req, { ok: true, browser: !!(env.CF_API_TOKEN && env.CF_ACCOUNT_ID), links: !!env.LINKS, ai: !!env.AI, google: !!env.GOOGLE_CLIENT_ID, admin: !!env.ADMIN_KEY });
       if (limited(req, u.pathname.startsWith('/admin/') ? 120 : 30)) return json(req, { error: 'Too many requests — wait a minute.' }, 429);
+      /* ---------- tool reviews (real users; comments moderated) ---------- */
+      if (u.pathname === '/reviews') {
+        if (!env.LINKS) return json(req, { error: 'reviews off' }, 503);
+        if (req.method === 'GET') {
+          const tool = (u.searchParams.get('tool') || '').slice(0, 60);
+          if (!/^[a-z0-9-]+$/.test(tool)) return json(req, { error: 'bad tool' }, 400);
+          const r = JSON.parse((await env.LINKS.get('r:' + tool)) || '{"sum":0,"n":0,"items":[]}');
+          return new Response(JSON.stringify({ avg: r.n ? r.sum / r.n : 0, n: r.n, items: (r.items || []).slice(0, 5) }),
+            { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=60', ...cors(req) } });
+        }
+        if (req.method === 'POST') {
+          const b = await req.json().catch(() => ({}));
+          const tool = String(b.tool || '').slice(0, 60), stars = Math.round(+b.stars);
+          if (!/^[a-z0-9-]+$/.test(tool) || !(stars >= 1 && stars <= 5)) return json(req, { error: 'Invalid rating' }, 400);
+          const ip = req.headers.get('CF-Connecting-IP') || '0';
+          const hb = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ip + tool + 'dora'));
+          const rl = 'rl:' + tool + ':' + [...new Uint8Array(hb)].slice(0, 8).map((x) => x.toString(16).padStart(2, '0')).join('');
+          if (await env.LINKS.get(rl)) return json(req, { error: 'You already rated this tool today. Thank you!' }, 429);
+          await env.LINKS.put(rl, '1', { expirationTtl: 86400 });
+          const r = JSON.parse((await env.LINKS.get('r:' + tool)) || '{"sum":0,"n":0,"items":[]}');
+          r.sum += stars; r.n += 1; await env.LINKS.put('r:' + tool, JSON.stringify(r));
+          const text = String(b.text || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 400);
+          const name = String(b.name || '').replace(/[<>]/g, '').trim().slice(0, 40);
+          if (text && !/https?:\/\/|www\./i.test(text)) {
+            const key = 'rp:' + Date.now() + ':' + tool;
+            await env.LINKS.put(key, JSON.stringify({ key, tool, s: stars, t: text, name, d: new Date().toISOString().slice(0, 10) }), { expirationTtl: 60 * 86400 });
+          }
+          return json(req, { ok: true });
+        }
+      }
       const ar = await aiRoutes(req, env, u);
       if (ar) return ar;
 
