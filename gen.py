@@ -41,7 +41,29 @@ open(f'{OUT}/favicon.svg', 'w').write(urllib.parse.unquote(_fav.split(',',1)[1])
 base = base.replace(_fav, '/favicon.svg')
 base = re.sub(r'<link rel="icon" href="/favicon.svg"[^>]*>', FAVICON, base, count=1)
 
+def fit_title(t, mx=60):
+    t = t.strip()
+    if len(t) <= mx: return t
+    for suf in (' | DoraPDF Blog', ' | DoraPDF', ' — DoraPDF'):
+        if t.endswith(suf) and len(t) - len(suf) <= mx + 8: return t[:-len(suf)]
+    for suf in (' | DoraPDF Blog', ' | DoraPDF', ' — DoraPDF'):
+        if t.endswith(suf): t = t[:-len(suf)]
+    if len(t) > 70:
+        for sep in (' : ', ': ', ' — ', ' (', ' - '):
+            i = t.find(sep)
+            if 25 <= i <= 70: return t[:i]
+        cut = t[:66]; t = cut[:cut.rfind(' ')].rstrip(',;:—-')
+    return t
+def fit_desc(d, mx=158):
+    d = ' '.join(d.split())
+    if len(d) <= mx: return d
+    cut = d[:mx]
+    dot = cut.rfind('. ')
+    if dot > 90: return cut[:dot+1]
+    return cut[:cut.rfind(' ')].rstrip(',;:—-') + '.'
+
 def set_meta(page, title, desc, path, og_title=None):
+    title, desc = fit_title(title), fit_desc(desc)
     url = SITE + path
     page = re.sub(r'<title>.*?</title>', f'<title>{esc(title)}</title>', page, count=1, flags=re.S)
     page = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(desc)}">', page, count=1)
@@ -57,7 +79,7 @@ def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + '</script>'
 
 # ---------- home ----------
-open(f'{OUT}/index.html', 'w').write(base)
+open(f'{OUT}/index.html', 'w').write(re.sub(r'(<meta name="description" content=")([^"]*)', lambda m: m.group(1)+esc(fit_desc(H.unescape(m.group(2)))), base, count=1).replace('<h1 class="tp-h" id="tpTitle"></h1>','<h2 class="tp-h" id="tpTitle"></h2>',1))
 
 # ---------- tool content ----------
 def gen_content(t):
@@ -106,6 +128,23 @@ SEO = {  # from Google Trends keyword research (worldwide)
     'png-to-jpg': ('Convert PNG to JPG Free Online | DoraPDF', 'Convert PNG to JPG online free. Fast, high quality, no sign-up, no watermark, images never leave your device.'),
     'pdf-merger': ('Merge PDF Online Free: Combine PDF Files | DoraPDF', 'Merge PDF online free. Combine multiple PDF files into one in any order, no sign-up, no watermark, private in your browser.'),
     'image-compressor': ('Compress JPEG and Images Online Free | DoraPDF', 'Compress JPEG, PNG and WebP images online free. Reduce file size and keep quality, no sign-up, private in your browser.'),
+    'pdf-compressor': ('Compress PDF Online Free: Reduce PDF File Size | DoraPDF', 'Compress PDF online free. Reduce PDF file size for email and uploads while keeping it readable. No sign-up, no watermark, private.'),
+    'pdf-splitter': ('Split PDF Online Free: Extract PDF Pages | DoraPDF', 'Split PDF online free. Extract pages or cut one PDF into several files in seconds. No sign-up, no watermark, files stay in your browser.'),
+    'png-to-pdf': ('PNG to PDF: Convert PNG Images to PDF Free | DoraPDF', 'Convert PNG to PDF free online. Combine one or many PNG images into a single PDF. No sign-up, no watermark, private in your browser.'),
+    'pdf-to-png': ('PDF to PNG: Convert PDF Pages to PNG Free | DoraPDF', 'Convert PDF to PNG online free. Every page becomes a sharp PNG image. No sign-up, no watermark, files never leave your device.'),
+    'jpeg-to-png': ('Convert JPEG to PNG Free Online | DoraPDF', 'Convert JPEG and JPG to PNG online free. Keep full quality, no sign-up, no watermark, images stay on your device.'),
+    'jpg-to-png': ('Convert JPG to PNG Free Online (High Quality) | DoraPDF', 'Convert JPG to PNG online free in high quality. Batch convert, no sign-up, no watermark, private in your browser.'),
+    'heic-to-jpg': ('HEIC to JPG: Convert iPhone Photos to JPG Free | DoraPDF', 'Convert HEIC to JPG free online. Open iPhone photos anywhere, batch convert, no app or sign-up, private in your browser.'),
+    'webp-to-jpg': ('WebP to JPG: Convert WebP Images Free Online | DoraPDF', 'Convert WebP to JPG online free. Batch convert WebP images to JPG, no sign-up, no watermark, private in your browser.'),
+    'image-background-remover': ('Remove Background from Image Free Online | DoraPDF', 'Remove the background from any image free with AI. Get a transparent PNG in seconds, no sign-up, runs privately in your browser.'),
+    'image-resizer': ('Resize Image Online Free: Change Image Size | DoraPDF', 'Resize images online free. Change width, height or file size for social media, forms and uploads. No sign-up, private.'),
+    'pptx-to-pdf': ('PowerPoint to PDF: Convert PPTX to PDF Free | DoraPDF', 'Convert PowerPoint to PDF online free. Turn PPTX slides into a PDF in seconds, no sign-up, no watermark, private.'),
+    'pdf-to-powerpoint': ('PDF to PowerPoint: Convert PDF to PPTX Free | DoraPDF', 'Convert PDF to PowerPoint online free. Every page becomes an editable slide. No sign-up, no watermark, private in your browser.'),
+    'url-to-pdf': ('HTML to PDF: Convert Web Page to PDF Free | DoraPDF', 'Convert HTML or any web page URL to PDF online free. Save articles and pages as PDF, no sign-up, no watermark.'),
+    'qr-code-generator': ('Free QR Code Generator (No Sign-up, No Expiry) | DoraPDF', 'Create QR codes free for links, Wi-Fi, text and contacts. Download PNG or SVG, no sign-up, codes never expire.'),
+    'word-counter': ('Word Counter: Count Words and Characters Free | DoraPDF', 'Free online word counter. Count words, characters, sentences and reading time instantly as you type. Private, no sign-up.'),
+    'pdf-ocr': ('PDF OCR Online Free: Make Scanned PDF Searchable | DoraPDF', 'Free PDF OCR online. Turn scanned PDFs and images into searchable, copyable text. No sign-up, private in your browser.'),
+    'scan-to-pdf': ('Scan to PDF Online Free: Phone Camera Scanner | DoraPDF', 'Scan documents to PDF free with your phone camera. Auto crop, clean pages, unlimited scans, no app or sign-up needed.'),
 }
 
 tool_urls = []
@@ -242,6 +281,7 @@ const sb=document.getElementById('sfxBtn');if(sb)sb.style.display='none';
 </script>'''
 
 def static_page(path, title, desc, body, extra_ld=None, og_type='website'):
+    title, desc = fit_title(title), fit_desc(desc)
     nav = NAV.replace('href="#tools"', 'href="/#tools"').replace('href="#ai"', 'href="/#ai"').replace('href="#pricing"', 'href="/#pricing"').replace('href="#top"', 'href="/"')
     foot = FOOTER.replace('href="#top"', 'href="/"')
     url = SITE + path
@@ -347,3 +387,16 @@ sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps
     f'  <url><loc>{SITE}{u}</loc><lastmod>2026-11-06</lastmod><priority>{pr}</priority></url>\n' for u, pr in urls) + '</urlset>\n'
 open(f'{OUT}/sitemap.xml', 'w').write(sm)
 print('tools', len(tool_urls), 'posts', len(post_urls), 'pages', len(page_urls), 'urls', len(urls))
+
+# ---------- SEO post-pass: unwrap links to pages that don't exist ----------
+import glob as _g
+def _exists(h):
+    p = OUT + h
+    return os.path.isfile(p) or os.path.isfile(os.path.join(p, 'index.html'))
+_fixed = 0
+for _f in _g.glob(f'{OUT}/**/*.html', recursive=True):
+    _s = open(_f).read()
+    _n = re.sub(r'<a href="(/[^"#?]*)"[^>]*>(.*?)</a>', lambda m: m.group(0) if m.group(1).startswith('//') or _exists(m.group(1)) else m.group(2), _s, flags=re.S)
+    if _n != _s:
+        open(_f, 'w').write(_n); _fixed += 1
+print('unwrapped broken links in', _fixed, 'files')
