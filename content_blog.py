@@ -1,4 +1,817 @@
 POSTS = [
+dict(slug='convertire-pdf-in-word-gratis-mantenendo-layout', lang='it', title='Convertire PDF in Word gratis mantenendo il layout (e cosa fare se il PDF è scansionato)', date='2026-11-18',
+ desc='Come convertire PDF in Word gratis senza perdere la formattazione: due modalità, consigli per modificare il file e la soluzione per i PDF scansionati.',
+ tools=['pdf-to-word', 'pdf-ocr', 'word-to-pdf'], md="""
+Ti hanno mandato un modulo, un contratto o una dispensa in PDF e devi cambiare qualche riga. Ricopiare tutto a mano non ha senso: la strada più rapida è **convertire il PDF in Word**, correggere e poi, se serve, salvare di nuovo in PDF. Con il convertitore [PDF to Word](/pdf-to-word/) di DoraPDF lo fai gratis, senza registrazione e senza caricare il documento su un server (la schermata dello strumento è in inglese, ma i passaggi sono pochi e li trovi qui sotto).
+
+In questa guida vediamo come convertire un PDF in Word **senza perdere la formattazione**, quale delle due modalità scegliere e come comportarsi con i PDF scansionati, che sono la causa più comune dei "non funziona".
+
+## Convertire PDF in Word online: i passaggi
+
+1. Apri [PDF to Word](/pdf-to-word/) dal browser, su PC, Mac o telefono.
+2. Trascina il PDF nell'area di caricamento oppure toccala per sceglierlo.
+3. Nel menu **Layout** scegli la modalità (le spieghiamo nel prossimo paragrafo).
+4. Premi il pulsante di conversione e attendi qualche secondo: i documenti lunghi richiedono un po' di più.
+5. Scarica il file **.docx**, che avrà lo stesso nome del PDF originale.
+
+Il file si apre in Microsoft Word, LibreOffice Writer, Google Documenti e Pages.
+
+## Le due modalità: quale scegliere
+
+### "Keep original layout" – per mantenere l'aspetto della pagina
+
+È l'opzione consigliata e quella attiva di default. Ogni pagina del documento Word riproduce la pagina del PDF: lo sfondo, le immagini, le linee e i riquadri restano dove erano, mentre il testo viene ricostruito sopra come testo modificabile, con carattere, grassetto, corsivo, colore e dimensione il più possibile vicini all'originale.
+
+È la scelta giusta quando ti serve che il documento **resti uguale**: un modulo da compilare, un volantino, una lettera intestata in cui cambiare una data o un indirizzo.
+
+Una cosa da sapere: in questa modalità ogni riga di testo è posizionata nel punto esatto della pagina. È perfetto per piccole correzioni, meno comodo se devi riscrivere interi paragrafi, perché il testo non "scorre" da una riga all'altra come in un documento normale. Anche le scritte ruotate (per esempio un timbro in diagonale) restano parte dell'immagine di sfondo e non diventano modificabili.
+
+### "Text only" – per riscrivere e riutilizzare il testo
+
+Qui il convertitore estrae solo il testo e lo dispone in paragrafi che scorrono liberamente. Le righe più grandi del resto vengono trasformate in titoli in grassetto e ogni pagina del PDF inizia su una nuova pagina. Immagini e grafica non vengono riportate.
+
+Usala quando ti interessa il **contenuto**: citare parti di un articolo nella tesina, rielaborare appunti, copiare il testo di un regolamento per adattarlo.
+
+**In breve:** devi ritoccare il documento → *Keep original layout*. Devi lavorare sul testo → *Text only*.
+
+## Se compare "No text found": il PDF è scansionato
+
+Molti PDF non contengono testo vero, ma solo fotografie delle pagine: succede con i documenti passati allo scanner, con le foto trasformate in PDF dal telefono e con molti fax. In questi casi lo strumento si ferma con il messaggio *"No text found — this PDF looks scanned"*.
+
+Come risolvere:
+
+1. Apri [PDF OCR](/pdf-ocr/) e carica lo stesso file.
+2. Nel menu della lingua scegli **Italian**: il riconoscimento delle lettere accentate (à, è, ì, ò, ù) migliora molto.
+3. Avvia l'OCR. Lo strumento elabora fino a 60 pagine e restituisce un PDF in cui il testo è selezionabile, più un file di testo.
+4. Converti il nuovo PDF con PDF to Word.
+
+Un trucco per capire subito se un PDF è scansionato: aprilo e prova a selezionare una parola con il mouse. Se si evidenzia la pagina intera come un'immagine, serve l'OCR.
+
+## Problemi frequenti e come risolverli
+
+**Il carattere è diverso dall'originale.** Il PDF usava un font che sul tuo computer non c'è, quindi Word lo sostituisce con uno simile. Se l'aspetto è importante, seleziona tutto il testo e imposta un font comune come Arial o Times New Roman.
+
+**Una frase corretta finisce sopra quella successiva.** Succede in modalità layout quando scrivi una riga più lunga dell'originale. Accorcia il testo, riduci di un punto la dimensione del carattere oppure, se le modifiche sono tante, rifai la conversione in modalità *Text only*.
+
+**Le tabelle non si modificano come tabelle.** Nella modalità layout le celle sono testo posizionato sopra il disegno della tabella: puoi cambiare il contenuto, ma non aggiungere righe. Per tabelle da rielaborare conviene copiare i dati dalla versione *Text only*.
+
+**Il telefono non apre il .docx.** Installa l'app gratuita di Word o apri il file con Google Documenti.
+
+## Dopo le modifiche: di nuovo in PDF
+
+Quando hai finito, per inviare o stampare il documento conviene tornare al PDF. Da Word usa *File → Salva con nome → PDF*; da Google Documenti *File → Scarica → Documento PDF*. Se non hai un programma a portata di mano puoi usare [Word to PDF](/word-to-pdf/), che converte un file .docx direttamente nel browser.
+
+## Privacy: il file non lascia il tuo dispositivo
+
+La conversione avviene interamente nel browser: il PDF viene letto ed elaborato sul tuo computer o telefono, non viene inviato ai nostri server e non serve creare un account. È un dettaglio che conta quando il documento contiene dati personali, buste paga, contratti o certificati medici.
+
+## Domande frequenti
+
+**Convertire PDF in Word con DoraPDF è davvero gratis?**
+Sì. Nessun abbonamento, nessuna filigrana sul documento e nessuna registrazione.
+
+**Posso convertire più PDF insieme?**
+No, lo strumento converte un file alla volta. Se hai più PDF, convertili uno dopo l'altro: ogni conversione richiede pochi secondi.
+
+**Funziona da iPhone o Android?**
+Sì, basta il browser. Su telefoni meno recenti i documenti con molte pagine possono richiedere più tempo, perché tutto il lavoro viene fatto dal dispositivo.
+
+**Perché nel Word vedo il testo, ma non riesco a spostare le immagini?**
+In modalità layout grafica e immagini formano lo sfondo della pagina, così l'impaginazione resta identica. Il testo sopra è modificabile; lo sfondo no.
+
+**Posso convertire un PDF protetto da password?**
+Se il PDF chiede una password per essere aperto, il convertitore non riesce a leggerlo. Se il documento è tuo e conosci la password, aprilo nel tuo lettore PDF, salvane una copia senza protezione (per esempio con *Stampa → Salva come PDF*) e converti quella.
+"""),
+dict(slug='comprimere-pdf-email-pec-portali', lang='it', title='Comprimere un PDF per email, PEC e portali: come ridurre le dimensioni senza rovinarlo', date='2026-11-18',
+ desc='Comprimere PDF gratis online per email, PEC o portali: quale modalità scegliere, come restare leggibili e cosa fare se il file resta pesante.',
+ tools=['pdf-compressor', 'pdf-splitter', 'delete-pdf-pages'], md="""
+"Il file supera la dimensione massima consentita." Lo vedi quando provi a caricare la domanda su un portale, a mandare la documentazione per PEC o ad allegare una scansione a un'email. Di solito il colpevole è un PDF creato dallo scanner o dal telefono, con pagine salvate come immagini ad alta risoluzione. La soluzione è **comprimere il PDF**, cioè ridurne il peso mantenendolo leggibile.
+
+Con [PDF Compressor](/pdf-compressor/) di DoraPDF puoi ridurre le dimensioni di un PDF gratis, senza registrarti e senza che il file venga caricato online: tutto avviene nel browser (l'interfaccia dello strumento è in inglese).
+
+## Prima di iniziare: quanto deve pesare il file?
+
+Ogni destinazione ha il suo limite, e cambia da un servizio all'altro:
+
+- **Email normale:** molti provider accettano allegati intorno ai 20–25 MB in totale, ma conviene restare ben sotto, perché il messaggio codificato pesa più degli allegati.
+- **PEC:** il limite dipende dal gestore e dal tuo piano, e vale per l'intero messaggio, destinatario compreso. Controlla le condizioni del tuo gestore.
+- **Portali di enti, università e concorsi:** spesso indicano un limite per singolo file, a volte di pochi MB. Lo trovi nel bando o nelle istruzioni del modulo.
+
+Conoscere il numero esatto ti evita di comprimere troppo: inutile trasformare un contratto in un documento sgranato se il portale accettava già il file con una piccola riduzione.
+
+## Come comprimere un PDF online, passo per passo
+
+1. Apri [PDF Compressor](/pdf-compressor/).
+2. Carica il PDF trascinandolo nell'area apposita o toccandola per sceglierlo.
+3. Nel menu **Mode** scegli tra *Smart* e *Strong* (vedi sotto).
+4. Se usi *Strong*, scegli anche la qualità delle immagini: *High quality*, *Balanced* (predefinita) o *Smallest*.
+5. Premi **Compress** e scarica il file, che si chiamerà `nomefile-compressed.pdf`. Accanto al nome vedrai di quanto si è ridotto, in percentuale.
+
+## Smart o Strong: la scelta che conta davvero
+
+| | Smart | Strong |
+|---|---|---|
+| Cosa fa | Riorganizza la struttura interna del PDF | Trasforma ogni pagina in un'immagine compressa |
+| Testo selezionabile e ricercabile | Sì | No |
+| Riduzione | Moderata, a volte nulla | Di solito molto più forte |
+| Ideale per | PDF creati da Word o da programmi | Scansioni, foto, PDF pieni di immagini |
+
+**Smart** è la scelta prudente: il documento resta identico, il testo si può ancora copiare e cercare. Su un PDF già ottimizzato può darsi che non ci sia nulla da recuperare: in quel caso lo strumento lo indica con *"already optimised"*.
+
+**Strong** è quella che fa la differenza con le scansioni. Ogni pagina viene ridisegnata e salvata come immagine JPG con la qualità che hai scelto. Il prezzo da pagare: il testo non è più selezionabile, i link non sono più cliccabili e gli eventuali campi compilabili diventano parte dell'immagine. Per un documento d'identità scansionato o una ricevuta va benissimo; per un modulo da compilare ancora, no.
+
+## Il metodo che funziona quasi sempre
+
+1. Prova prima con **Smart**. Se il file rientra nel limite, hai finito.
+2. Se non basta, passa a **Strong** con qualità **Balanced**.
+3. Apri il risultato e **ingrandisci i punti critici**: numeri piccoli, codice fiscale, IBAN, firme, timbri. Se si leggono bene, il file è pronto.
+4. Solo se è ancora troppo pesante, prova con **Smallest** e ricontrolla la leggibilità.
+
+Consiglio pratico: se *Smallest* rende illeggibili le cifre più piccole, torna a *Balanced* e riduci il numero di pagine con uno dei metodi del paragrafo successivo.
+
+## Se il PDF resta troppo grande
+
+- **Togli le pagine inutili.** Pagine bianche, retro vuoti di una scansione, informative che il destinatario ha già: eliminale con [Delete PDF Pages](/delete-pdf-pages/), poi comprimi.
+- **Dividi il documento.** Molti portali accettano più allegati. Con [PDF Splitter](/pdf-splitter/) estrai gli intervalli di pagine che ti servono (per esempio 1-5 e 6-10) e carica due file più leggeri.
+- **Riscansiona con impostazioni più leggere.** Se hai accesso allo scanner, per i documenti di testo bastano 200–300 dpi in scala di grigi; il colore ad alta risoluzione serve raramente.
+
+## Errori da evitare
+
+- **Comprimere due volte in modalità Strong.** Ogni passaggio ricomprime immagini già compresse e peggiora la qualità senza grandi vantaggi. Riparti sempre dal file originale.
+- **Inviare senza controllare.** Un file illeggibile può farti perdere tempo con un'integrazione documentale o, peggio, una scadenza.
+- **Sovrascrivere l'originale.** Il file compresso ha un nome diverso apposta: conserva la versione di partenza in caso ti serva di nuovo.
+
+## Privacy: perché è meglio comprimere nel browser
+
+I documenti che finiscono in una PEC o su un portale contengono spesso dati personali: documenti d'identità, buste paga, certificati, dichiarazioni dei redditi. Con PDF Compressor il file viene elaborato sul tuo dispositivo e non viene caricato sui nostri server. Non serve un account e non resta traccia del documento online.
+
+## Domande frequenti
+
+**Comprimere un PDF fa perdere qualità?**
+In modalità Smart no: il contenuto resta identico. In modalità Strong le pagine diventano immagini compresse, quindi un po' di qualità si perde; con *High quality* o *Balanced* nella maggior parte dei documenti la differenza a schermo è minima.
+
+**Funziona anche da telefono?**
+Sì, da qualsiasi browser moderno su Android e iPhone. Con PDF molto lunghi la modalità Strong può richiedere più tempo, perché ogni pagina viene ridisegnata dal dispositivo.
+
+**Perché il file compresso pesa quasi come prima?**
+Probabilmente hai usato Smart su un PDF già ottimizzato, o su una scansione: in questo caso prova Strong.
+
+**Posso comprimere più PDF insieme?**
+Lo strumento lavora su un file alla volta. Se devi inviarne diversi, comprimili uno per uno; se servono in un unico allegato, uniscili prima e comprimi il risultato.
+"""),
+dict(slug='unire-pdf-in-un-unico-file', lang='it', title='Unire PDF in un unico file: guida gratuita, senza registrazione, anche da iPhone e Android', date='2026-11-18',
+ desc='Come unire PDF in un unico file gratis e senza registrazione: ordine giusto delle pagine, uso da telefono, e cosa fare se il file finale è troppo pesante.',
+ tools=['pdf-merger', 'pdf-compressor', 'rotate-pdf'], md="""
+Una domanda di iscrizione, un fascicolo per il commercialista, la documentazione per un'agenzia immobiliare: quasi sempre ti chiedono **un solo PDF**, non sei allegati separati. Invece di stampare tutto e riscansionare, puoi **unire i PDF in un unico file** in meno di un minuto.
+
+Lo strumento [PDF Merger](/pdf-merger/) di DoraPDF unisce PDF gratis, senza registrazione e senza inviarli a un server: i file vengono combinati direttamente nel browser, sia su computer sia su telefono. La schermata è in inglese, ma i passaggi sono tre.
+
+## I casi in cui unire i PDF ti semplifica la vita
+
+- **Pratiche e domande online** che accettano un solo allegato: documento d'identità, codice fiscale, ISEE, certificati.
+- **Tesi e tesine**: frontespizio, testo e allegati prodotti con programmi diversi diventano un unico documento.
+- **Contabilità**: fatture e ricevute del mese in un solo file per il commercialista.
+- **Lavoro**: offerta, condizioni e listino in un PDF da allegare a una sola email.
+
+## Come unire PDF online in un unico file
+
+1. Apri [PDF Merger](/pdf-merger/).
+2. Aggiungi i file trascinandoli nell'area di caricamento o toccandola per sceglierli. Servono **almeno due PDF**.
+3. Controlla l'elenco: i file verranno uniti **nell'ordine in cui compaiono**, dall'alto verso il basso.
+4. Hai aggiunto un file per errore? Toglilo con la ✕ accanto al nome.
+5. Premi **Merge PDFs** e scarica il risultato, `merged.pdf`.
+
+Tutte le pagine di ogni file vengono incluse così come sono: un documento A4 verticale e una tabella orizzontale possono convivere nello stesso PDF senza essere deformati.
+
+## Come ottenere l'ordine giusto al primo colpo
+
+L'elenco non si riordina trascinando i nomi: i file si mettono in fila nell'ordine in cui li aggiungi, e ogni nuovo caricamento finisce in fondo. Due modi semplici per non sbagliare:
+
+**Aggiungi i file uno alla volta**, nell'ordine finale. Prima la domanda, poi il documento d'identità, poi gli allegati. È il metodo più sicuro quando i file sono pochi.
+
+**Numera i file prima di caricarli.** Rinominali `01-domanda.pdf`, `02-documento.pdf`, `03-isee.pdf` e selezionali tutti insieme da una cartella ordinata per nome. Di solito arrivano nell'ordine giusto, ma dai sempre un'occhiata all'elenco prima di premere il pulsante.
+
+Se ti accorgi di un errore dopo il download, nessun problema: elimina i file dall'elenco con la ✕ e ricaricali nell'ordine corretto.
+
+## Unire PDF da iPhone e Android
+
+Lo strumento funziona dal browser del telefono, senza installare app.
+
+- **iPhone:** apri la pagina in Safari, tocca l'area di caricamento e scegli i PDF dall'app File (anche da iCloud Drive). Dopo il download, il file finisce nella cartella Download dell'app File.
+- **Android:** apri la pagina in Chrome e seleziona i PDF dal gestore file o da Google Drive. Il risultato lo trovi nei Download.
+
+Se i documenti li hai solo come foto, prima trasformali in PDF con [Images to PDF](/images-to-pdf/), poi uniscili.
+
+## Dopo l'unione: tre ritocchi utili
+
+**Pagine girate.** Una scansione fatta in orizzontale si ritrova di lato nel PDF finale. Raddrizzala con [Rotate PDF](/rotate-pdf/), che permette di ruotare tutte le pagine o solo alcune.
+
+**File troppo pesante.** Unendo diverse scansioni si superano facilmente i limiti di email e portali. Passa il risultato in [PDF Compressor](/pdf-compressor/): la modalità *Smart* mantiene il testo selezionabile, la modalità *Strong* riduce molto di più le scansioni.
+
+**Pagine di troppo.** Pagine bianche o retro vuoti si eliminano con Delete PDF Pages, indicando i numeri delle pagine da togliere.
+
+**Nome del file.** Prima di inviarlo, rinomina `merged.pdf` con qualcosa di chiaro, per esempio `domanda-borsa-di-studio-rossi.pdf`. Chi lo riceve ti ringrazierà.
+
+## Problemi comuni
+
+**"Add at least 2 PDF files".** Hai caricato un solo file. Aggiungine almeno un altro.
+
+**Un file non viene accettato.** Lo strumento accetta solo PDF. Un documento Word va prima convertito in PDF; un'immagine si trasforma con Images to PDF.
+
+**Un PDF protetto dà problemi.** Se un file richiede una password per essere aperto, aprilo con il tuo lettore PDF e salvane una copia senza protezione prima di unirlo.
+
+**Su un telefono vecchio l'operazione è lenta.** Il lavoro lo fa il dispositivo stesso: con molti file pesanti serve qualche secondo in più. Chiudi le altre schede del browser e riprova.
+
+## I tuoi documenti restano sul tuo dispositivo
+
+Per unire i PDF non serve caricarli da nessuna parte: PDF Merger legge i file e crea il documento finale all'interno del browser. Nessun account, nessuna copia sui nostri server. Per documenti con dati personali, come carte d'identità o certificati, è il modo più tranquillo di lavorare.
+
+## Domande frequenti
+
+**Quanti PDF posso unire?**
+Non c'è un numero massimo fissato dallo strumento: il limite pratico dipende dalla memoria del dispositivo. Decine di documenti normali non sono un problema su un computer recente.
+
+**Si perde qualità unendo i PDF?**
+No. Le pagine vengono copiate così come sono, senza ricompressione: testo, immagini e link restano invariati.
+
+**Posso unire solo alcune pagine di un PDF?**
+Lo strumento unisce i file interi. Per prendere solo alcune pagine, estraile prima con PDF Splitter e poi unisci i file estratti.
+
+**È davvero gratis?**
+Sì, senza filigrana, senza limiti di utilizzo giornalieri e senza registrazione.
+"""),
+dict(slug='jpg-in-pdf-telefono-computer', lang='it', title='Da JPG a PDF su telefono e computer: trasformare foto in PDF gratis, anche più immagini insieme', date='2026-11-18',
+ desc='Convertire JPG in PDF gratis da cellulare o PC: più foto in un unico PDF, formato A4 o adattato, margini, ordine e consigli per foto leggibili.',
+ tools=['images-to-pdf', 'scan-to-pdf', 'pdf-compressor'], md="""
+Hai fotografato il documento d'identità, la ricevuta di un bonifico o le pagine di un quaderno, e il modulo online accetta solo PDF. Succede di continuo. La buona notizia è che **convertire JPG in PDF** non richiede app né programmi: basta il browser, sia sul cellulare sia sul computer.
+
+Con [Images to PDF](/images-to-pdf/) di DoraPDF puoi trasformare una o più foto in un unico PDF, gratis e senza registrazione. Le immagini vengono elaborate sul tuo dispositivo, non su un server. Lo strumento è in inglese, quindi qui sotto trovi ogni opzione spiegata in italiano.
+
+## Quali immagini puoi usare
+
+Oltre ai classici **JPG**, lo strumento accetta PNG, WebP e le foto **HEIC** scattate con l'iPhone, che vengono convertite automaticamente. Ogni immagine diventa una pagina del PDF.
+
+## Dal telefono: trasformare foto in PDF in pochi tocchi
+
+1. Apri [Images to PDF](/images-to-pdf/) nel browser del telefono (Chrome, Safari, Samsung Internet...).
+2. Tocca l'area di caricamento e scegli le foto dalla galleria o dall'app File. Puoi selezionarne diverse in una volta.
+3. Controlla l'elenco: le pagine seguiranno **quest'ordine**. Per eliminare una foto, tocca la ✕ accanto al nome.
+4. Scegli **Page size** e **Margin** (spiegati più sotto).
+5. Tocca **Create PDF** e scarica il file.
+
+Su iPhone il PDF finisce nell'app File, nella cartella Download; su Android nella cartella Download del telefono. Da lì puoi allegarlo a un'email o caricarlo sul portale.
+
+**Ordine delle foto:** l'elenco non si riordina trascinando. Se l'ordine è importante (le pagine di un contratto, per esempio), aggiungi le foto una alla volta nella sequenza giusta: ogni nuova immagine si mette in fondo.
+
+## Dal computer: JPG in PDF con trascinamento
+
+Su PC e Mac il procedimento è lo stesso, ma ancora più veloce: apri la cartella con le immagini, selezionale e trascinale tutte insieme nell'area di caricamento. Se hai rinominato i file con un numero davanti (`01.jpg`, `02.jpg`...), di solito arrivano già in ordine; controlla comunque l'elenco prima di creare il PDF.
+
+## Le opzioni spiegate
+
+### Page size: che formato dare alle pagine
+
+- **Fit page to image** – ogni pagina ha esattamente le proporzioni della foto. Ideale per immagini da guardare a schermo, grafiche, screenshot.
+- **A4 page** – le foto vengono centrate e ridimensionate su pagine A4. È la scelta giusta per **documenti da stampare o inviare a enti e uffici**, dove l'A4 è lo standard.
+- **US Letter** – il formato americano; in Italia serve raramente.
+
+L'orientamento si sceglie da solo: una foto orizzontale finisce su una pagina orizzontale, una verticale su una verticale.
+
+### Margin: il bordo bianco
+
+*No margin* (nessun bordo), *Small margin* (predefinito) o *Big margin*. Per una carta d'identità su A4 un margine piccolo va benissimo; per foto da sfogliare a schermo puoi toglierlo del tutto.
+
+**Nota sulle immagini PNG trasparenti:** le parti trasparenti diventano bianche nel PDF.
+
+## Come fotografare un documento perché sia leggibile
+
+La qualità del PDF dipende quasi tutta dalla foto. Qualche accorgimento:
+
+- **Luce naturale e niente flash**, che crea riflessi sulla carta lucida.
+- **Telefono parallelo al foglio**, non inclinato: le righe resteranno dritte.
+- **Sfondo scuro e uniforme** sotto un foglio chiaro, così i bordi si distinguono.
+- **Inquadra solo il documento**, senza il tavolo intorno.
+- **Fronte e retro** di un documento d'identità: due foto separate, nell'ordine fronte → retro.
+
+Se invece vuoi un risultato da scanner vero, con bordi ritagliati e contrasto migliorato, usa [Scan to PDF](/scan-to-pdf/): fotografi il documento, trascini gli angoli per ritagliarlo e raddrizzarlo, scegli un filtro di scansione ed esporti un PDF di più pagine.
+
+## Problemi frequenti
+
+**Il PDF è troppo pesante per il portale.** Le foto dei telefoni moderni sono molto grandi. Comprimi il PDF con [PDF Compressor](/pdf-compressor/): la modalità *Strong* con qualità *Balanced* di solito riduce molto il peso delle pagine fotografate.
+
+**La foto risulta storta nel PDF.** A volte il telefono salva la rotazione in modo strano. Ruota la foto nella galleria, salvala e ricaricala; oppure ruota la pagina nel PDF con Rotate PDF.
+
+**Le foto HEIC non si caricano.** Aggiorna il browser: la conversione HEIC richiede un browser recente. In alternativa, su iPhone puoi impostare *Impostazioni → Fotocamera → Formati → Più compatibile* per scattare direttamente in JPG.
+
+**Ho bisogno di un file per ogni foto.** Carica e converti una foto alla volta: ogni conversione produce un PDF separato con il nome dell'immagine.
+
+## Privacy: le foto restano sul tuo dispositivo
+
+Le immagini che si trasformano in PDF sono spesso le più delicate: documenti d'identità, tessera sanitaria, buste paga. Images to PDF crea il file nel browser: le foto non vengono caricate sui nostri server e non serve alcun account.
+
+## Domande frequenti
+
+**Quante foto posso mettere in un PDF?**
+Non c'è un numero fisso: dipende dalla memoria del dispositivo. Decine di foto non sono un problema su un computer; su un telefono datato conviene procedere a gruppi.
+
+**La qualità delle foto peggiora?**
+Le immagini molto grandi vengono ridimensionate a una risoluzione comunque alta, più che sufficiente per leggere e stampare un documento in A4.
+
+**Posso convertire JPG in PDF senza installare app?**
+Sì, funziona tutto dal browser, sia su Android sia su iPhone, e anche su tablet.
+
+**Come si chiama il file creato?**
+Con una sola foto prende il nome dell'immagine; con più foto si chiama `images.pdf`. Rinominalo prima di inviarlo.
+"""),
+dict(slug='rimuovere-sfondo-foto-gratis', lang='it', title='Rimuovere lo sfondo da una foto gratis: PNG trasparente o sfondo bianco in pochi secondi', date='2026-11-18',
+ desc='Rimuovere lo sfondo da una foto gratis: PNG trasparente o sfondo bianco, modalità Quick e HD, consigli per bordi puliti. L\'IA gira nel browser.',
+ tools=['image-background-remover', 'image-compressor', 'image-resizer'], md="""
+Una foto del prodotto da mettere in un annuncio, il tuo ritratto per il profilo professionale, un logo da appoggiare su una slide colorata: in tutti questi casi lo sfondo originale dà fastidio. **Rimuovere lo sfondo da una foto** un tempo voleva dire passare mezz'ora con lo strumento di selezione di un programma di grafica. Oggi lo fa un modello di intelligenza artificiale in pochi secondi.
+
+Il [Background Remover](/image-background-remover/) di DoraPDF scontorna persone, oggetti e prodotti gratis e senza registrazione. La particolarità: l'IA gira **dentro il tuo browser**, quindi la foto non viene mai caricata su un server. (La schermata dello strumento è in inglese; qui trovi tutto spiegato.)
+
+## Togliere lo sfondo da una foto: come si fa
+
+1. Apri il [Background Remover](/image-background-remover/).
+2. Carica una foto: JPG, PNG, WebP o HEIC dell'iPhone.
+3. Scegli la **Mode** (Quick o HD, vedi sotto).
+4. Scegli il **Background** che vuoi al posto di quello originale.
+5. Premi **Remove background** e attendi.
+6. Usa il cursore di confronto per vedere il prima e il dopo, poi scarica il PNG, che si chiamerà `nomefoto-no-bg.png`.
+
+La prima volta il browser scarica il modello di IA, quindi serve qualche secondo in più. Le volte successive parte molto più in fretta.
+
+## Quick o HD: quale modalità scegliere
+
+**Quick – persone e ritratti.** Usa un modello leggero (circa 13 MB, scaricato una sola volta) pensato soprattutto per le persone. È veloce e funziona su quasi tutti i dispositivi, telefoni compresi. Ottima per foto profilo, mezzibusti, selfie.
+
+**HD – qualsiasi oggetto.** Usa un modello molto più grande (circa 115 MB, anche questo scaricato una volta sola) che riconosce meglio oggetti, prodotti, animali e contorni complicati. Richiede un browser moderno con accelerazione grafica (WebGPU). Se il tuo browser non la supporta, lo strumento te lo segnala e passa automaticamente alla modalità Quick.
+
+**Regola pratica:** per una persona inizia con Quick; per una scarpa, una borsa, un vaso o un animale usa HD.
+
+## Che sfondo scegliere al posto di quello vecchio
+
+- **Transparent** – il classico **PNG con sfondo trasparente**. È quello che serve per appoggiare l'immagine su una presentazione, un volantino, un sito o un fotomontaggio.
+- **White** – sfondo bianco pieno. È lo standard per le **foto prodotto** di molti negozi online e piattaforme di annunci.
+- **Black**, **Pink**, **Light grey** – alternative pronte per grafiche e post social.
+
+Un appunto sulle foto per documenti: per passaporto, carta d'identità o permessi ci sono regole precise su sfondo, luce e dimensioni del viso. Uno sfondo bianco aggiunto al computer non sempre è accettato; verifica i requisiti dell'ufficio prima di usarla.
+
+## Consigli per un contorno pulito
+
+L'IA lavora meglio se la foto la aiuta:
+
+- **Contrasto tra soggetto e sfondo.** Una maglia scura davanti a un muro chiaro si scontorna meglio di una maglia bianca davanti a un muro bianco.
+- **Soggetto a fuoco e ben illuminato.** Le zone mosse o in ombra creano bordi incerti.
+- **Soggetto intero nell'inquadratura.** Un braccio tagliato dal bordo della foto resta tagliato anche dopo.
+- **Capelli e pelo.** Sono la parte più difficile per qualunque strumento. Uno sfondo semplice e uniforme dietro la testa migliora molto il risultato; per i ritratti con capelli mossi prova anche la modalità HD.
+- **Oggetti trasparenti** (bicchieri, bottiglie) e riflettenti restano complicati: aspettati qualche imperfezione.
+
+## Dopo lo scontorno: dimensioni e peso
+
+Il risultato è sempre un PNG, il formato che conserva la trasparenza. Le immagini molto larghe vengono ridotte a 2000 pixel di larghezza, che bastano per annunci, siti e presentazioni.
+
+- Se una piattaforma chiede **misure precise** (per esempio un'immagine quadrata), usa [Image Resizer](/image-resizer/) per impostare i pixel esatti.
+- Se il file è **troppo pesante** per un sito o un'email, passalo in [Image Compressor](/image-compressor/): i PNG vengono salvati in formato WebP, molto più leggero e capace di conservare la trasparenza. Se la piattaforma accetta solo PNG o JPG, controlla prima che il WebP sia supportato.
+
+## Problemi comuni
+
+**"AI model could not load".** Il modello non è stato scaricato: di solito è un problema di connessione. Controlla la rete e riprova; una volta scaricato, il modello resta disponibile.
+
+**Il messaggio dice che manca la GPU.** Il tuo browser non supporta WebGPU e lo strumento ha usato la modalità Quick. Aggiornare il browser o provare con un'altra versione recente di Chrome o Edge può abilitare la modalità HD.
+
+**Parte del soggetto è stata cancellata.** Succede quando soggetto e sfondo hanno colori molto simili. Prova l'altra modalità, oppure scatta una nuova foto con uno sfondo più contrastato.
+
+**Su telefono è lento.** Il calcolo avviene sul dispositivo. La modalità Quick è la più adatta ai telefoni.
+
+## Privacy: la foto non lascia il tuo dispositivo
+
+Molti servizi online per togliere lo sfondo caricano la foto sui propri server. Qui no: il modello di IA viene scaricato nel browser e l'elaborazione avviene sul tuo computer o telefono. Il tuo ritratto, o la foto di un prodotto non ancora presentato, non viene inviato a DoraPDF.
+
+## Domande frequenti
+
+**Rimuovere lo sfondo è gratis anche in HD?**
+Sì, entrambe le modalità sono gratuite, senza filigrana e senza registrazione.
+
+**Posso scontornare più foto insieme?**
+Lo strumento lavora su una foto alla volta. Per una serie di prodotti, ripeti l'operazione: dopo il primo caricamento del modello ogni foto richiede pochi secondi.
+
+**Il risultato ha la filigrana?**
+No, il PNG scaricato è pulito.
+
+**Funziona offline?**
+Il modello va scaricato la prima volta, quindi serve la connessione. Dopo, l'elaborazione vera e propria avviene sul dispositivo.
+"""),
+dict(slug='estrarre-testo-da-immagine-ocr', lang='it', title='Estrarre testo da un\'immagine con l\'OCR: copiare il testo da foto e screenshot gratis', date='2026-11-18',
+ desc='Estrarre testo da immagine gratis con l\'OCR: copia il testo da foto, screenshot e scansioni in italiano, con consigli per risultati precisi.',
+ tools=['image-to-text', 'pdf-ocr', 'scan-to-pdf'], md="""
+Una pagina di libro fotografata in biblioteca, lo screenshot di una slide, la foto di un avviso in bacheca, un vecchio documento stampato di cui non hai il file: il testo è lì, ma non puoi selezionarlo. Ricopiarlo a mano richiede tempo e porta errori. Per **estrarre il testo da un'immagine** si usa l'OCR (riconoscimento ottico dei caratteri), che "legge" le lettere nella foto e le trasforma in testo modificabile.
+
+Lo strumento [Image to Text](/image-to-text/) di DoraPDF fa proprio questo, gratis e senza registrazione. Il riconoscimento avviene nel tuo browser: le foto non vengono caricate su un server. L'interfaccia è in inglese, ma la lingua del testo da riconoscere la scegli tu, italiano compreso.
+
+## Copiare il testo da una foto: i passaggi
+
+1. Apri [Image to Text](/image-to-text/).
+2. Carica una o più immagini: JPG, PNG, WebP o foto HEIC dell'iPhone. Vanno bene anche gli screenshot.
+3. Nel menu **Language** scegli la lingua del testo, per esempio **Italian**.
+4. Premi **Extract text**.
+5. Il testo compare in un riquadro: puoi correggerlo lì, copiarlo con **Copy text** oppure scaricarlo come file `.txt`.
+
+La prima volta che usi una lingua, il browser scarica il relativo modello di riconoscimento (qualche MB). Dalla volta successiva il processo parte più rapidamente.
+
+Se carichi più immagini, il testo di ognuna viene separato da una riga con il nome del file, così sai sempre da quale foto arriva ogni pezzo.
+
+## Perché la lingua giusta fa la differenza
+
+L'OCR non riconosce solo le forme delle lettere: usa anche la conoscenza della lingua per decidere tra possibilità simili. Con la lingua impostata su **Italian**, le lettere accentate come *à, è, é, ì, ò, ù* e gli apostrofi di *l'anno* o *un'idea* vengono riconosciuti molto meglio che con l'inglese.
+
+Le lingue disponibili sono inglese, italiano, spagnolo, francese, tedesco, portoghese, turco, russo, arabo, urdu, hindi, indonesiano e cinese semplificato. Se un'immagine contiene due lingue, scegli quella prevalente e correggi a mano le parole dell'altra.
+
+## A cosa serve, in pratica
+
+- **Studio:** recuperare citazioni da pagine di libri fotografate, trasformare le slide proiettate in appunti modificabili.
+- **Lavoro:** copiare dati da un documento stampato senza ridigitarli, estrarre il testo di un volantino o di un cartello.
+- **Burocrazia:** riprendere il testo di una vecchia lettera per rispondere, copiare un indirizzo o un codice da una foto.
+- **Accessibilità:** ottenere testo che può essere ingrandito, tradotto o letto ad alta voce da un lettore di schermo.
+
+## Come ottenere un testo più preciso
+
+La qualità dell'OCR dipende dalla qualità dell'immagine molto più che dallo strumento. Prima di scattare:
+
+- **Luce uniforme.** Evita ombre della mano o del telefono sulla pagina.
+- **Foto dritta e frontale.** Le righe inclinate o curve (tipiche delle pagine vicine alla rilegatura di un libro) sono le più difficili.
+- **Avvicinati.** Il testo deve occupare la maggior parte della foto. Meglio due foto nitide di mezza pagina che una foto sfocata dell'intera pagina.
+- **Niente zoom digitale**: avvicina il telefono, non ingrandire lo schermo.
+- **Screenshot invece di foto dello schermo.** Se il testo è su un monitor, uno screenshot dà sempre un risultato migliore di una foto.
+
+Per documenti di più pagine conviene passare prima da [Scan to PDF](/scan-to-pdf/), che ritaglia e raddrizza le pagine e ne migliora il contrasto.
+
+## Cosa l'OCR fa fatica a leggere
+
+Meglio saperlo prima, per non perdere tempo:
+
+- **Scrittura a mano.** Il riconoscimento è pensato per il testo stampato: con la calligrafia i risultati sono di solito poco affidabili.
+- **Tabelle.** Il testo viene estratto riga per riga: i numeri ci sono, ma le colonne vanno sistemate a mano in un foglio di calcolo.
+- **Caratteri decorativi**, scritte su sfondi fotografici, testo molto piccolo o sbiadito.
+- **Impaginazioni a più colonne** (giornali, riviste): a volte le colonne si mescolano. Ritaglia la foto per lavorare una colonna alla volta.
+
+Rileggi sempre il risultato, soprattutto numeri, date e nomi propri: un *1* che diventa *l* o uno *0* che diventa *O* sono errori tipici.
+
+## Hai un PDF scansionato invece di una foto?
+
+Image to Text lavora con le immagini. Se il documento è un PDF scansionato, usa [PDF OCR](/pdf-ocr/): ottieni un PDF dall'aspetto identico in cui il testo diventa selezionabile e ricercabile, più un file di testo. Anche qui puoi scegliere la lingua italiana.
+
+## Privacy: il testo resta tuo
+
+Le immagini da cui si estrae il testo sono spesso documenti personali, appunti, contratti. Image to Text scarica nel browser il modello di riconoscimento ed elabora la foto sul tuo dispositivo: l'immagine e il testo riconosciuto non vengono inviati ai server di DoraPDF.
+
+## Domande frequenti
+
+**Estrarre testo da un'immagine è gratis?**
+Sì, senza limiti di utilizzo, senza filigrane e senza account.
+
+**Funziona dal telefono?**
+Sì, da qualsiasi browser moderno. Su telefono il riconoscimento può richiedere qualche secondo in più, perché il calcolo avviene sul dispositivo.
+
+**Posso estrarre il testo da più foto insieme?**
+Sì: carica più immagini e otterrai un unico testo, diviso per file.
+
+**Il testo estratto mantiene la formattazione?**
+No, si ottiene testo semplice: grassetti, colori e impaginazione non vengono conservati. Puoi incollarlo in Word o Google Documenti e formattarlo lì.
+
+**Riconosce l'italiano con gli accenti?**
+Sì, a patto di selezionare **Italian** nel menu della lingua prima di avviare l'estrazione.
+"""),
+dict(slug='firmare-pdf-online-senza-stampare', lang='it', title='Firmare un PDF online senza stamparlo: disegna o scrivi la firma e inseriscila gratis', date='2026-11-18',
+ desc='Firmare un PDF online gratis senza stampare né scansionare: firma disegnata o scritta, posizione, dimensione e differenza con la firma digitale.',
+ tools=['sign-pdf', 'pdf-editor', 'pdf-merger'], md="""
+Il copione è sempre lo stesso: ricevi un PDF da firmare, lo stampi, firmi con la penna, lo scansioni (storto) e lo rispedisci. Per molti documenti di tutti i giorni (un modulo di adesione, una delega, una liberatoria, l'accettazione di un preventivo) esiste un modo più rapido: **firmare il PDF online**, direttamente dal computer o dal telefono.
+
+Con [Sign PDF](/sign-pdf/) di DoraPDF disegni la firma con il mouse o con il dito, oppure la scrivi con la tastiera, e la inserisci nel documento. È gratis, non serve registrarsi e il PDF non viene caricato su un server. La schermata dello strumento è in inglese; qui sotto trovi ogni passaggio in italiano.
+
+## Firma elettronica semplice o firma digitale? Chiariamolo subito
+
+Una firma disegnata e inserita in un PDF è una **firma elettronica semplice**: un'immagine della tua firma sul documento. Per moltissimi usi quotidiani è sufficiente e accettata.
+
+Non è però una **firma digitale**, cioè la firma con certificato qualificato rilasciata da un ente certificatore (tramite smart card, token o firma remota), che alcuni atti richiedono espressamente: contratti con la pubblica amministrazione, determinate pratiche professionali, atti con valore legale particolare. Se il destinatario chiede un file firmato digitalmente (spesso con estensione `.p7m`), una firma disegnata non basta.
+
+**In pratica:** se nel modulo leggi "firma" e il destinatario accetta un PDF via email, la firma disegnata va bene. Se leggi "firma digitale" o "firmato digitalmente", serve il kit di firma. Nel dubbio, chiedi a chi deve ricevere il documento.
+
+## Come firmare un PDF online, passo per passo
+
+**1. Crea la firma.** Nel riquadro bianco in alto, disegna la tua firma con il mouse, il touchpad o il dito sullo schermo del telefono. Non ti piace? Premi **Clear** e riprova. In alternativa, scrivi il tuo nome nel campo **Or type it**: verrà mostrato in uno stile corsivo.
+
+**2. Carica il PDF.** Trascinalo nell'area di caricamento o toccala per sceglierlo.
+
+**3. Scegli dove metterla:**
+
+- **Page** – la pagina da firmare. Il valore predefinito è `last`, cioè l'ultima pagina, dove di solito si trova lo spazio per la firma. Per un'altra pagina scrivi il numero, per esempio `2`.
+- **Position** – in basso a destra (*Bottom right*), in basso a sinistra (*Bottom left*) o in basso al centro (*Bottom center*).
+- **Size** – un cursore per regolare la larghezza della firma rispetto alla pagina.
+
+**4. Firma e scarica.** Premi **Sign PDF** e scarica il file, che si chiamerà `nomefile-signed.pdf`.
+
+## Consigli per una firma credibile
+
+- **Disegna in grande.** Usa tutta la larghezza del riquadro: la firma verrà poi rimpicciolita e risulterà più pulita.
+- **Dal telefono viene meglio.** Firmare con il dito sullo schermo è più naturale che con il mouse. Puoi anche usare un pennino su tablet.
+- **Regola la dimensione.** Una firma enorme sembra finta, una minuscola non si legge. Per un documento A4 un valore intorno a quello predefinito è di solito equilibrato.
+- **Controlla il risultato.** Apri il PDF firmato e verifica che la firma non copra testo o timbri. Se è nel posto sbagliato, riparti dal file originale cambiando posizione o dimensione.
+
+La firma viene inserita nella parte bassa della pagina, a un margine fisso dal bordo. Funziona bene con i documenti che hanno lo spazio firma in fondo; se il riquadro della firma è a metà pagina, valuta se il destinatario accetta la firma in basso.
+
+## "Luogo e data", più pagine e altri casi
+
+**Compilare luogo, data e nome.** Molti moduli chiedono anche *Luogo e data* accanto alla firma. Puoi aggiungerli con [PDF Editor](/pdf-editor/): clicchi nel punto della pagina in cui vuoi scrivere, inserisci il testo e salvi. Conviene farlo prima di firmare.
+
+**Firmare più pagine.** Sign PDF aggiunge una firma per volta. Per siglare anche altre pagine, carica di nuovo il file già firmato e ripeti l'operazione cambiando il numero di pagina.
+
+**Rimandare il documento con gli allegati.** Se insieme al modulo firmato devi inviare un documento d'identità, uniscili in un solo file con [PDF Merger](/pdf-merger/).
+
+## Problemi comuni
+
+**La firma risulta spezzata o tremolante.** Con il mouse capita. Prova con il touchpad, con il dito su un telefono o scrivi il nome con la tastiera.
+
+**Ho scritto un numero di pagina che non esiste.** Lo strumento usa la pagina più vicina valida (per esempio l'ultima). Controlla il file prima di inviarlo.
+
+**Il PDF non si apre nello strumento.** Se è protetto da password per l'apertura, aprilo con il tuo lettore PDF e salvane una copia senza protezione.
+
+## Privacy: la tua firma non viene inviata a nessuno
+
+La firma è un dato personale delicato. Con Sign PDF sia l'immagine della firma sia il documento restano nel browser: l'unione avviene sul tuo dispositivo e niente viene caricato sui server di DoraPDF. Non viene creato un archivio delle firme e non serve un account.
+
+## Domande frequenti
+
+**Firmare un PDF online è gratis?**
+Sì, senza registrazione, senza filigrane e senza limiti di documenti.
+
+**Posso firmare un PDF dal telefono?**
+Sì, anzi è il modo più comodo: disegni la firma con il dito direttamente nel browser, su Android o iPhone.
+
+**La firma disegnata ha valore legale?**
+È una firma elettronica semplice: è accettata in molti contesti quotidiani, ma non sostituisce la firma digitale quando questa è richiesta. Per documenti importanti verifica cosa chiede il destinatario.
+
+**Posso salvare la firma per la prossima volta?**
+No, lo strumento non conserva la firma: la disegni o la scrivi ogni volta. È anche una garanzia di privacy.
+"""),
+dict(slug='convertire-word-in-pdf-gratis', lang='it', title='Convertire Word in PDF gratis: da PC, da cellulare o online, e come scegliere il metodo giusto', date='2026-11-18',
+ desc='Convertire Word in PDF gratis da PC, Mac o cellulare: salvare in PDF da Word e Google Documenti, convertitore online nel browser e controlli prima di inviare.',
+ tools=['word-to-pdf', 'pdf-merger', 'pdf-compressor'], md="""
+Il CV da allegare a una candidatura, la tesina da caricare sulla piattaforma dell'università, una lettera formale da mandare via PEC: quasi sempre ti chiederanno un PDF, non un file Word. Il motivo è semplice: un .docx può cambiare aspetto a seconda del programma e dei caratteri installati, mentre un PDF appare uguale su ogni schermo.
+
+**Convertire Word in PDF** è facile, ma non tutti i metodi danno lo stesso risultato. In questa guida trovi le strade gratuite più comuni, da PC e da cellulare, e quando conviene usare il convertitore online [Word to PDF](/word-to-pdf/) di DoraPDF (la schermata dello strumento è in inglese).
+
+## La risposta veloce
+
+- Hai **Word o LibreOffice** sul computer? Salva direttamente in PDF dal programma: è il metodo più fedele.
+- Scrivi su **Google Documenti**? Scarica il documento come PDF.
+- Sei su un **computer non tuo**, sul telefono o senza programmi installati? Usa un convertitore nel browser.
+
+Vediamoli uno per uno.
+
+## Da Word e LibreOffice: il metodo più fedele
+
+**Microsoft Word (Windows):** *File → Salva con nome* e, nel menu del tipo di file, scegli **PDF**. In alternativa *File → Esporta → Crea documento PDF/XPS*.
+
+**Word per Mac:** *File → Salva con nome → Formato file: PDF*, oppure *File → Esporta*.
+
+**LibreOffice Writer:** *File → Esporta come → Esporta direttamente come PDF*.
+
+Con questi metodi il PDF conserva tutto: caratteri, intestazioni e piè di pagina, numeri di pagina, margini, colonne, sommario con link. Il testo resta selezionabile e ricercabile. Per il CV, la tesi o qualsiasi documento importante, è la scelta da preferire.
+
+## Da Google Documenti
+
+*File → Scarica → Documento PDF (.pdf)*. Se hai ricevuto un file Word, caricalo su Google Drive, aprilo con Google Documenti e scaricalo in PDF. Anche questo metodo mantiene l'impaginazione e il testo selezionabile.
+
+## Dal cellulare
+
+Sul telefono hai due possibilità:
+
+- **App di Word o Google Documenti:** apri il file e usa la funzione di esportazione o condivisione in PDF.
+- **Dal browser, senza app:** apri [Word to PDF](/word-to-pdf/), carica il file e scarica il PDF. Comodo quando il documento ti arriva come allegato e non vuoi installare nulla.
+
+## Convertire Word in PDF online con DoraPDF
+
+1. Apri [Word to PDF](/word-to-pdf/).
+2. Carica un file **.docx**. Il vecchio formato .doc non è supportato: aprilo e salvalo come .docx prima di convertirlo.
+3. Premi il pulsante di conversione.
+4. Scarica il PDF, che avrà lo stesso nome del documento.
+
+### Cosa viene conservato e cosa cambia
+
+Il convertitore legge il contenuto del documento e lo impagina in un PDF in formato **A4**. Vengono riportati:
+
+- testo, titoli, grassetto e corsivo;
+- elenchi puntati e numerati;
+- tabelle (con bordi semplici);
+- immagini inserite nel documento.
+
+Ci sono però dei limiti da conoscere:
+
+- il testo usa un **carattere standard** e non i font originali;
+- **intestazioni, piè di pagina e numeri di pagina** non vengono riportati, e nemmeno colonne e margini personalizzati;
+- le **interruzioni di pagina** non seguono quelle di Word: il contenuto scorre da una pagina all'altra;
+- le pagine del PDF vengono create come immagini, quindi **il testo non è selezionabile** né ricercabile.
+
+Per questo il convertitore online è ideale per documenti semplici da leggere o stampare: una lettera, un elenco, una relazione senza impaginazione complessa. Quando l'aspetto deve essere identico all'originale, o il PDF passerà per un sistema automatico che legge il testo (come quelli di selezione del personale), usa uno dei metodi precedenti.
+
+## Controlla prima di inviare
+
+Un minuto di verifica evita brutte figure:
+
+- **Apri il PDF** e scorri tutte le pagine: niente righe tagliate, tabelle fuori posto o immagini mancanti.
+- **Nome del file:** `cv-mario-rossi.pdf` è meglio di `Documento1.pdf`.
+- **Peso:** se il PDF contiene molte foto e supera il limite del portale o della PEC, riducilo con [PDF Compressor](/pdf-compressor/).
+- **Un solo file:** se devi consegnare lettera, CV e allegati in un unico PDF, uniscili con [PDF Merger](/pdf-merger/).
+
+## Problemi frequenti
+
+**Il file non viene accettato.** Probabilmente è un .doc, un .odt o un .rtf. Lo strumento accetta solo .docx: salva il documento in quel formato e riprova.
+
+**Le pagine sono diverse da quelle di Word.** È normale con la conversione online, perché intestazioni, interruzioni di pagina e font personalizzati non vengono riprodotti. Se ti serve l'impaginazione esatta, salva in PDF da Word, LibreOffice o Google Documenti.
+
+**Mancano dei caratteri speciali o dei simboli.** Font particolari e simboli rari possono essere sostituiti. Controlla soprattutto formule e caratteri non latini.
+
+## Privacy
+
+La conversione online avviene nel browser: il file Word viene letto ed elaborato sul tuo dispositivo e non viene caricato sui server di DoraPDF. Non serve registrarsi. Per un CV con indirizzo e numero di telefono, o una lettera con dati personali, è un vantaggio non da poco.
+
+## Domande frequenti
+
+**Convertire Word in PDF online è gratis?**
+Sì, senza registrazione, senza filigrana e senza limiti di documenti.
+
+**Qual è il metodo migliore per una tesi o un CV?**
+Salvare in PDF da Word, LibreOffice o Google Documenti: mantiene font, numeri di pagina e testo selezionabile.
+
+**Posso convertire più file Word insieme?**
+Lo strumento converte un documento alla volta. Se poi ti serve un unico PDF, unisci i file convertiti con PDF Merger.
+
+**E se devo fare il contrario, da PDF a Word?**
+Usa PDF to Word, che trasforma un PDF in un documento .docx modificabile.
+"""),
+dict(slug='converter-pdf-em-word-gratis-sem-perder-formatacao', lang='pt', title='Converter PDF em Word grátis sem perder a formatação: guia prático (com solução para PDF escaneado)', date='2026-11-18',
+ desc='Como converter PDF em Word grátis e editável sem desconfigurar: qual modo escolher, como editar o arquivo, PDF escaneado e privacidade no navegador.',
+ tools=['pdf-to-word', 'pdf-ocr', 'pdf-editor'], md="""
+Você precisa corrigir uma cláusula de um contrato, atualizar um currículo que só existe em PDF ou reaproveitar trechos de uma apostila. Digitar tudo de novo não faz sentido. O caminho mais curto é **converter o PDF em Word**, editar e, se for preciso, salvar em PDF outra vez.
+
+O conversor [PDF to Word](/pdf-to-word/) do DoraPDF transforma um PDF em um arquivo .docx editável, grátis, sem cadastro e sem enviar o documento para um servidor: tudo acontece no seu navegador. A tela da ferramenta está em inglês, mas o processo é simples e está explicado em português logo abaixo.
+
+## O que significa "não perder a formatação"?
+
+Quando alguém procura como converter PDF em Word sem desconfigurar, normalmente quer uma de duas coisas:
+
+1. **Que o documento continue com a mesma cara**: logotipo no lugar, colunas, cores, tabelas desenhadas, só que com o texto editável.
+2. **Que o texto venha limpo e organizado**, pronto para ser reescrito, sem caixas de texto espalhadas pela página.
+
+São objetivos diferentes, e por isso a ferramenta tem dois modos. Escolher o certo resolve a maior parte das frustrações.
+
+## Passo a passo para converter PDF em Word online
+
+1. Abra o [PDF to Word](/pdf-to-word/) no navegador do computador ou do celular.
+2. Arraste o PDF para a área de upload ou toque nela para escolher o arquivo.
+3. No menu **Layout**, escolha o modo:
+    - **Keep original layout (recommended)** – mantém a aparência da página;
+    - **Text only (simple, flowing)** – só o texto, em parágrafos corridos.
+4. Clique no botão de conversão e aguarde alguns segundos.
+5. Baixe o arquivo **.docx**, que terá o mesmo nome do PDF.
+
+O arquivo abre no Microsoft Word, no LibreOffice Writer, no Google Docs e no Pages.
+
+## Modo layout: a página continua igual
+
+Neste modo, cada página do Word reproduz a página do PDF. Imagens, linhas, fundos coloridos e molduras ficam como fundo da página, e o texto é recriado por cima, editável, com fonte, negrito, itálico, cor e tamanho o mais próximos possível do original.
+
+**Use para:** formulários, currículos com design, cartas com papel timbrado, folhetos — qualquer documento em que você vai trocar uma data, um nome ou um valor e quer que o resto continue intacto.
+
+**Saiba que:** cada linha de texto fica posicionada exatamente no seu lugar na página. Isso é ótimo para pequenas correções, mas pouco prático para reescrever parágrafos inteiros, porque o texto não "corre" de uma linha para a outra. Textos inclinados (como um carimbo na diagonal) continuam fazendo parte da imagem de fundo.
+
+## Modo só texto: para reescrever e reaproveitar
+
+Aqui a ferramenta extrai apenas o texto e monta parágrafos normais. Linhas maiores que o restante viram títulos em negrito, e cada página do PDF começa em uma nova página do Word. Imagens e elementos gráficos ficam de fora.
+
+**Use para:** reaproveitar trechos de um artigo no seu TCC (sempre com a devida citação), adaptar um modelo de contrato, transformar uma apostila em resumo, revisar um texto longo.
+
+## Deu erro "No text found"? O PDF é escaneado
+
+Se o PDF nasceu de um scanner, de uma foto ou de um aplicativo de digitalização do celular, ele não tem texto de verdade, só imagens das páginas. Nesse caso a ferramenta avisa: *"No text found — this PDF looks scanned"*.
+
+Para resolver, faça o OCR primeiro:
+
+1. Abra o [PDF OCR](/pdf-ocr/) e envie o mesmo arquivo.
+2. No menu de idioma, selecione **Portuguese** — os acentos e o "ç" são reconhecidos muito melhor.
+3. Rode o OCR (a ferramenta processa até 60 páginas). Você recebe um PDF com texto selecionável e um arquivo de texto.
+4. Converta esse novo PDF com o PDF to Word.
+
+Dica para saber se um PDF é escaneado: tente selecionar uma palavra com o mouse. Se nada é selecionado, ou a página inteira fica marcada como uma imagem, ele precisa de OCR.
+
+## Problemas comuns ao editar o Word convertido
+
+**A fonte ficou diferente.** O PDF usava uma fonte que não está instalada no seu computador, e o Word colocou uma parecida. Se a aparência importa, selecione o texto e aplique uma fonte comum, como Arial ou Calibri.
+
+**O texto que eu digitei invadiu a linha de baixo.** Acontece no modo layout quando a frase nova é maior que a original. Encurte o texto, reduza um ponto da fonte ou, se as mudanças forem grandes, converta de novo no modo *Text only*.
+
+**Não consigo acrescentar linhas na tabela.** No modo layout, a tabela é o desenho do fundo e o conteúdo das células é texto posicionado por cima. Dá para trocar valores, mas não mudar a estrutura. Para trabalhar com os dados, use o modo só texto.
+
+**Só preciso mudar uma palavrinha.** Às vezes nem é preciso converter: com o [PDF Editor](/pdf-editor/) você clica em qualquer ponto da página e acrescenta texto direto no PDF, por exemplo para preencher um campo em branco.
+
+## Seus documentos ficam no seu aparelho
+
+Contratos, holerites, documentos pessoais: muita coisa que vira Word começa como um PDF sensível. O PDF to Word lê e converte o arquivo dentro do navegador. Nada é enviado para os servidores do DoraPDF, e você não precisa criar conta.
+
+## Perguntas frequentes
+
+**Converter PDF em Word no DoraPDF é grátis mesmo?**
+Sim. Sem assinatura, sem marca d'água e sem cadastro.
+
+**Funciona no celular?**
+Sim, em qualquer navegador moderno, no Android ou no iPhone. Em aparelhos mais antigos, PDFs com muitas páginas podem levar um pouco mais, porque o processamento é feito no próprio celular.
+
+**Dá para converter vários PDFs de uma vez?**
+Não, a conversão é de um arquivo por vez. Cada um leva poucos segundos.
+
+**Depois de editar, como volto para PDF?**
+No Word, use *Arquivo → Salvar como → PDF*. No Google Docs, *Arquivo → Fazer download → Documento PDF*.
+
+**E se o PDF tiver senha?**
+Se ele pede senha para abrir, a ferramenta não consegue lê-lo. Se o arquivo é seu e você sabe a senha, abra no seu leitor de PDF, salve uma cópia sem proteção (por exemplo com *Imprimir → Salvar como PDF*) e converta essa cópia.
+"""),
+dict(slug='comprimir-pdf-enviar-email', lang='pt', title='Como comprimir PDF para enviar por e-mail (e diminuir o tamanho sem deixar ilegível)', date='2026-11-18',
+ desc='Comprimir PDF grátis para enviar por e-mail ou anexar em sites: modo Smart ou Strong, como manter a leitura e o que fazer se o arquivo continuar grande.',
+ tools=['pdf-compressor', 'pdf-splitter', 'pdf-merger'], md="""
+Você anexa o PDF, clica em enviar e o e-mail volta: arquivo grande demais. Ou o site de inscrição recusa o documento porque passou do limite. O motivo quase sempre é o mesmo: páginas escaneadas ou fotografadas com o celular, salvas como imagens enormes. A saída é **comprimir o PDF**, diminuindo o tamanho do arquivo sem estragar a leitura.
+
+Com o [PDF Compressor](/pdf-compressor/) do DoraPDF você reduz o tamanho de um PDF grátis, sem cadastro e sem fazer upload: a compressão acontece no seu navegador (a ferramenta está em inglês, mas cada opção está explicada aqui).
+
+## Qual é o tamanho máximo para enviar por e-mail?
+
+Depende do serviço. O Gmail, por exemplo, aceita anexos de até 25 MB por mensagem; acima disso oferece enviar um link do Google Drive. Outros provedores têm limites parecidos ou menores, e o servidor de quem recebe também pode ter o seu. Sites de inscrição, concursos e órgãos públicos costumam indicar o limite por arquivo no edital ou no próprio formulário.
+
+Uma regra útil: mire **bem abaixo do limite**. Um anexo de 24 MB num limite de 25 MB pode falhar, porque o e-mail codifica os anexos e eles ficam maiores no envio.
+
+## Comprimir PDF em 5 passos
+
+1. Abra o [PDF Compressor](/pdf-compressor/).
+2. Arraste o PDF para a área de upload ou toque para escolher.
+3. Em **Mode**, escolha *Smart* ou *Strong*.
+4. Se escolher *Strong*, defina a qualidade das imagens: *High quality*, *Balanced* (padrão) ou *Smallest*.
+5. Clique em **Compress** e baixe o arquivo `nome-compressed.pdf`. Ao lado do nome aparece quanto ele ficou menor, em porcentagem.
+
+## Smart x Strong: entenda a diferença
+
+**Smart — mantém o texto selecionável.** Reorganiza a estrutura interna do PDF sem mexer no conteúdo. Texto, links e qualidade ficam idênticos. A redução costuma ser modesta e, se o PDF já estiver otimizado, pode não haver ganho — nesse caso a ferramenta mostra *"already optimised"*. É a melhor opção para PDFs gerados pelo Word ou por outros programas.
+
+**Strong — compressão máxima.** Cada página é redesenhada e salva como imagem JPG na qualidade escolhida. Em documentos escaneados, a diferença de tamanho costuma ser grande. Em troca, o texto deixa de ser selecionável e pesquisável, os links param de funcionar e campos de formulário viram parte da imagem.
+
+Resumo prático:
+
+- **PDF criado no computador** (relatório, contrato digitado, apresentação exportada): comece pelo **Smart**.
+- **Documento escaneado ou fotografado** (RG, comprovante de residência, nota fiscal impressa): vá direto ao **Strong**.
+
+## Como não deixar o documento ilegível
+
+O erro mais comum é escolher a compressão máxima e enviar sem conferir. Faça assim:
+
+1. Comece com **Strong + Balanced**.
+2. Abra o arquivo comprimido e **dê zoom nas partes críticas**: números pequenos, CPF, código de barras, assinaturas, carimbos.
+3. Se tudo estiver nítido e o tamanho couber no limite, pronto.
+4. Se ainda estiver grande, tente **Smallest** e confira de novo.
+5. Se o *Smallest* borrar os números, volte para *Balanced* e reduza o número de páginas (veja abaixo).
+
+E sempre comprima a partir do **arquivo original**: comprimir duas vezes no modo Strong recomprime imagens já comprimidas e piora a qualidade.
+
+## O PDF continua grande demais? Três saídas
+
+**Divida o arquivo.** Muitos formulários aceitam mais de um anexo, e você pode mandar dois e-mails. Com o [PDF Splitter](/pdf-splitter/) você extrai intervalos de páginas (por exemplo 1-10 e 11-20) ou separa cada página em um PDF próprio.
+
+**Tire páginas desnecessárias.** Versos em branco de uma digitalização, páginas repetidas, termos que o destinatário já tem. Remova antes de comprimir, com o Delete PDF Pages.
+
+**Junte só o que importa.** Se você precisa enviar vários documentos, comprima cada um e depois una em um único arquivo com o [PDF Merger](/pdf-merger/). Assim você controla a qualidade de cada parte.
+
+## Dicas para escanear já pensando no tamanho
+
+- Para documentos de texto, **200 a 300 dpi** costumam ser suficientes.
+- Use **tons de cinza** em vez de colorido quando a cor não importa.
+- No celular, enquadre só o documento, sem a mesa em volta: menos área inútil, arquivo menor.
+
+## Privacidade: o arquivo não sai do seu aparelho
+
+Documentos que vão por e-mail muitas vezes trazem dados pessoais: RG, CPF, comprovantes, holerites, declarações. O PDF Compressor processa o arquivo no seu navegador. Nada é enviado aos servidores do DoraPDF e não é preciso criar conta.
+
+## Perguntas frequentes
+
+**Comprimir PDF diminui a qualidade?**
+No modo Smart, não: o conteúdo fica idêntico. No modo Strong, as páginas viram imagens comprimidas; com *High quality* ou *Balanced* a diferença na tela costuma ser pequena.
+
+**Posso comprimir PDF pelo celular?**
+Sim, no navegador do Android ou do iPhone, sem instalar aplicativo. PDFs longos no modo Strong podem demorar um pouco mais, porque cada página é processada no aparelho.
+
+**Por que meu PDF quase não diminuiu?**
+Provavelmente você usou o modo Smart num arquivo escaneado ou já otimizado. Teste o modo Strong.
+
+**Dá para comprimir vários PDFs de uma vez?**
+A ferramenta trabalha com um arquivo por vez. Comprima um por um ou, se eles vão juntos, una primeiro e comprima o resultado.
+"""),
 dict(slug='fusionner-pdf-gratuit-en-ligne', lang='fr', title='Fusionner des PDF en un seul fichier : gratuit, sans inscription et sans envoi sur un serveur', date='2026-11-17',
  desc='Fusionner des PDF gratuitement, sans inscription : réunissez plusieurs fichiers en un seul PDF dans le bon ordre, sur PC, Mac ou téléphone.',
  tools=['pdf-merger', 'pdf-compressor', 'delete-pdf-pages'], md="""
