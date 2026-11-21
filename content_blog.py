@@ -1,4 +1,861 @@
 POSTS = [
+dict(slug='juntar-pdf-unir-varios-arquivos-em-um-so', lang='pt', title='Juntar PDF: como unir vários arquivos em um só (grátis, sem cadastro e até pelo celular)', date='2026-11-20',
+ desc='Juntar PDF grátis e sem cadastro: una vários arquivos em um só no navegador, acerte a ordem das páginas e deixe o arquivo pronto para enviar.',
+ tools=['pdf-merger', 'pdf-compressor', 'rotate-pdf'], md="""
+Matrícula na faculdade, inscrição em concurso, documentos de admissão no emprego novo, prestação de contas no fim do mês: o formulário tem um único campo de anexo e você tem seis PDFs soltos. Em vez de imprimir tudo e escanear de novo, dá para **juntar os PDFs em um só arquivo** em menos de um minuto.
+
+O [PDF Merger](/pdf-merger/) do DoraPDF une arquivos PDF grátis, sem cadastro e sem marca d'água. Os arquivos são combinados dentro do seu navegador, sem upload para servidor. A tela da ferramenta está em inglês, mas são só três cliques, explicados aqui em português.
+
+## Antes de começar: organize os arquivos
+
+Dois minutos de preparo evitam refazer tudo depois.
+
+- **Reúna tudo numa pasta só**, inclusive o que estiver no e-mail ou no WhatsApp.
+- **Renomeie com números na frente**, na ordem que o destinatário espera: `01-requerimento.pdf`, `02-rg.pdf`, `03-comprovante-residencia.pdf`, `04-historico.pdf`.
+- **Confira se tudo é PDF.** Foto de documento (JPG, PNG, HEIC) precisa virar PDF antes, com o [Images to PDF](/images-to-pdf/). Arquivo do Word, salve como PDF no próprio Word ou use o Word to PDF.
+
+## Como juntar PDF online, passo a passo
+
+1. Abra o [PDF Merger](/pdf-merger/).
+2. Arraste os arquivos para a área de upload ou clique nela para escolher. É preciso adicionar **pelo menos dois PDFs**.
+3. Confira a lista que aparece: os arquivos serão unidos **na ordem da lista**, de cima para baixo. A própria tela avisa: *"they merge in this order"*.
+4. Adicionou algo errado? Remova pelo ✕ ao lado do nome.
+5. Clique em **Merge PDFs** e baixe o arquivo `merged.pdf`.
+
+Todas as páginas de cada arquivo entram no resultado, do jeito que estão. Uma página A4 em pé e uma planilha deitada convivem no mesmo PDF sem distorção.
+
+## Como acertar a ordem das páginas
+
+A lista não muda de ordem arrastando os nomes: cada arquivo novo entra no final. Por isso a ordem se resolve na hora de adicionar.
+
+**Poucos arquivos:** adicione um de cada vez, já na sequência final. Primeiro o requerimento, depois o documento de identidade, depois os comprovantes.
+
+**Muitos arquivos:** use a numeração no nome (`01-`, `02-`...) e selecione todos de uma vez numa pasta ordenada por nome. Normalmente eles chegam na ordem certa, mas olhe a lista antes de clicar no botão.
+
+Errou mesmo assim? Tire os arquivos com o ✕ e adicione de novo na ordem correta. Como nada é enviado para servidor, refazer leva segundos.
+
+## Juntar PDF pelo celular (Android e iPhone)
+
+Não precisa instalar aplicativo. A ferramenta funciona no navegador do telefone.
+
+- **Android:** abra a página no Chrome, toque na área de upload e escolha os PDFs no gerenciador de arquivos ou no Google Drive. O resultado vai para a pasta Downloads.
+- **iPhone:** abra no Safari, toque na área de upload e escolha os arquivos no app Arquivos (o iCloud Drive aparece ali). O PDF unido fica em Arquivos, na pasta Downloads.
+
+Recebeu os documentos pelo WhatsApp? Salve cada PDF no telefone primeiro (no Android, normalmente vão para a pasta do WhatsApp em Documentos; no iPhone, use *Compartilhar → Salvar em Arquivos*) e depois selecione na ferramenta.
+
+## Checklist antes de enviar
+
+Juntou? Antes de anexar, abra o `merged.pdf` e passe por esta lista rápida:
+
+- **A ordem está certa?** Role até o fim e confira a sequência dos documentos.
+- **Alguma página de lado?** Digitalizações feitas na horizontal costumam aparecer giradas. Corrija com o [Rotate PDF](/rotate-pdf/), escolhendo o ângulo e só as páginas que precisam (por exemplo `3, 7`).
+- **Tem página sobrando?** Verso em branco, página repetida? Tire com o Delete PDF Pages, informando os números.
+- **O tamanho cabe no limite?** Juntar várias digitalizações gera arquivos pesados. Se o portal ou o e-mail recusar, passe o resultado no [PDF Compressor](/pdf-compressor/): o modo *Smart* mantém o texto selecionável; o modo *Strong* reduz muito mais documentos escaneados.
+- **O nome diz o que é?** Troque `merged.pdf` por algo como `documentos-admissao-maria-souza.pdf`.
+
+## Problemas comuns e como resolver
+
+**Aparece "Add at least 2 PDF files".** Você adicionou só um arquivo. Coloque pelo menos mais um.
+
+**Um arquivo não entra na lista.** A ferramenta aceita apenas PDF. Converta fotos com o Images to PDF e documentos do Word com o Word to PDF.
+
+**Um PDF com senha deu erro ou saiu estranho.** Arquivos que pedem senha para abrir podem não ser lidos corretamente. Se o documento é seu e você sabe a senha, abra no seu leitor de PDF, salve uma cópia sem proteção (por exemplo com *Imprimir → Salvar como PDF*) e use a cópia.
+
+**No celular antigo está demorando.** Todo o trabalho é feito pelo próprio aparelho. Com muitos arquivos grandes, feche outras abas e tenha um pouco de paciência, ou faça a união no computador.
+
+## Privacidade: seus documentos não saem do aparelho
+
+O que a gente junta em PDF costuma ser sensível: RG, CPF, comprovante de residência, holerite, histórico escolar. O PDF Merger lê os arquivos e monta o documento final dentro do navegador. Nada é enviado aos servidores do DoraPDF e não é preciso criar conta.
+
+## Perguntas frequentes
+
+**Quantos PDFs posso juntar de uma vez?**
+A ferramenta não define um número máximo. O limite prático é a memória do aparelho: dezenas de documentos comuns funcionam bem num computador.
+
+**Juntar PDF diminui a qualidade?**
+Não. As páginas são copiadas como estão, sem nova compressão. Texto, imagens e links continuam iguais.
+
+**Dá para juntar só algumas páginas de cada arquivo?**
+O PDF Merger une arquivos inteiros. Para usar só parte de um documento, extraia as páginas antes com o PDF Splitter e depois junte os arquivos extraídos.
+
+**Tem marca d'água ou limite diário?**
+Não. É grátis, sem marca d'água, sem limite de uso e sem cadastro.
+"""),
+dict(slug='converter-jpg-em-pdf-no-celular', lang='pt', title='Converter JPG em PDF no celular: transformar foto em PDF no Android e no iPhone', date='2026-11-20',
+ desc='Como converter JPG em PDF no celular sem instalar app: várias fotos num só PDF, tamanho A4, fotos HEIC do iPhone e dicas para o documento ficar legível.',
+ tools=['images-to-pdf', 'scan-to-pdf', 'pdf-compressor'], md="""
+O site do concurso pede o RG em PDF. A empresa quer o comprovante de residência "digitalizado". A faculdade aceita o atestado só em PDF. Na prática, o que você tem é uma foto no celular. A boa notícia: **converter JPG em PDF no celular** leva menos de um minuto e não exige baixar nenhum aplicativo.
+
+O [Images to PDF](/images-to-pdf/) do DoraPDF transforma uma ou várias fotos em um único PDF, direto no navegador do telefone, grátis e sem cadastro. As fotos são processadas no próprio aparelho, sem upload. A interface está em inglês; abaixo cada opção está explicada.
+
+## O que você precisa saber antes
+
+- **Formatos aceitos:** JPG, PNG, WebP e também **HEIC**, o formato padrão das fotos do iPhone. A conversão do HEIC é automática.
+- **Cada foto vira uma página.** Cinco fotos geram um PDF de cinco páginas.
+- **A ordem das páginas é a ordem da lista.** Isso importa para frente e verso de documentos.
+
+## Passo a passo no Android
+
+1. Abra o [Images to PDF](/images-to-pdf/) no Chrome (ou no navegador que você usa).
+2. Toque na área de upload. O Android mostra opções como *Câmera*, *Fotos* ou *Arquivos*: escolha onde está a imagem.
+3. Selecione uma ou várias fotos de uma vez.
+4. Em **Page size**, escolha **A4 page** para documentos (explicação mais abaixo).
+5. Toque em **Create PDF** e baixe. O arquivo vai para a pasta **Downloads**, de onde você pode anexar no e-mail, no portal ou no WhatsApp.
+
+## Passo a passo no iPhone
+
+1. Abra o [Images to PDF](/images-to-pdf/) no Safari.
+2. Toque na área de upload e escolha **Fototeca** (ou *Escolher Arquivo*, se a imagem estiver no app Arquivos).
+3. Marque as fotos e toque em *Adicionar*.
+4. Ajuste **Page size** e **Margin**.
+5. Toque em **Create PDF**. Depois do download, o PDF fica no app **Arquivos → Downloads**.
+
+As fotos do iPhone costumam estar em HEIC. Você não precisa fazer nada: a ferramenta converte sozinha. Se o navegador for muito antigo e a foto não carregar, atualize o iOS ou, para as próximas fotos, ative *Ajustes → Câmera → Formatos → Mais Compatível*, que salva em JPG.
+
+## As opções da tela, em português
+
+### Page size (tamanho da página)
+
+- **Fit page to image:** a página fica exatamente do tamanho e formato da foto. Bom para prints de tela, artes e fotos que serão vistas só na tela.
+- **A4 page:** a foto é centralizada e ajustada numa folha A4. É a escolha certa para **documentos que vão para empresas, faculdades e órgãos públicos**, porque é o tamanho que eles imprimem.
+- **US Letter:** tamanho americano, quase nunca usado no Brasil.
+
+A orientação é automática: foto deitada vira página deitada; foto em pé, página em pé.
+
+### Margin (margem)
+
+*No margin*, *Small margin* (padrão) ou *Big margin*. Para documento em A4, a margem pequena fica com cara de digitalização. Para fotos que serão vistas no celular, sem margem aproveita melhor a tela.
+
+PNG com fundo transparente ganha fundo branco no PDF.
+
+## RG, CNH e outros documentos com frente e verso
+
+Muita gente erra aqui: manda frente e verso em dois PDFs separados, ou em ordem trocada.
+
+1. Fotografe a **frente** e depois o **verso**, em fotos separadas.
+2. Adicione primeiro a frente e depois o verso. Cada foto nova entra no fim da lista, e a lista não se reordena arrastando, então a ordem de adição é a ordem final.
+3. Escolha **A4 page** com margem pequena.
+4. Gere o PDF e confira as duas páginas antes de enviar.
+
+Precisa juntar documentos diferentes (RG, comprovante, certidão) num arquivo só? Gere um PDF por documento e una tudo com o PDF Merger, ou adicione todas as fotos de uma vez na ordem certa.
+
+## Como tirar a foto para o PDF ficar legível
+
+O PDF só fica tão bom quanto a foto. Alguns cuidados simples:
+
+- **Luz natural, sem flash.** O flash cria reflexo em documento plastificado.
+- **Celular paralelo ao papel**, bem de cima, para as linhas não ficarem tortas.
+- **Fundo escuro e liso** embaixo de papel claro: as bordas ficam nítidas.
+- **Só o documento no quadro**, sem a mesa em volta.
+- **Toque na tela para focar** no texto antes de fotografar.
+
+Quer resultado de scanner, com bordas recortadas e contraste melhor? Use o [Scan to PDF](/scan-to-pdf/): no celular ele abre a câmera, você arrasta os cantos para recortar e endireitar a página, escolhe um filtro de digitalização e exporta um PDF de várias páginas.
+
+## Problemas comuns
+
+**O PDF ficou grande demais para o site.** Fotos de celular são pesadas. Passe o arquivo no [PDF Compressor](/pdf-compressor/), modo *Strong* com qualidade *Balanced*, e confira se números pequenos continuam legíveis.
+
+**A foto apareceu de lado.** Gire a foto na galeria, salve e adicione de novo. Se o PDF já estiver pronto, gire a página com o Rotate PDF.
+
+**Preciso de um PDF para cada foto.** Converta uma foto por vez: cada conversão gera um PDF com o nome da imagem.
+
+## Privacidade
+
+Foto de RG, CNH, comprovante e holerite é exatamente o tipo de arquivo que você não quer espalhado por aí. O Images to PDF monta o PDF dentro do navegador: as fotos não são enviadas aos servidores do DoraPDF e não há cadastro.
+
+## Perguntas frequentes
+
+**Converter foto em PDF no celular é grátis?**
+Sim, sem limite de uso, sem marca d'água e sem criar conta.
+
+**Quantas fotos cabem num PDF?**
+Não há número fixo. Depende da memória do aparelho. Em celulares mais simples, para muitas fotos, faça em grupos e depois junte os PDFs.
+
+**A qualidade da foto cai?**
+Imagens muito grandes são reduzidas para uma resolução ainda alta, suficiente para ler e imprimir em A4.
+
+**Qual o nome do arquivo gerado?**
+Com uma foto, o PDF leva o nome da imagem. Com várias, chama-se `images.pdf`. Renomeie antes de enviar.
+"""),
+dict(slug='remover-fundo-de-imagem-gratis-com-ia', lang='pt', title='Remover fundo de imagem grátis com IA: PNG transparente ou fundo branco em segundos', date='2026-11-20',
+ desc='Remover fundo de imagem grátis com IA no navegador: PNG transparente ou fundo branco para fotos de produto, perfil e logos, sem enviar a foto a servidor.',
+ tools=['image-background-remover', 'image-resizer', 'image-compressor'], md="""
+Quem vende pela internet sabe: a mesma peça fotografada sobre a colcha da cama ou sobre um fundo branco limpo parece outro produto. E não é só loja. Foto de perfil profissional, logo para colocar num slide colorido, figurinha, convite: em todos esses casos dá vontade de **tirar o fundo da foto**.
+
+O [Background Remover](/image-background-remover/) do DoraPDF remove o fundo de imagens com inteligência artificial, grátis e sem cadastro. O detalhe que faz diferença: a IA roda **dentro do seu navegador**, então a foto não é enviada para servidor nenhum. A tela da ferramenta está em inglês, mas tudo está explicado aqui.
+
+## Para que serve, na prática
+
+- **Foto de produto** com fundo branco para lojas virtuais, marketplaces e catálogo no WhatsApp Business.
+- **Imagem com fundo transparente (PNG)** para colocar sobre outra cor ou foto: slides, banners, posts, convites.
+- **Foto de perfil** mais limpa para currículo ou rede profissional.
+- **Logo** que veio com fundo branco e precisa ficar sobre um fundo escuro.
+
+## Como remover o fundo de uma foto
+
+1. Abra o [Background Remover](/image-background-remover/).
+2. Envie a imagem: JPG, PNG, WebP ou HEIC do iPhone.
+3. Em **Mode**, escolha *Quick* ou *HD* (diferença logo abaixo).
+4. Em **Background**, escolha o que vai no lugar do fundo antigo.
+5. Clique em **Remove background**.
+6. Arraste o controle deslizante para comparar o antes e o depois e baixe o PNG, que se chama `nome-da-foto-no-bg.png`.
+
+Na primeira vez, o navegador baixa o modelo de IA, então demora um pouco mais. Nas próximas, começa bem mais rápido.
+
+## Quick ou HD?
+
+**⚡ Quick — pessoas e retratos.** Usa um modelo leve, de cerca de 13 MB, baixado uma única vez. É rápido e roda em quase qualquer aparelho, inclusive celular. Ideal para selfies, fotos de perfil e meio corpo.
+
+**✨ HD — qualquer objeto.** Usa um modelo bem maior, de cerca de 115 MB, também baixado uma vez só. Reconhece melhor produtos, animais e contornos complicados. Precisa de um navegador moderno com aceleração por GPU (WebGPU). Se o seu não tiver, a ferramenta avisa e usa o modo Quick automaticamente.
+
+**Regra simples:** pessoa → comece pelo Quick. Tênis, bolsa, caneca, planta, cachorro → HD.
+
+## Qual fundo escolher
+
+- **Transparent:** o famoso **PNG com fundo transparente**. Use quando a imagem vai ser colocada sobre outra coisa.
+- **White:** fundo branco sólido, o padrão para foto de produto em muitas lojas online.
+- **Black**, **Pink** e **Light grey:** opções prontas para artes e redes sociais.
+
+Atenção com foto 3x4 ou foto para documento oficial: esses órgãos têm regras de iluminação, enquadramento e fundo. Um fundo branco colocado no computador nem sempre é aceito, então confira as exigências antes.
+
+## Dicas para um recorte caprichado
+
+A IA trabalha melhor quando a foto ajuda:
+
+- **Contraste entre objeto e fundo.** Camiseta escura na frente de parede clara recorta melhor que camiseta branca na frente de parede branca.
+- **Boa luz e foco.** Partes tremidas ou na sombra geram bordas indefinidas.
+- **Objeto inteiro no quadro.** O que foi cortado pela borda da foto continua cortado.
+- **Cabelo e pelo** são o desafio de qualquer ferramenta. Fundo liso atrás da cabeça ajuda muito; teste também o modo HD.
+- **Vidro, garrafa transparente e objetos espelhados** continuam difíceis: espere alguma imperfeição.
+
+Para foto de produto em série, monte um "estúdio" simples: uma cartolina clara apoiada na parede, formando uma curva até a mesa, e luz de janela de lado. As fotos ficam parecidas entre si e a IA recorta todas com mais facilidade.
+
+## Depois do recorte: tamanho e peso do arquivo
+
+O resultado é sempre PNG, formato que preserva a transparência. Imagens muito largas são reduzidas para 2000 pixels de largura, o que atende bem lojas virtuais, sites e apresentações.
+
+- Plataforma pede **medida exata**, como imagem quadrada de 1000 x 1000? Ajuste com o [Image Resizer](/image-resizer/), por pixels ou porcentagem.
+- Arquivo **pesado demais** para o site ou para o e-mail? O [Image Compressor](/image-compressor/) salva PNGs como WebP, bem mais leve e ainda com transparência. Só confira antes se o lugar onde você vai publicar aceita WebP.
+
+## Quando algo dá errado
+
+**"AI model could not load".** O modelo não foi baixado, quase sempre por conexão instável. Verifique a internet e tente de novo.
+
+**Mensagem dizendo que não há GPU.** Seu navegador não tem WebGPU e a ferramenta usou o modo Quick. Uma versão recente do Chrome ou do Edge pode liberar o HD.
+
+**A IA apagou parte do objeto.** Acontece quando objeto e fundo têm cores parecidas. Teste o outro modo ou fotografe de novo com um fundo mais contrastante.
+
+**No celular ficou lento.** O processamento é feito no próprio aparelho. Prefira o modo Quick no telefone.
+
+## Privacidade: a foto fica com você
+
+Muitos removedores de fundo online enviam a imagem para um servidor. Aqui, o modelo de IA é baixado para o navegador e o processamento acontece no seu computador ou celular. Seu retrato, ou a foto de um produto que ainda nem foi lançado, não é enviado ao DoraPDF.
+
+## Perguntas frequentes
+
+**O modo HD também é grátis?**
+Sim. Os dois modos são gratuitos, sem marca d'água e sem cadastro.
+
+**Dá para remover o fundo de várias fotos de uma vez?**
+A ferramenta trabalha com uma foto por vez. Depois que o modelo é carregado na primeira imagem, as seguintes levam poucos segundos.
+
+**O PNG sai com marca d'água?**
+Não, o arquivo baixado é limpo.
+
+**Funciona sem internet?**
+Na primeira vez é preciso conexão para baixar o modelo. O processamento em si acontece no aparelho.
+"""),
+dict(slug='extrair-texto-de-imagem-ocr-gratis', lang='pt', title='Extrair texto de imagem (OCR) grátis: como copiar o texto de uma foto ou print', date='2026-11-20',
+ desc='Extrair texto de imagem grátis com OCR em português: copie o texto de fotos, prints e páginas de livro, com dicas para menos erros com acentos e ç.',
+ tools=['image-to-text', 'pdf-ocr', 'scan-to-pdf'], md="""
+Você tem o texto na sua frente, mas não consegue selecionar: é a foto de uma página de livro, o print de um slide da aula, a imagem de um comunicado que chegou no grupo, um documento antigo que só existe impresso. Digitar tudo de novo cansa e gera erro. A solução é **extrair o texto da imagem** com OCR, o reconhecimento óptico de caracteres, que "lê" as letras da foto e devolve texto editável.
+
+O [Image to Text](/image-to-text/) do DoraPDF faz isso de graça e sem cadastro. O reconhecimento acontece no seu navegador: a imagem não é enviada para servidor. A tela está em inglês, mas o idioma do texto reconhecido você escolhe, e **português está na lista**.
+
+## Copiar texto de imagem em 5 passos
+
+1. Abra o [Image to Text](/image-to-text/).
+2. Envie uma ou mais imagens: JPG, PNG, WebP, foto HEIC do iPhone ou print de tela.
+3. No menu **Language**, escolha **Portuguese**.
+4. Clique em **Extract text**.
+5. O texto aparece numa caixa. Corrija ali mesmo se quiser e depois clique em **Copy text** ou baixe o arquivo `.txt`.
+
+Na primeira vez que você usa um idioma, o navegador baixa o modelo de reconhecimento dele (de 2 a 10 MB, aproximadamente). Depois disso, o processo começa mais rápido.
+
+Enviou várias imagens? O texto de cada uma vem separado por uma linha com o nome do arquivo, assim você sabe de qual foto saiu cada trecho.
+
+## Por que escolher "Portuguese" faz tanta diferença
+
+O OCR não olha só o desenho das letras: ele também usa o conhecimento do idioma para decidir entre opções parecidas. Com o idioma em inglês, palavras como *atenção*, *não*, *pôr* e *você* costumam sair sem acento ou com caracteres trocados. Com **Portuguese**, o ç, o til e os acentos são reconhecidos muito melhor.
+
+Outros idiomas disponíveis: inglês, espanhol, francês, alemão, italiano, turco, russo, árabe, urdu, hindi, indonésio e chinês simplificado. Texto misturado, como um artigo em português com citações em inglês? Escolha o idioma que predomina e revise o restante.
+
+## Usos do dia a dia
+
+- **Estudo:** transformar páginas de livro fotografadas na biblioteca em fichamento; passar slides fotografados para as suas anotações.
+- **Trabalho:** reaproveitar o texto de um documento impresso sem redigitar; copiar dados de um panfleto ou cartaz.
+- **Burocracia:** copiar endereço, número de protocolo ou código que está só numa foto.
+- **Acessibilidade:** ter o texto em formato que pode ser ampliado, traduzido ou lido em voz alta por leitor de tela.
+
+## Como tirar a foto para o OCR acertar mais
+
+A qualidade da imagem pesa mais que qualquer configuração. Antes de fotografar:
+
+1. **Luz uniforme.** Cuidado com a sombra da sua mão ou do celular sobre a página.
+2. **Foto reta, de frente.** Linhas inclinadas ou curvas, como as perto da lombada do livro, são as mais difíceis.
+3. **Chegue perto.** O texto deve ocupar quase toda a foto. Duas fotos nítidas de meia página rendem mais que uma foto borrada da página inteira.
+4. **Nada de zoom digital.** Aproxime o celular em vez de ampliar na tela.
+5. **Na tela, use print.** Se o texto está num monitor ou no celular, um print sempre dá resultado melhor que fotografar a tela.
+
+Para documentos de várias páginas, vale passar antes pelo [Scan to PDF](/scan-to-pdf/), que recorta, endireita e melhora o contraste das páginas.
+
+## O que o OCR ainda faz mal
+
+Melhor saber antes para não perder tempo:
+
+- **Letra de mão.** O reconhecimento é feito para texto impresso; com caligrafia o resultado costuma ser fraco.
+- **Tabelas.** O texto sai linha por linha. Os números estão lá, mas as colunas precisam ser arrumadas numa planilha.
+- **Fontes decorativas**, texto sobre foto, letras muito pequenas ou desbotadas.
+- **Páginas com várias colunas** (jornal, revista): as colunas podem se misturar. Recorte a foto e faça uma coluna por vez.
+
+Sempre revise números, datas e nomes próprios. Trocas como *1* por *l* e *0* por *O* são os erros mais comuns.
+
+## E se o arquivo for um PDF escaneado?
+
+O Image to Text trabalha com imagens. Para PDF escaneado, use o [PDF OCR](/pdf-ocr/): ele processa até 60 páginas e devolve um PDF com a mesma aparência, mas com texto selecionável e pesquisável, além de um arquivo de texto. Lá você também escolhe **Portuguese**.
+
+## Privacidade
+
+As imagens das quais se extrai texto muitas vezes são pessoais: anotações, contratos, documentos. O Image to Text baixa o modelo de reconhecimento para o navegador e processa a foto no seu aparelho. Nem a imagem nem o texto reconhecido são enviados aos servidores do DoraPDF.
+
+## Perguntas frequentes
+
+**Extrair texto de imagem é grátis?**
+Sim, sem limite de uso, sem marca d'água e sem conta.
+
+**Funciona no celular?**
+Sim, em qualquer navegador atual. No telefone pode levar alguns segundos a mais, porque o cálculo é feito no aparelho.
+
+**O texto mantém negrito e formatação?**
+Não. O resultado é texto simples. Cole no Word ou no Google Docs e formate por lá.
+
+**Reconhece português com acento e cedilha?**
+Sim, desde que você selecione **Portuguese** no menu de idioma antes de clicar em Extract text.
+
+**Posso processar várias fotos juntas?**
+Pode. Envie várias imagens e você recebe um único texto, separado por arquivo.
+"""),
+dict(slug='pdf-naar-word-omzetten-zonder-opmaak-te-verliezen', lang='nl', title='PDF naar Word omzetten zonder dat de opmaak verdwijnt (gratis, in je browser)', date='2026-11-20',
+ desc='PDF naar Word omzetten met behoud van opmaak: welke modus je kiest, hoe je het .docx-bestand netjes bewerkt en wat je doet met een gescande PDF.',
+ tools=['pdf-to-word', 'pdf-ocr', 'word-to-pdf'], md="""
+Een huurcontract waarin één datum moet veranderen. Een aanmeldformulier van de sportclub dat je liever typt dan met de hand invult. Een oud cv dat je alleen nog als PDF hebt. In al die gevallen wil je de PDF **omzetten naar Word**, aanpassen en daarna weer opslaan. Het probleem dat iedereen kent: na het omzetten staan tabellen scheef, zijn kopjes verdwenen of springt de tekst alle kanten op.
+
+Met de [PDF to Word](/pdf-to-word/)-converter van DoraPDF zet je een PDF gratis om naar een bewerkbaar .docx-bestand, zonder account en zonder je bestand te uploaden. De conversie gebeurt in je browser. Het scherm van de tool is in het Engels, maar je hebt maar één keuze te maken, en die leggen we hieronder uit.
+
+## In vijf stappen van PDF naar Word
+
+1. Open [PDF to Word](/pdf-to-word/) op je pc, Mac, tablet of telefoon.
+2. Sleep de PDF naar het uploadvak of klik erop om een bestand te kiezen.
+3. Kies bij **Layout** een van de twee modi (zie hieronder).
+4. Start de conversie. Bij lange documenten duurt het iets langer, omdat je eigen apparaat het werk doet.
+5. Download het **.docx**-bestand. Het krijgt dezelfde naam als je PDF.
+
+Het bestand opent in Microsoft Word, LibreOffice Writer, Google Documenten en Pages.
+
+## De belangrijkste keuze: welke modus?
+
+### Keep original layout (aanbevolen)
+
+Dit is de standaardinstelling en de modus die je wilt als **het document er hetzelfde uit moet blijven zien**. Elke Word-pagina toont de oorspronkelijke PDF-pagina: achtergrond, afbeeldingen, lijnen en kaders blijven op hun plek. Daarbovenop wordt de tekst opnieuw opgebouwd als echte, bewerkbare tekst, met lettertype, vet, cursief, kleur en grootte zo dicht mogelijk bij het origineel.
+
+Ideaal voor:
+
+- een formulier dat je digitaal wilt invullen;
+- een brief op briefpapier waarin een adres of datum verandert;
+- een folder of uitnodiging met een kleine correctie.
+
+Goed om te weten: elke tekstregel staat in deze modus op een vaste plek op de pagina. Perfect voor kleine aanpassingen, minder handig als je hele alinea's herschrijft, want de tekst loopt niet vanzelf door naar de volgende regel. Schuine tekst, zoals een stempel, blijft onderdeel van de achtergrond.
+
+### Text only
+
+Hier haalt de converter alleen de tekst uit de PDF en zet die in gewone, doorlopende alinea's. Regels die duidelijk groter zijn dan de rest worden vetgedrukte kopjes, en elke PDF-pagina begint op een nieuwe pagina. Afbeeldingen en vormgeving gaan niet mee.
+
+Kies deze modus als het je om de **inhoud** gaat: stukken uit een rapport hergebruiken, een reglement aanpassen voor je eigen vereniging, aantekeningen verder uitwerken.
+
+**Kort gezegd:** kleine wijziging, zelfde uiterlijk → *Keep original layout*. Tekst herschrijven → *Text only*.
+
+## "No text found"? Dan is je PDF gescand
+
+Veel PDF's bevatten geen echte tekst maar foto's van pagina's: alles wat door een scanner is gegaan, documenten die je met je telefoon hebt gefotografeerd en veel oude archiefstukken. De converter stopt dan met de melding *"No text found — this PDF looks scanned"*.
+
+Zo los je dat op:
+
+1. Open [PDF OCR](/pdf-ocr/) en laad dezelfde PDF.
+2. Kies bij de taal **English**. Nederlands staat (nog) niet in de lijst, maar Nederlandse tekst gebruikt grotendeels dezelfde letters, dus dit werkt meestal goed.
+3. Start de OCR. De tool verwerkt tot 60 pagina's en geeft je een PDF met selecteerbare tekst, plus een tekstbestand.
+4. Zet die nieuwe PDF om met PDF to Word en controleer woorden met ë, ï of é, zoals *ideeën* of *café*.
+
+Snelle test of een PDF gescand is: probeer met je muis één woord te selecteren. Wordt de hele pagina blauw als één plaatje, dan heb je OCR nodig.
+
+## Bewerken zonder dat alles verschuift
+
+Een paar gewoontes die veel ergernis schelen:
+
+- **Schrijf in de layoutmodus niet langer dan het origineel.** Een langere zin loopt over de volgende regel heen. Kort in, maak de letter een punt kleiner, of kies bij veel wijzigingen alsnog voor *Text only*.
+- **Ander lettertype?** De PDF gebruikte een font dat niet op je computer staat, dus Word kiest een vervanger. Is het uiterlijk belangrijk, selecteer dan alles en kies een standaardfont als Arial of Calibri.
+- **Tabellen** zijn in de layoutmodus tekst bovenop een getekende tabel. Je kunt de inhoud aanpassen, maar geen rijen toevoegen. Wil je met de cijfers rekenen, kopieer ze dan uit de *Text only*-versie naar Excel.
+- **Bewaar het origineel.** Werk altijd in een kopie, zodat je kunt vergelijken.
+
+## Klaar? Terug naar PDF
+
+Om te versturen of af te drukken zet je het document weer om naar PDF. In Word via *Bestand → Opslaan als → PDF*, in Google Documenten via *Bestand → Downloaden → PDF-document*. Geen programma bij de hand? Met [Word to PDF](/word-to-pdf/) zet je een .docx direct in je browser om.
+
+## Privacy: je document blijft op je apparaat
+
+Contracten, loonstroken en formulieren met je BSN wil je niet zomaar ergens uploaden. Bij PDF to Word wordt de PDF in je browser gelezen en verwerkt, op je eigen computer of telefoon. Er gaat niets naar de servers van DoraPDF en je hoeft geen account aan te maken.
+
+## Veelgestelde vragen
+
+**Is PDF naar Word omzetten bij DoraPDF echt gratis?**
+Ja. Geen abonnement, geen watermerk en geen registratie.
+
+**Kan ik meerdere PDF's tegelijk omzetten?**
+Nee, de tool zet één bestand per keer om. Een conversie duurt meestal maar een paar seconden.
+
+**Werkt het op mijn iPhone of Android-telefoon?**
+Ja, in de browser. Op oudere telefoons duurt een lang document wat langer.
+
+**Waarom kan ik de afbeeldingen in Word niet verplaatsen?**
+In de layoutmodus vormen afbeeldingen en vormgeving de achtergrond van de pagina, zodat alles op zijn plek blijft. De tekst erboven is wel bewerkbaar.
+
+**Werkt het met een beveiligde PDF?**
+Vraagt de PDF om een wachtwoord om te openen, dan kan de converter hem niet lezen. Is het jouw document en ken je het wachtwoord, open het dan in je PDF-lezer, sla een onbeveiligde kopie op (bijvoorbeeld via *Afdrukken → Opslaan als PDF*) en zet die om.
+"""),
+dict(slug='pdf-verkleinen-voor-email-en-uploads', lang='nl', title='PDF verkleinen voor e-mail en uploads: zo maak je een te grote PDF kleiner', date='2026-11-20',
+ desc='PDF verkleinen gratis en zonder upload: het verschil tussen Smart en Strong, hoe de tekst leesbaar blijft en wat je doet als de PDF nog steeds te groot is.',
+ tools=['pdf-compressor', 'pdf-splitter', 'delete-pdf-pages'], md="""
+"Bestand is te groot." Die melding krijg je precies op het moment dat het niet uitkomt: bij een sollicitatie die vandaag de deur uit moet, bij het uploaden van bewijsstukken voor je zorgverzekeraar of bij een mail naar je boekhouder met een stapel gescande bonnen. Bijna altijd zit het probleem in gescande of gefotografeerde pagina's die als enorme afbeeldingen in de PDF zitten. De oplossing: de **PDF verkleinen**.
+
+Met de [PDF Compressor](/pdf-compressor/) van DoraPDF maak je een PDF gratis kleiner, zonder account en zonder je bestand te uploaden: het comprimeren gebeurt in je browser. De tool is in het Engels; alle opties staan hieronder in het Nederlands uitgelegd.
+
+## Eerst even: hoe groot mag het zijn?
+
+Dat verschilt per dienst. Gmail accepteert bijvoorbeeld bijlagen tot 25 MB per bericht en biedt daarboven een Google Drive-link aan. Andere mailproviders hanteren vergelijkbare of lagere grenzen, en de mailserver van de ontvanger kan strenger zijn. Uploadformulieren van werkgevers, gemeenten en verzekeraars vermelden de maximale bestandsgrootte meestal bij het uploadveld.
+
+Mik ruim onder de grens. Bijlagen worden bij verzending gecodeerd en worden daardoor groter dan het bestand op je schijf.
+
+## PDF kleiner maken in vijf stappen
+
+1. Open de [PDF Compressor](/pdf-compressor/).
+2. Sleep je PDF naar het uploadvak of klik om een bestand te kiezen.
+3. Kies bij **Mode** voor *Smart* of *Strong*.
+4. Bij *Strong* kies je ook de beeldkwaliteit: *High quality*, *Balanced* (standaard) of *Smallest*.
+5. Klik op **Compress** en download `bestandsnaam-compressed.pdf`. Naast de naam zie je hoeveel procent kleiner het bestand is geworden.
+
+## Smart of Strong: wat is het verschil?
+
+**Smart houdt de tekst selecteerbaar.** Deze modus herschikt de interne structuur van de PDF zonder iets aan de inhoud te veranderen. Tekst, links en kwaliteit blijven precies hetzelfde. De winst is meestal bescheiden, en is de PDF al geoptimaliseerd, dan meldt de tool *"already optimised"*. De beste keuze voor PDF's die uit Word of een ander programma komen.
+
+**Strong geeft maximale compressie.** Elke pagina wordt opnieuw getekend en als JPG-afbeelding opgeslagen in de kwaliteit die je kiest. Bij gescande documenten scheelt dat vaak flink. De keerzijde: tekst is daarna niet meer selecteerbaar of doorzoekbaar, links werken niet meer en invulvelden worden onderdeel van het plaatje.
+
+| Soort PDF | Begin met |
+|---|---|
+| Rapport, offerte of factuur uit een programma | Smart |
+| Gescande of gefotografeerde documenten | Strong + Balanced |
+| Strong + Balanced nog te groot | Strong + Smallest |
+
+## Leesbaar blijven: de controle die mensen overslaan
+
+De grootste fout is de sterkste stand kiezen en het resultaat ongezien versturen. Doe na het comprimeren altijd dit:
+
+1. Open het nieuwe bestand.
+2. **Zoom in op de kritieke plekken:** kleine cijfers, bedragen, IBAN-nummers, handtekeningen, stempels.
+3. Alles scherp en onder de grens? Klaar.
+4. Te wazig? Ga een stap terug in kwaliteit en maak de PDF op een andere manier kleiner (zie hieronder).
+
+Comprimeer altijd vanaf het **originele bestand**. Twee keer Strong achter elkaar comprimeert al gecomprimeerde afbeeldingen opnieuw, en dat gaat ten koste van de leesbaarheid.
+
+## Nog steeds te groot? Drie uitwegen
+
+**Haal overbodige pagina's weg.** Lege achterkanten van een scan, dubbele pagina's, algemene voorwaarden die de ontvanger al heeft. Met [Delete PDF Pages](/delete-pdf-pages/) vul je de paginanummers in (bijvoorbeeld `2, 4-6`) en je krijgt een PDF zonder die pagina's. Doe dit vóór het comprimeren.
+
+**Splits het bestand.** Accepteert het formulier meerdere bijlagen, of kun je twee mails sturen? Met de [PDF Splitter](/pdf-splitter/) haal je paginabereiken uit een PDF (bijvoorbeeld `1-10` en `11-20`) of maak je van elke pagina een apart bestand.
+
+**Comprimeer per onderdeel.** Moet je meerdere documenten samen opsturen, comprimeer ze dan eerst los en voeg ze daarna samen met de PDF Merger. Zo bepaal je per document hoeveel kwaliteit je inlevert.
+
+## Scannen met het eindformaat in gedachten
+
+- Voor tekstdocumenten is **200 tot 300 dpi** ruim voldoende.
+- Scan in **grijstinten** als kleur er niet toe doet.
+- Fotografeer je met je telefoon, zet dan alleen het document in beeld, zonder tafel eromheen.
+
+## Privacy: je bestand verlaat je apparaat niet
+
+Wat je per mail of upload verstuurt, bevat vaak persoonsgegevens: loonstroken, een kopie van je ID-bewijs (maak daar bij voorkeur een veilige kopie van met afgeschermd BSN), bankafschriften, medische declaraties. De PDF Compressor verwerkt je bestand in de browser. Er gaat niets naar de servers van DoraPDF en een account is niet nodig.
+
+## Veelgestelde vragen
+
+**Gaat de kwaliteit achteruit als ik een PDF verklein?**
+In Smart-modus niet: de inhoud blijft identiek. In Strong-modus worden pagina's gecomprimeerde afbeeldingen; met *High quality* of *Balanced* is het verschil op een scherm meestal klein.
+
+**Kan ik een PDF verkleinen op mijn telefoon?**
+Ja, in de browser van je Android-telefoon of iPhone. Lange PDF's in Strong-modus duren wat langer, omdat je telefoon elke pagina zelf verwerkt.
+
+**Mijn PDF is nauwelijks kleiner geworden. Hoe kan dat?**
+Waarschijnlijk heb je Smart gebruikt op een gescand of al geoptimaliseerd bestand. Probeer Strong.
+
+**Kan ik meerdere PDF's tegelijk verkleinen?**
+De tool werkt met één bestand per keer. Horen ze bij elkaar, voeg ze dan eerst samen en comprimeer het resultaat.
+"""),
+dict(slug='pdf-samenvoegen-tot-een-bestand', lang='nl', title='PDF samenvoegen tot één bestand: gratis, zonder account en ook op je telefoon', date='2026-11-20',
+ desc='PDF samenvoegen tot één bestand, gratis en zonder upload: in de juiste volgorde, op pc of telefoon, met een checklist voor hypotheek, huur en sollicitatie.',
+ tools=['pdf-merger', 'rotate-pdf', 'pdf-compressor'], md="""
+Een hypotheekadviseur die "alles in één PDF graag" wil. Een woningcorporatie of verhuurder met één uploadveld voor loonstroken, werkgeversverklaring en ID. Een vacature waar cv en motivatiebrief samen in één bijlage moeten. Je kunt alles printen en opnieuw scannen, maar sneller is het om de **PDF's samen te voegen** tot één bestand.
+
+De [PDF Merger](/pdf-merger/) van DoraPDF voegt PDF-bestanden gratis samen, zonder account en zonder watermerk. Je bestanden worden in je eigen browser gecombineerd en niet geüpload. Het scherm is in het Engels, maar de stappen zijn simpel.
+
+## Zo voeg je PDF-bestanden samen
+
+1. Open de [PDF Merger](/pdf-merger/).
+2. Sleep je bestanden naar het uploadvak of klik om ze te kiezen. Je hebt er **minstens twee** nodig.
+3. Bekijk de lijst. De bestanden worden samengevoegd **in de volgorde van de lijst**, van boven naar beneden.
+4. Per ongeluk het verkeerde bestand toegevoegd? Klik op het ✕ naast de naam.
+5. Klik op **Merge PDFs** en download `merged.pdf`.
+
+Alle pagina's van elk bestand komen erin, zoals ze zijn. Een staande A4-brief en een liggend overzicht kunnen gewoon in hetzelfde document zitten.
+
+## De volgorde goed krijgen
+
+Je kunt de lijst niet herschikken door namen te verslepen: elk nieuw bestand komt onderaan. De volgorde regel je dus bij het toevoegen.
+
+**Weinig bestanden?** Voeg ze één voor één toe, meteen in de juiste volgorde.
+
+**Veel bestanden?** Zet een nummer voor de bestandsnaam: `01-aanvraagformulier.pdf`, `02-id-bewijs.pdf`, `03-loonstrook-sept.pdf`. Selecteer ze daarna in één keer vanuit een map die op naam is gesorteerd. Meestal komen ze dan in de goede volgorde binnen; kijk de lijst toch even na.
+
+Fout gegaan? Haal de bestanden weg met het ✕ en voeg ze opnieuw toe. Omdat er niets geüpload wordt, ben je zo klaar.
+
+## Checklists voor veelvoorkomende situaties
+
+Vraag altijd na welke volgorde de ontvanger wil. Staat er niets, dan werkt een logische opbouw het best.
+
+**Hypotheek of huurwoning**
+1. Ingevuld aanvraagformulier
+2. Kopie ID-bewijs (voor- en achterkant)
+3. Werkgeversverklaring
+4. Recente loonstroken, nieuwste eerst of oudste eerst, maar consequent
+5. Bankafschriften of overige bewijsstukken
+
+**Sollicitatie**
+1. Motivatiebrief
+2. Cv
+3. Diploma's of certificaten, als daarom gevraagd wordt
+
+**Administratie voor de btw-aangifte of je boekhouder**
+Facturen en bonnen per maand of kwartaal, gesorteerd op datum. Geef het bestand een duidelijke naam, zoals `inkoopfacturen-2026-Q4.pdf`.
+
+## Samenvoegen op je telefoon
+
+Geen app nodig: het werkt in de browser.
+
+- **Android:** open de pagina in Chrome en kies de PDF's via Bestanden of Google Drive. Het resultaat staat in Downloads.
+- **iPhone:** open de pagina in Safari en kies de bestanden in de Bestanden-app (ook iCloud Drive). Na het downloaden vind je de PDF in *Bestanden → Downloads*.
+
+Heb je sommige documenten alleen als foto? Zet ze eerst om met [Images to PDF](/images-to-pdf/) en voeg ze daarna samen.
+
+## Na het samenvoegen: even nalopen
+
+**Pagina's op hun kant?** Een liggend gescande pagina staat in het samengevoegde bestand vaak scheef. Met [Rotate PDF](/rotate-pdf/) draai je alle pagina's of alleen bepaalde, bijvoorbeeld `3, 7`.
+
+**Bestand te groot voor het uploadveld?** Meerdere scans bij elkaar worden al snel zwaar. Haal het resultaat door de [PDF Compressor](/pdf-compressor/): *Smart* houdt de tekst selecteerbaar, *Strong* maakt gescande documenten veel kleiner.
+
+**Lege pagina's of dubbele scans?** Verwijder ze met Delete PDF Pages door de paginanummers in te vullen.
+
+**Bestandsnaam.** `merged.pdf` zegt de ontvanger niets. Maak er `hypotheekaanvraag-de-vries.pdf` van.
+
+## Als het niet lukt
+
+**"Add at least 2 PDF files".** Je hebt maar één bestand toegevoegd. Voeg er minstens één bij.
+
+**Een bestand wordt niet geaccepteerd.** De tool werkt alleen met PDF's. Een Word-bestand sla je eerst op als PDF (of gebruik Word to PDF), een foto zet je om met Images to PDF.
+
+**Een beveiligde PDF geeft problemen.** Vraagt een bestand om een wachtwoord bij het openen, open het dan in je PDF-lezer en sla een onbeveiligde kopie op voordat je gaat samenvoegen.
+
+**Traag op een oudere telefoon.** Je apparaat doet al het werk. Sluit andere tabbladen of voeg grote bestanden samen op een computer.
+
+## Privacy: je documenten blijven bij jou
+
+Juist bij samenvoegen gaat het vaak om gevoelige papieren: ID-bewijs, loonstroken, bankafschriften. De PDF Merger leest je bestanden en bouwt het nieuwe document in je browser. Er wordt niets opgeslagen op de servers van DoraPDF en je hebt geen account nodig.
+
+## Veelgestelde vragen
+
+**Hoeveel PDF's kan ik samenvoegen?**
+De tool heeft geen vast maximum. De praktische grens is het geheugen van je apparaat; tientallen gewone documenten zijn op een computer geen probleem.
+
+**Gaat er kwaliteit verloren bij het samenvoegen?**
+Nee. Pagina's worden ongewijzigd gekopieerd, zonder extra compressie. Tekst, afbeeldingen en links blijven hetzelfde.
+
+**Kan ik maar een paar pagina's uit een PDF meenemen?**
+De PDF Merger voegt hele bestanden samen. Haal de pagina's die je nodig hebt eerst uit het document met de PDF Splitter en voeg die daarna samen.
+
+**Zit er een watermerk of daglimiet op?**
+Nee. Gratis, zonder watermerk, zonder limiet en zonder registratie.
+"""),
+dict(slug='jpg-naar-pdf-omzetten-telefoon-pc', lang='nl', title="JPG naar PDF omzetten op je telefoon en pc: foto's in één PDF, op A4", date='2026-11-20',
+ desc="JPG naar PDF omzetten zonder app: meerdere foto's in één PDF, A4-formaat, iPhone-foto's (HEIC) en tips voor een leesbare foto van je document.",
+ tools=['images-to-pdf', 'scan-to-pdf', 'heic-to-jpg'], md="""
+Een foto van je rijbewijs, een kassabon voor de garantie, de handgeschreven aantekeningen van een vergadering: je hebt ze als foto, maar het formulier accepteert alleen PDF. Gelukkig is **JPG naar PDF omzetten** in een paar tikken gedaan, op je telefoon én op je computer, zonder iets te installeren.
+
+Met [Images to PDF](/images-to-pdf/) van DoraPDF zet je één of meer foto's om in één PDF, gratis en zonder account. De foto's worden op je eigen apparaat verwerkt en niet geüpload. Het scherm is in het Engels; hieronder staat elke optie in het Nederlands uitgelegd.
+
+## Welke bestanden kun je gebruiken?
+
+Naast **JPG** werkt de tool met PNG, WebP en **HEIC**, het standaardformaat van iPhone-foto's. HEIC wordt automatisch omgezet. Elke foto wordt één pagina in de PDF, in de volgorde van de lijst.
+
+## Op de computer: slepen en klaar
+
+Op een pc of Mac is dit de snelste manier:
+
+1. Open [Images to PDF](/images-to-pdf/).
+2. Open de map met je foto's, selecteer ze en sleep ze in één keer naar het uploadvak.
+3. Kijk de lijst na. De pagina's komen in **deze volgorde** in de PDF. Een foto verwijderen doe je met het ✕ naast de naam.
+4. Kies **Page size** en **Margin**.
+5. Klik op **Create PDF** en download het bestand.
+
+Tip: heb je de foto's een nummer gegeven (`01.jpg`, `02.jpg` ...), dan komen ze meestal al in de juiste volgorde binnen.
+
+## Op je telefoon
+
+**iPhone:** open de pagina in Safari, tik op het uploadvak en kies *Fotobibliotheek*. Selecteer de foto's en tik op *Voeg toe*. Na het downloaden staat de PDF in de Bestanden-app, map Downloads.
+
+**Android:** open de pagina in Chrome, tik op het uploadvak en kies je foto's uit de galerij of uit Bestanden. De PDF komt in de map Downloads terecht.
+
+De lijst laat zich niet herschikken door te slepen: elke nieuwe foto komt onderaan. Is de volgorde belangrijk, voeg de foto's dan één voor één toe in de goede volgorde.
+
+## De opties uitgelegd
+
+### Page size
+
+- **Fit page to image:** de pagina krijgt precies de verhoudingen van de foto. Handig voor schermafbeeldingen en foto's die je alleen op een scherm bekijkt.
+- **A4 page:** de foto wordt gecentreerd en geschaald op een A4-pagina. Kies dit voor **documenten die je afdrukt of naar een instantie, werkgever of verzekeraar stuurt**: A4 is hier de standaard.
+- **US Letter:** het Amerikaanse formaat, in Nederland en België zelden nodig.
+
+De oriëntatie gaat vanzelf: een liggende foto komt op een liggende pagina.
+
+### Margin
+
+*No margin*, *Small margin* (standaard) of *Big margin*. Voor een document op A4 ziet een smalle marge er netjes uit, als een echte scan. Doorzichtige delen van een PNG worden wit in de PDF.
+
+## Voorbeeld: ID-bewijs of rijbewijs, voor- en achterkant
+
+1. Maak twee aparte foto's: eerst de voorkant, dan de achterkant.
+2. Voeg ze in die volgorde toe.
+3. Kies **A4 page** met **Small margin**.
+4. Maak de PDF en controleer beide pagina's.
+
+Moet je een kopie van je ID-bewijs delen, scherm dan je BSN en pasfoto af als de ontvanger daar niet om vraagt. De Rijksoverheid biedt hiervoor de KopieID-app aan; vraag bij twijfel na wat de ontvanger precies nodig heeft.
+
+## Zo maak je een foto die goed leesbaar blijft
+
+- **Daglicht, geen flitser.** Flitslicht geeft schittering op glanzend papier en plastic pasjes.
+- **Telefoon recht boven het papier**, niet schuin. Dan blijven regels recht.
+- **Donkere, egale ondergrond** onder licht papier: de randen vallen dan goed op.
+- **Alleen het document in beeld**, geen tafel of toetsenbord eromheen.
+
+Wil je een resultaat dat op een echte scan lijkt? Gebruik dan [Scan to PDF](/scan-to-pdf/): op je telefoon opent het de camera, je sleept de hoeken om de pagina bij te snijden en recht te zetten, kiest een scanfilter en exporteert een PDF met meerdere pagina's.
+
+## Veelvoorkomende problemen
+
+**De PDF is te groot om te uploaden.** Foto's van moderne telefoons zijn groot. Maak de PDF kleiner met de PDF Compressor (modus *Strong*, kwaliteit *Balanced*) en controleer daarna of kleine cijfers nog leesbaar zijn.
+
+**De foto staat op zijn kant.** Draai de foto in je galerij, sla hem op en voeg hem opnieuw toe. Of draai de pagina achteraf met Rotate PDF.
+
+**HEIC-foto's laden niet.** Werk je browser bij. Wil je de foto's zelf ook als JPG hebben, bijvoorbeeld voor een website die geen HEIC accepteert, zet ze dan om met [HEIC to JPG](/heic-to-jpg/).
+
+**Ik wil per foto een aparte PDF.** Zet de foto's één voor één om. Elke conversie levert een PDF op met de naam van de foto.
+
+## Privacy
+
+De foto's die je naar PDF omzet zijn vaak de gevoeligste: ID-bewijs, loonstroken, medische papieren. Images to PDF maakt het bestand in je browser. Je foto's gaan niet naar de servers van DoraPDF en je hebt geen account nodig.
+
+## Veelgestelde vragen
+
+**Is JPG naar PDF omzetten gratis?**
+Ja, zonder watermerk, zonder limiet en zonder registratie.
+
+**Hoeveel foto's passen in één PDF?**
+Er is geen vast aantal; dat hangt af van het geheugen van je apparaat. Werk op een oudere telefoon met kleinere groepjes.
+
+**Gaat de kwaliteit achteruit?**
+Zeer grote foto's worden verkleind tot een nog steeds hoge resolutie, ruim genoeg om een document op A4 te lezen en af te drukken.
+
+**Hoe heet het bestand?**
+Met één foto krijgt de PDF de naam van de foto, met meerdere heet hij `images.pdf`. Geef hem een duidelijke naam voordat je hem verstuurt.
+"""),
+dict(slug='achtergrond-verwijderen-foto-gratis', lang='nl', title='Achtergrond verwijderen uit een foto, gratis: transparant of wit met AI in je browser', date='2026-11-20',
+ desc="Achtergrond verwijderen uit een foto, gratis en zonder upload: transparante PNG of witte achtergrond voor productfoto's, profielfoto's en logo's.",
+ tools=['image-background-remover', 'image-resizer', 'image-compressor'], md="""
+Je wilt je oude racefiets verkopen, maar op de foto staan ook de vuilnisbakken en de schuur. Je hebt een mooi portret voor je LinkedIn-profiel, alleen de achtergrond is een rommelige kantoortuin. Of je logo heeft een witte rand die lelijk afsteekt op een gekleurde slide. Allemaal momenten om de **achtergrond van een foto te verwijderen**.
+
+Met de [Background Remover](/image-background-remover/) van DoraPDF haal je de achtergrond gratis weg met AI, zonder account. Het bijzondere: het AI-model draait **in je eigen browser**, dus je foto wordt nergens naartoe gestuurd. Het scherm is in het Engels; hieronder vind je alles in het Nederlands.
+
+## Achtergrond weghalen: de stappen
+
+1. Open de [Background Remover](/image-background-remover/).
+2. Kies een foto: JPG, PNG, WebP of HEIC van je iPhone.
+3. Kies bij **Mode** voor *Quick* of *HD*.
+4. Kies bij **Background** wat er in plaats van de oude achtergrond moet komen.
+5. Klik op **Remove background**.
+6. Sleep de schuifregelaar om voor en na te vergelijken en download de PNG. Die heet `fotonaam-no-bg.png`.
+
+De eerste keer downloadt je browser het AI-model, dus dan duurt het wat langer. Daarna gaat het een stuk sneller.
+
+## Quick of HD?
+
+**⚡ Quick, voor mensen en portretten.** Een licht model van ongeveer 13 MB dat één keer wordt gedownload. Snel en geschikt voor bijna elk apparaat, ook je telefoon. Prima voor profielfoto's en selfies.
+
+**✨ HD, voor elk object.** Een veel groter model van ongeveer 115 MB, ook maar één keer te downloaden. Herkent producten, dieren en ingewikkelde randen beter. Heeft een moderne browser met GPU-versnelling (WebGPU) nodig. Ondersteunt je browser dat niet, dan meldt de tool dat en schakelt hij automatisch over naar Quick.
+
+**Vuistregel:** persoon → Quick. Fiets, tas, schoen, plant of hond → HD.
+
+## Transparant, wit of een kleur?
+
+- **Transparent:** een **PNG met transparante achtergrond**. Gebruik dit als je de afbeelding op iets anders wilt plaatsen: een presentatie, flyer, website of collage.
+- **White:** een effen witte achtergrond. Netjes en rustig voor **productfoto's** in een webshop of op een tweedehandsplatform.
+- **Black**, **Pink** en **Light grey:** kant-en-klare alternatieven voor social posts en ontwerpen.
+
+Let op bij pasfoto's: voor een paspoort, ID-kaart of rijbewijs gelden strenge eisen voor achtergrond, belichting en houding. Een achtergrond die je achteraf op de computer verandert, voldoet daar meestal niet aan. Laat een officiële pasfoto maken volgens de regels van je gemeente.
+
+## Drie voorbeelden uit de praktijk
+
+**Tweedehands verkopen.** Fotografeer het product bij daglicht tegen een rustige muur, kies HD en een witte achtergrond. Alle foto's van je advertenties krijgen zo dezelfde, verzorgde uitstraling.
+
+**Profielfoto.** Kies Quick en *Light grey* of wit. Een neutrale achtergrond leidt niet af van je gezicht. Wil je liever een eigen kleur of een kantoorsfeer, download dan de transparante versie en zet die in je ontwerpprogramma op de achtergrond van je keuze.
+
+**Logo op een gekleurde slide.** Kies HD en *Transparent*. Controleer de randen ingezoomd: dunne letters en lijntjes zijn het lastigst.
+
+## Tips voor strakke randen
+
+- **Contrast helpt.** Een donkere jas voor een lichte muur gaat beter dan een witte jas voor een witte muur.
+- **Scherp en goed belicht.** Bewogen of beschaduwde delen geven rafelige randen.
+- **Alles in beeld.** Wat door de rand van de foto is afgesneden, blijft afgesneden.
+- **Haar en vacht** zijn voor elke tool het moeilijkst. Een effen achtergrond achter het hoofd scheelt veel; probeer bij krullen ook HD.
+- **Glas en spiegelende objecten** blijven lastig. Reken op kleine onvolkomenheden.
+
+## Formaat en bestandsgrootte
+
+Het resultaat is altijd een PNG, het formaat dat transparantie bewaart. Heel brede foto's worden teruggebracht tot 2000 pixels breed, genoeg voor webshops, websites en presentaties.
+
+- Vraagt een platform om **exacte afmetingen**, bijvoorbeeld een vierkante afbeelding? Pas ze aan met de [Image Resizer](/image-resizer/), in pixels of procenten.
+- Is het bestand **te zwaar** voor je website of mail? De [Image Compressor](/image-compressor/) slaat PNG's op als WebP: veel kleiner en nog steeds transparant. Controleer wel of de plek waar je hem uploadt WebP accepteert.
+
+## Problemen oplossen
+
+**"AI model could not load".** Het model kon niet worden gedownload, meestal door een haperende verbinding. Controleer je internet en probeer het opnieuw.
+
+**Melding dat er geen GPU is.** Je browser ondersteunt geen WebGPU, dus de tool gebruikte Quick. Een recente versie van Chrome of Edge kan HD mogelijk maken.
+
+**Een deel van het onderwerp is weggevallen.** Dat gebeurt als onderwerp en achtergrond bijna dezelfde kleur hebben. Probeer de andere modus of maak een nieuwe foto met meer contrast.
+
+**Traag op mijn telefoon.** De berekening gebeurt op je apparaat. Quick is daar het meest geschikt voor.
+
+## Privacy: je foto blijft bij jou
+
+Bij veel online tools om de achtergrond te verwijderen wordt je foto naar een server gestuurd. Hier niet: het AI-model wordt in je browser geladen en de bewerking gebeurt op je eigen computer of telefoon. Je portret of de foto van een product dat nog niet gelanceerd is, gaat niet naar DoraPDF.
+
+## Veelgestelde vragen
+
+**Is HD ook gratis?**
+Ja, beide modi zijn gratis, zonder watermerk en zonder registratie.
+
+**Kan ik meerdere foto's tegelijk bewerken?**
+De tool werkt met één foto per keer. Als het model eenmaal geladen is, duurt elke volgende foto maar een paar seconden.
+
+**Zit er een watermerk op het resultaat?**
+Nee, de gedownloade PNG is schoon.
+
+**Werkt het offline?**
+De eerste keer heb je internet nodig om het model te downloaden. De bewerking zelf gebeurt op je apparaat.
+"""),
+dict(slug='tekst-uit-afbeelding-halen-ocr', lang='nl', title='Tekst uit een afbeelding halen (OCR): tekst kopiëren uit een foto of screenshot', date='2026-11-20',
+ desc="Tekst uit een afbeelding halen met gratis OCR in je browser: tekst kopiëren uit foto's en screenshots, tips voor Nederlandse tekst en minder fouten.",
+ tools=['image-to-text', 'pdf-ocr', 'scan-to-pdf'], md="""
+Een recept uit een kookboek dat je wilt bewaren. De tekst op een dia die de docent te snel wegklikte en die je hebt gefotografeerd. Een screenshot van een rooster, een oude brief van de gemeente die je alleen op papier hebt. De tekst staat er, maar je kunt hem niet selecteren. Overtypen kost tijd en levert typefouten op. Met OCR (optische tekenherkenning) kun je **tekst uit een afbeelding halen** en als gewone, bewerkbare tekst gebruiken.
+
+[Image to Text](/image-to-text/) van DoraPDF doet precies dat, gratis en zonder account. De herkenning gebeurt in je browser: je afbeelding wordt niet geüpload. Het scherm is in het Engels, maar je hoeft maar twee dingen te kiezen.
+
+## Tekst kopiëren uit een foto: zo werkt het
+
+1. Open [Image to Text](/image-to-text/).
+2. Voeg één of meer afbeeldingen toe: JPG, PNG, WebP, iPhone-foto's (HEIC) of screenshots.
+3. Kies bij **Language** de taal van de tekst.
+4. Klik op **Extract text**.
+5. De tekst verschijnt in een tekstvak. Verbeter hem daar meteen, klik op **Copy text** of download hem als `.txt`-bestand.
+
+De eerste keer dat je een taal gebruikt, downloadt je browser het herkenningsmodel voor die taal (ongeveer 2 tot 10 MB). Daarna start het sneller.
+
+Meerdere afbeeldingen tegelijk? Dan krijg je één tekst, met boven elk deel een regel met de bestandsnaam. Zo weet je altijd uit welke foto een stuk komt.
+
+## Welke taal kies je voor Nederlandse tekst?
+
+Eerlijk is eerlijk: **Nederlands staat (nog) niet in de lijst.** De beschikbare talen zijn Engels, Duits, Frans, Spaans, Italiaans, Portugees, Turks, Russisch, Arabisch, Urdu, Hindi, Indonesisch en vereenvoudigd Chinees.
+
+Voor Nederlandse tekst kies je het best **English**. Nederlands gebruikt grotendeels dezelfde letters als het Engels, dus gewone woorden komen meestal goed door. Let bij het nalezen vooral op:
+
+- woorden met trema of accent: *ideeën*, *coëfficiënt*, *café*, *één*;
+- de combinatie *ij*, die soms als *y* of *ii* wordt gelezen;
+- lange samenstellingen die over twee regels zijn afgebroken met een koppelteken.
+
+Is de tekst in het Duits, Frans of Turks? Kies dan die taal: de herkenning van speciale tekens als ß, é, ç of ğ wordt daar duidelijk beter van.
+
+## Waar gebruik je het voor?
+
+- **Studie:** citaten uit gefotografeerde boekpagina's, dia's omzetten in aantekeningen die je kunt doorzoeken.
+- **Werk:** gegevens uit een geprinte offerte of brief overnemen zonder alles over te typen.
+- **Thuis:** een recept, handleiding of garantiebewijs als tekst bewaren.
+- **Toegankelijkheid:** tekst die je kunt vergroten, vertalen of laten voorlezen door een schermlezer.
+
+## Betere resultaten in vier stappen
+
+Hoe goed OCR werkt, hangt vooral af van de foto:
+
+1. **Gelijkmatig licht.** Pas op voor de schaduw van je hand of telefoon op de pagina.
+2. **Recht van voren.** Scheve of gebogen regels, zoals vlak bij de rug van een boek, zijn het moeilijkst.
+3. **Dichtbij.** De tekst moet het grootste deel van de foto vullen. Twee scherpe foto's van een halve pagina werken beter dan één wazige van de hele pagina.
+4. **Screenshot in plaats van foto van een scherm.** Staat de tekst op je monitor of telefoon, maak dan een schermafbeelding.
+
+Voor documenten van meerdere pagina's kun je eerst [Scan to PDF](/scan-to-pdf/) gebruiken: dat snijdt pagina's bij, zet ze recht en verbetert het contrast.
+
+## Wat OCR (nog) slecht leest
+
+- **Handschrift.** De herkenning is gemaakt voor gedrukte tekst; met handgeschreven notities zijn de resultaten meestal matig.
+- **Tabellen.** Tekst komt regel voor regel naar buiten. De cijfers zijn er, maar de kolommen moet je zelf in Excel rechtzetten.
+- **Sierlijke lettertypes**, tekst op een drukke foto, heel kleine of vervaagde letters.
+- **Meerdere kolommen** (krant, tijdschrift): kolommen kunnen door elkaar raken. Snijd de foto bij en doe één kolom per keer.
+
+Lees getallen, data en namen altijd na. Een *1* die een *l* wordt of een *0* die een *O* wordt, zijn de klassiekers.
+
+## Een gescande PDF in plaats van een foto?
+
+Image to Text werkt met afbeeldingen. Voor een gescande PDF gebruik je [PDF OCR](/pdf-ocr/): dat verwerkt tot 60 pagina's en geeft een PDF die er hetzelfde uitziet, maar waarin je tekst kunt selecteren en doorzoeken, plus een los tekstbestand. Ook daar kies je voor Nederlandse tekst **English**.
+
+## Privacy
+
+Afbeeldingen waar je tekst uit haalt, zijn vaak persoonlijk: brieven, contracten, aantekeningen. Image to Text laadt het herkenningsmodel in je browser en verwerkt de foto op je eigen apparaat. De afbeelding en de herkende tekst gaan niet naar de servers van DoraPDF.
+
+## Veelgestelde vragen
+
+**Is tekst uit een afbeelding halen gratis?**
+Ja, zonder limiet, zonder watermerk en zonder account.
+
+**Werkt het op mijn telefoon?**
+Ja, in elke moderne browser. Op een telefoon duurt het soms wat langer, omdat je toestel het rekenwerk doet.
+
+**Blijft de opmaak behouden?**
+Nee, je krijgt platte tekst. Plak hem in Word of Google Documenten en maak hem daar op.
+
+**Herkent het Nederlandse woorden met een trema?**
+Er is geen aparte Nederlandse taaloptie, dus woorden met ë, ï of é kunnen fout gaan. Kies English en controleer die woorden bij het nalezen.
+"""),
 dict(slug='convertire-pdf-in-word-gratis-mantenendo-layout', lang='it', title='Convertire PDF in Word gratis mantenendo il layout (e cosa fare se il PDF è scansionato)', date='2026-11-18',
  desc='Come convertire PDF in Word gratis senza perdere la formattazione: due modalità, consigli per modificare il file e la soluzione per i PDF scansionati.',
  tools=['pdf-to-word', 'pdf-ocr', 'word-to-pdf'], md="""
